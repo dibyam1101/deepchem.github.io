@@ -1,59 +1,514 @@
-{
-    "models": [
-        {
-            "name": "CNN",
-            "category": [
-                "General"
-            ],
-            "backends": [
-                "Keras"
-            ],
-            "types": [
-                "Classifier"
-            ],
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "featurizers": [
-                "CircularFingerPrint",
-                "RDKitDescriptors"
-            ],
-            "id": 1
-        },
-        {
-            "name": "CNN",
-            "category": [
-                "General"
-            ],
-            "backends": [
-                "PyTorch"
-            ],
-            "types": [
-                "Classifier",
-                "Regressor"
-            ],
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "featurizers": [
-                "CircularFingerPrint",
-                "ElementPropertyFingerPrint"
-            ],
-            "id": 2
-        },
-        {
-            "name": "CNN",
-            "category": [
-                "General"
-            ],
-            "backends": [
-                "PyTorch"
-            ],
-            "types": [
-                "Classifier",
-                "Regressor"
-            ],
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "featurizers": [
-                "ElementPropertyFingerPrint"
-            ],
-            "id": 3
-        }
-    ]
-}
+[
+    {
+        "name": "CNN",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#cnn",
+        "category": "General",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            ""
+        ]
+    },
+    {
+        "name": "MultitaskClassifier",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#multitaskclassifier",
+        "category": "General",
+        "backends": [
+            "PyTorch"
+        ],
+        "types": [
+            "Classifier"
+        ],
+        "featurizers": [
+            "CircularFingerprint",
+            "RDKitDescriptors",
+            "CoulombMatrixEig",
+            "RdkitGridFeaturizer",
+            "BindingPocketFeaturizer",
+            "ElementPropertyFingerprint"
+        ]
+    },
+    {
+        "name": "MultitaskFitTransformRegressor",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#multitaskfittransformregressor",
+        "category": "General",
+        "backends": [
+            "PyTorch"
+        ],
+        "types": [
+            "Regressor"
+        ],
+        "featurizers": [
+            "CircularFingerprint",
+            "RDKitDescriptors",
+            "CoulombMatrixEig",
+            "RdkitGridFeaturizer",
+            "BindingPocketFeaturizer",
+            "ElementPropertyFingerprint"
+        ]
+    },
+    {
+        "name": "MultitaskIRVClassifier",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#multitaskirvclassifier",
+        "category": "General",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Classifier"
+        ],
+        "featurizers": [
+            "CircularFingerprint",
+            "RDKitDescriptors",
+            "CoulombMatrixEig",
+            "RdkitGridFeaturizer",
+            "BindingPocketFeaturizer",
+            "ElementPropertyFingerprint"
+        ]
+    },
+    {
+        "name": "MultitaskRegressor",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#multitaskregressor",
+        "category": "General",
+        "backends": [
+            "Torch"
+        ],
+        "types": [
+            "Regressor"
+        ],
+        "featurizers": [
+            "CircularFingerprint",
+            "RDKitDescriptors",
+            "CoulombMatrixEig",
+            "RdkitGridFeaturizer",
+            "BindingPocketFeaturizer",
+            "ElementPropertyFingerprint"
+        ]
+    },
+    {
+        "name": "ProgressiveMultitaskClassifier",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#progressivemultitaskclassifier",
+        "category": "General",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Classifier"
+        ],
+        "featurizers": [
+            "CircularFingerprint",
+            "RDKitDescriptors",
+            "CoulombMatrixEig",
+            "RdkitGridFeaturizer",
+            "BindingPocketFeaturizer",
+            "ElementPropertyFingerprint"
+        ]
+    },
+    {
+        "name": "ProgressiveMultitaskRegressor",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#progressivemultitaskregressor",
+        "category": "General",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Regressor"
+        ],
+        "featurizers": [
+            "CircularFingerprint",
+            "RDKitDescriptors",
+            "CoulombMatrixEig",
+            "RdkitGridFeaturizer",
+            "BindingPocketFeaturizer",
+            "ElementPropertyFingerprint"
+        ]
+    },
+    {
+        "name": "RobustMultitaskClassifier",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#robustmultitaskclassifier",
+        "category": "General",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Classifier"
+        ],
+        "featurizers": [
+            "CircularFingerprint",
+            "RDKitDescriptors",
+            "CoulombMatrixEig",
+            "RdkitGridFeaturizer",
+            "BindingPocketFeaturizer",
+            "ElementPropertyFingerprint"
+        ]
+    },
+    {
+        "name": "RobustMultitaskRegressor",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#robustmultitaskregressor",
+        "category": "General",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Regressor"
+        ],
+        "featurizers": [
+            "CircularFingerprint",
+            "RDKitDescriptors",
+            "CoulombMatrixEig",
+            "RdkitGridFeaturizer",
+            "BindingPocketFeaturizer",
+            "ElementPropertyFingerprint"
+        ]
+    },
+    {
+        "name": "SeqToSeq",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#seqtoseq",
+        "category": "General",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            ""
+        ],
+        "featurizers": [
+            ""
+        ]
+    },
+    {
+        "name": "WGAN",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#wgan",
+        "category": "General",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Adversarial"
+        ],
+        "featurizers": [
+            ""
+        ]
+    },
+    {
+        "name": "ScScoreModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#scscoremodel",
+        "category": "Molecule",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Classifier"
+        ],
+        "featurizers": [
+            "CircularFingerprint"
+        ]
+    },
+    {
+        "name": "AtomicConvModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#atomicconvmodel",
+        "category": "Molecule",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            "ComplexNeighborListFragmentAtomicCoordinates"
+        ]
+    },
+    {
+        "name": "AttentiveFPModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#attentivefpmodel",
+        "category": "Molecule",
+        "backends": [
+            "PyTorch"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            "MolGraphConvFeaturizer"
+        ]
+    },
+    {
+        "name": "ChemCeption",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#chemception",
+        "category": "Molecule",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            "SmilesToImage"
+        ]
+    },
+    {
+        "name": "DAGModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#dagmodel",
+        "category": "Molecule",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            "ConvMolFeaturizer"
+        ]
+    },
+    {
+        "name": "GATModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#gatmodel",
+        "category": "Molecule",
+        "backends": [
+            "DGL",
+            "PyTorch"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            "MolGraphConvFeaturizer"
+        ]
+    },
+    {
+        "name": "GCNModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#gcnmodel",
+        "category": "Molecule",
+        "backends": [
+            "DGL",
+            "PyTorch"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            "MolGraphConvFeaturizer"
+        ]
+    },
+    {
+        "name": "GraphConvModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#graphconvmodel",
+        "category": "Molecule",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            "ConvMolFeaturizer"
+        ]
+    },
+    {
+        "name": "MEGNetModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#megnetmodel",
+        "category": "Molecule",
+        "backends": [
+            "PyTorch",
+            "PyTorch Geometric"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            ""
+        ]
+    },
+    {
+        "name": "MPNNModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#mpnnmodel",
+        "category": "Molecule",
+        "backends": [
+            "DGL",
+            "PyTorch"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            "MolGraphConvFeaturizer"
+        ]
+    },
+    {
+        "name": "PagtnModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#pagtnmodel",
+        "category": "Molecule",
+        "backends": [
+            "DGL",
+            "PyTorch"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            "PagtnMolGraphFeaturizer",
+            "MolGraphConvFeaturizer"
+        ]
+    },
+    {
+        "name": "Smiles2Vec",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#smiles2vec",
+        "category": "Molecule",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            "SmilesToSeq"
+        ]
+    },
+    {
+        "name": "TextCNNModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#textcnnmodel",
+        "category": "Molecule",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            ""
+        ]
+    },
+    {
+        "name": "DTNNModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#dtnnmodel",
+        "category": "Molecule",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Regressor"
+        ],
+        "featurizers": [
+            "CoulombMatrix"
+        ]
+    },
+    {
+        "name": "MATModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#matmodel",
+        "category": "Molecule",
+        "backends": [
+            "PyTorch"
+        ],
+        "types": [
+            "Regressor"
+        ],
+        "featurizers": [
+            "MATFeaturizer"
+        ]
+    },
+    {
+        "name": "WeaveModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#weavemodel",
+        "category": "Molecule",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Regressor"
+        ],
+        "featurizers": [
+            "WeaveFeaturizer"
+        ]
+    },
+    {
+        "name": "BasicMolGANModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#basicmolganmodel",
+        "category": "Molecule",
+        "backends": [
+            "Keras"
+        ],
+        "types": [
+            "Generator"
+        ],
+        "featurizers": [
+            "MolGanFeaturizer"
+        ]
+    },
+    {
+        "name": "DMPNNModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#dmpnnmodel",
+        "category": "Molecule",
+        "backends": [
+            "PyTorch"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            "DMPNNFeaturizer"
+        ]
+    },
+    {
+        "name": "CGCNNModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#cgcnnmodel",
+        "category": "Material",
+        "backends": [
+            "DGL",
+            "PTorch"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            "CGCNNFEaturizer"
+        ]
+    },
+    {
+        "name": "MEGNetModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#megnetmodel",
+        "category": "Material",
+        "backends": [
+            "PyTorch",
+            "PyTorch Geometric"
+        ],
+        "types": [
+            "Classifier",
+            "Regressor"
+        ],
+        "featurizers": [
+            ""
+        ]
+    },
+    {
+        "name": "LCNNModel",
+        "url": "https://deepchem.readthedocs.io/en/latest/api_reference/models.html#lcnnmodel",
+        "category": "Material",
+        "backends": [
+            "PyTorch"
+        ],
+        "types": [
+            "Regressor"
+        ],
+        "featurizers": [
+            "LCNNFeaturizer"
+        ]
+    }
+]
