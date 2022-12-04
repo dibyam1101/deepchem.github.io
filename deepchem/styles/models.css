@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    /* FILTER SECTION */
+    
+    .btn-container-filter {
+        @apply flex flex-row items-start gap-2.5 flex-wrap;
+    }
+
+    .rmv-filter {
+        @apply p-0 normal-case;
+    }
+
+    .btn-filter {
+        @apply flex flex-row items-center gap-2.5 py-1.5 px-3 box-border bg-[#FFFFFF] border border-solid border-[#C0C0C0] rounded-md;
+    }
+
+    .btn-selected-filter {
+        @apply flex flex-row items-center py-1.5 px-3 gap-2.5 box-border bg-[#C0C0C0] border border-solid border-[#C0C0C0] rounded-md;
+    }
+
+    .btn-text-filter {
+        @apply text-base text-[#252422];
+    }
+
+    .btn-text-selected-filter {
+        @apply text-base text-[#EBEBEB];
+    }
+
+    .category-text-filter {
+        @apply text-lg text-[#3A6EA5];
+    }
+
+    .category-filter {
+        @apply flex flex-col items-start gap-2.5;
+    }
+
+
+
+    /* CARD SECTION */
+}

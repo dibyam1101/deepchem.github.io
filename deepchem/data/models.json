@@ -1,0 +1,59 @@
+{
+    "models": [
+        {
+            "name": "CNN",
+            "category": [
+                "General"
+            ],
+            "backends": [
+                "Keras"
+            ],
+            "types": [
+                "Classifier"
+            ],
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "featurizers": [
+                "CircularFingerPrint",
+                "RDKitDescriptors"
+            ],
+            "id": 1
+        },
+        {
+            "name": "CNN",
+            "category": [
+                "General"
+            ],
+            "backends": [
+                "PyTorch"
+            ],
+            "types": [
+                "Classifier",
+                "Regressor"
+            ],
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "featurizers": [
+                "CircularFingerPrint",
+                "ElementPropertyFingerPrint"
+            ],
+            "id": 2
+        },
+        {
+            "name": "CNN",
+            "category": [
+                "General"
+            ],
+            "backends": [
+                "PyTorch"
+            ],
+            "types": [
+                "Classifier",
+                "Regressor"
+            ],
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "featurizers": [
+                "ElementPropertyFingerPrint"
+            ],
+            "id": 3
+        }
+    ]
+}
