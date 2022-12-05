@@ -6,7 +6,7 @@ export default function FilterButton({ category, name, image }) {
     return (
         <div className={`${category.includes(name) ? "btn-selected-filter" : "btn-filter"
             }`}>
-            {image ? <Image src={category.includes(name) ? deepchemCross : image} alt={name} width={16} /> : category.includes(name) && <Image src={deepchemCross} alt={name} width={16} />}
+            {image ? <Image src={category.includes(name) ? deepchemCross : image} alt={name} width={14} /> : category.includes(name) && <Image src={deepchemCross} alt={name} width={14} />}
             <p className={`${(category.includes(name)) ? "btn-text-selected-filter" : "btn-text-filter"
                 }`}>
                 {name}

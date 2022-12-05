@@ -1,0 +1,21 @@
+[
+    "PagtnMolGraphFeaturizer",
+    "CoulombMatrixEig",
+    "DMPNNFeaturizer",
+    "ComplexNeighborListFragmentAtomicCoordinates",
+    "RDKitDescriptors",
+    "MolGraphConvFeaturizer",
+    "ElementPropertyFingerprint",
+    "SmilesToImage",
+    "CoulombMatrix",
+    "MATFeaturizer",
+    "WeaveFeaturizer",
+    "BindingPocketFeaturizer",
+    "LCNNFeaturizer",
+    "SmilesToSeq",
+    "CircularFingerprint",
+    "CGCNNFEaturizer",
+    "MolGanFeaturizer",
+    "RdkitGridFeaturizer",
+    "ConvMolFeaturizer"
+]

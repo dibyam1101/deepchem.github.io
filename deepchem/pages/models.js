@@ -11,9 +11,12 @@ import deepchemClassifier from "../public/icons/deepchem-classifier.png";
 import deepchemRegressor from "../public/icons/deepchem-regressor.png";
 
 import models from "../data/models.json";
+import backendList from "../data/backends.json";
+import typeList from "../data/types.json";
+import featurizerList from "../data/featurizers.json";
 
 export default function Models() {
-    const [filteredModels, setFilteredModels] = useState(models.models);
+    const [filteredModels, setFilteredModels] = useState(models);
     const [backends, setBackends] = useState([]);
     const [types, setTypes] = useState([]);
     const [featurizers, setFeaturizers] = useState([]);
@@ -35,31 +38,31 @@ export default function Models() {
     }
 
     useEffect(() => {
-        let newmodels = [], fmodels = models.models;
+        let newmodels = [], fmodels = models;
         if (backends.length === 0 && types.length === 0 && featurizers.length === 0) {
-            newmodels = models.models;
+            newmodels = models;
         } else {
             fmodels.map(fmodel => {
                 let exist = 1;
                 backends.map(value => {
-                    if(!fmodel.backends.includes(value)){
+                    if (!fmodel.backends.includes(value)) {
                         exist = 0;
                     }
                 })
 
                 types.map(value => {
-                    if(!fmodel.types.includes(value)){
+                    if (!fmodel.types.includes(value)) {
                         exist = 0;
                     }
                 })
 
                 featurizers.map(value => {
-                    if(!fmodel.featurizers.includes(value)){
+                    if (!fmodel.featurizers.includes(value)) {
                         exist = 0;
                     }
                 })
-                
-                if(exist == 1){
+
+                if (exist == 1) {
                     newmodels.push(fmodel);
                 }
             })
@@ -89,16 +92,13 @@ export default function Models() {
                                 Backend
                             </p>
                             <div className="btn-container-filter">
-                                <Button className="rmv-filter" onClick={() => {
-                                    handleClick("backends", "PyTorch");
-                                }}>
-                                    <FilterButton category={backends} name={"PyTorch"} image={deepchemPyTorch} />
-                                </Button>
-                                <Button className="rmv-filter" onClick={() => {
-                                    handleClick("backends", "Keras");
-                                }}>
-                                    <FilterButton category={backends} name={"Keras"} image={deepchemKeras} />
-                                </Button>
+                                {backendList.map((backend) => (
+                                    <Button className="rmv-filter" onClick={() => {
+                                        handleClick("backends", backend);
+                                    }}>
+                                        <FilterButton category={backends} name={backend} image={backend == "PyTorch" ? deepchemPyTorch : backend == "Keras" ? deepchemKeras : null} />
+                                    </Button>
+                                ))}
                             </div>
                         </div>
                         {/* BACKEND END */}
@@ -109,16 +109,13 @@ export default function Models() {
                                 Type
                             </p>
                             <div className="btn-container-filter">
-                                <Button className="rmv-filter" onClick={() => {
-                                    handleClick("types", "Classifier");
-                                }}>
-                                    <FilterButton category={types} name={"Classifier"} image={deepchemClassifier} />
-                                </Button>
-                                <Button className="rmv-filter" onClick={() => {
-                                    handleClick("types", "Regressor");
-                                }}>
-                                    <FilterButton category={types} name={"Regressor"} image={deepchemRegressor} />
-                                </Button>
+                                {typeList.map((type) => (
+                                    <Button className="rmv-filter" onClick={() => {
+                                        handleClick("types", type);
+                                    }}>
+                                        <FilterButton category={types} name={type} image={type == "Classifier" ? deepchemClassifier : type == "Regressor" ? deepchemRegressor : null} />
+                                    </Button>
+                                ))}
                             </div>
                         </div>
                         {/* TYPE END */}
@@ -129,21 +126,13 @@ export default function Models() {
                                 Featurizer
                             </p>
                             <div className="btn-container-filter">
-                                <Button className="rmv-filter" onClick={() => {
-                                    handleClick("featurizers", "CircularFingerPrint");
-                                }}>
-                                    <FilterButton category={featurizers} name={"CircularFingerPrint"} image={null} />
-                                </Button>
-                                <Button className="rmv-filter" onClick={() => {
-                                    handleClick("featurizers", "RDKitDescriptors");
-                                }}>
-                                    <FilterButton category={featurizers} name={"RDKitDescriptors"} image={null} />
-                                </Button>
-                                <Button className="rmv-filter" onClick={() => {
-                                    handleClick("featurizers", "ElementPropertyFingerPrint");
-                                }}>
-                                    <FilterButton category={featurizers} name={"ElementPropertyFingerPrint"} image={null} />
-                                </Button>
+                                {featurizerList.map((featurizer) => (
+                                    <Button className="rmv-filter" onClick={() => {
+                                        handleClick("featurizers", featurizer);
+                                    }}>
+                                        <FilterButton category={featurizers} name={featurizer} image={null} />
+                                    </Button>
+                                ))}
                             </div>
                         </div>
                     </div>
