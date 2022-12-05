@@ -73,24 +73,24 @@ export default function Models() {
 
     return (
         <>
-            <div className="flex flex-col items-start md:px-72 md:py-16 gap-12">
+            <div className="flex flex-col items-start px-[25px] 2xl:px-[300px] py-16 gap-12">
                 {/* HEADER BEGIN */}
                 <div className="flex flex-row items-start py-2.5">
-                    <p className="text-4xl">
+                    <div className="text-4xl">
                         Our Models
-                    </p>
+                    </div>
                 </div>
                 {/* HEADER END */}
 
                 <div className="flex flex-row items-start gap-12">
                     {/* FILTER SECTION BEGIN */}
-                    <div className="flex flex-col items-start gap-5 min-w-[30%]">
+                    <div className="flex flex-col items-start gap-5">
 
                         {/* BACKEND BEGIN */}
                         <div className="category-filter">
-                            <p className="category-text-filter">
+                            <div className="category-text-filter">
                                 Backend
-                            </p>
+                            </div>
                             <div className="btn-container-filter">
                                 {backendList.map((backend) => (
                                     <Button className="rmv-filter" onClick={() => {
@@ -105,9 +105,9 @@ export default function Models() {
 
                         {/* TYPE BEGIN */}
                         <div className="category-filter">
-                            <p className="category-text-filter">
+                            <div className="category-text-filter">
                                 Type
-                            </p>
+                            </div>
                             <div className="btn-container-filter">
                                 {typeList.map((type) => (
                                     <Button className="rmv-filter" onClick={() => {
@@ -122,9 +122,9 @@ export default function Models() {
 
                         {/* FEATURIZER BEGIN */}
                         <div className="category-filter">
-                            <p className="category-text-filter">
+                            <div className="category-text-filter">
                                 Featurizer
-                            </p>
+                            </div>
                             <div className="btn-container-filter">
                                 {featurizerList.map((featurizer) => (
                                     <Button className="rmv-filter" onClick={() => {
@@ -140,8 +140,8 @@ export default function Models() {
                     {/* FILTER SECTION END */}
 
                     {/* MODEL CARDS SECTION BEGIN */}
-                    <div className="flex flex-col items-start gap-12 px-8">
-                        <div className="flex flex-row items-start gap-12 flex-wrap">
+                    <div className="flex flex-col items-start gap-12">
+                        <div className="flex flex-row items-start gap-12 flex-wrap shrink">
                             {filteredModels && filteredModels.map((model) => (
                                 <ModelCard key={model.id} model={model} />
                             ))}

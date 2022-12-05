@@ -7,7 +7,7 @@
     /* FILTER SECTION */
     
     .btn-container-filter {
-        @apply flex flex-row items-start gap-2.5 flex-wrap;
+        @apply flex flex-row items-start gap-2.5 flex-wrap w-96 shrink;
     }
 
     .rmv-filter {
