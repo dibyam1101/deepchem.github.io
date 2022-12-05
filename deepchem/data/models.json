@@ -10,9 +10,7 @@
             "Classifier",
             "Regressor"
         ],
-        "featurizers": [
-            ""
-        ],
+        "featurizers": [],
         "id": 1
     },
     {
@@ -182,12 +180,8 @@
         "backends": [
             "Keras"
         ],
-        "types": [
-            ""
-        ],
-        "featurizers": [
-            ""
-        ],
+        "types": [],
+        "featurizers": [],
         "id": 10
     },
     {
@@ -200,9 +194,7 @@
         "types": [
             "Adversarial"
         ],
-        "featurizers": [
-            ""
-        ],
+        "featurizers": [],
         "id": 11
     },
     {
@@ -346,9 +338,7 @@
             "Classifier",
             "Regressor"
         ],
-        "featurizers": [
-            ""
-        ],
+        "featurizers": [],
         "id": 20
     },
     {
@@ -413,9 +403,7 @@
             "Classifier",
             "Regressor"
         ],
-        "featurizers": [
-            ""
-        ],
+        "featurizers": [],
         "id": 24
     },
     {
@@ -523,9 +511,7 @@
             "Classifier",
             "Regressor"
         ],
-        "featurizers": [
-            ""
-        ],
+        "featurizers": [],
         "id": 31
     },
     {

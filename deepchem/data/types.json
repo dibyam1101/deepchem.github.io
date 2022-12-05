@@ -1,6 +1,6 @@
 [
-    "Adversarial",
+    "Classifier",
     "Regressor",
     "Generator",
-    "Classifier"
+    "Adversarial"
 ]

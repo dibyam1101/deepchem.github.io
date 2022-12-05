@@ -152,25 +152,25 @@ export default function Home() {
         <h2 className="text-3xl mb-8">Explore</h2>
         <div className="explore flex flex-wrap lg:flex-row items-center justify-center gap-10">
           <ExploreCardItem
-            image={"/images/explore-models.png"}
+            image="/images/explore-models.png"
             title="MODELS"
-            link={"/models"}
+            link="/models"
           />
           <ExploreCardItem
-            image={"/images/explore-projects.png"}
+            image="/images/explore-projects.png"
             title="PROJECTS"
-            link={"https://github.com/deepchem/deepchem/tree/master/examples"}
+            link="https://github.com/deepchem/deepchem/tree/master/examples"
             blank={true}
           />
           <ExploreCardItem
-            image={"/images/explore-tutorials.png"}
+            image="/images/explore-tutorials.png"
             title="TUTORIALS"
-            link={"/tutorials"}
+            link="/tutorials"
           />
           <ExploreCardItem
-            image={"/images/explore-datasets.png"}
+            image="/images/explore-datasets.png"
             title="DATASETS"
-            link={"/datasets"}
+            link="/datasets"
           />
         </div>
       </section>

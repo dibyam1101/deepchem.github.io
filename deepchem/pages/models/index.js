@@ -2,18 +2,19 @@ import React, { useEffect, useState } from "react";
 
 import { Button } from "@mui/material";
 
-import ModelCard from "../components/Models/ModelCard";
-import FilterButton from "../components/Models/FilterButton";
+import ModelCard from "/components/Models/ModelCard";
+import FilterButton from "/components/Models/FilterButton";
 
-import deepchemPyTorch from "../public/icons/deepchem-pytorch.png";
-import deepchemKeras from "../public/icons/deepchem-keras.png";
-import deepchemClassifier from "../public/icons/deepchem-classifier.png";
-import deepchemRegressor from "../public/icons/deepchem-regressor.png";
+import models from "/data/models.json";
+import backendList from "/data/backends.json";
+import typeList from "/data/types.json";
+import featurizerList from "/data/featurizers.json";
 
-import models from "../data/models.json";
-import backendList from "../data/backends.json";
-import typeList from "../data/types.json";
-import featurizerList from "../data/featurizers.json";
+import deepchemPyTorch from "/public/icons/deepchem-pytorch.png";
+import deepchemKeras from "/public/icons/deepchem-keras.png";
+import deepchemClassifier from "/public/icons/deepchem-classifier.png";
+import deepchemRegressor from "/public/icons/deepchem-regressor.png";
+
 
 export default function Models() {
     const [filteredModels, setFilteredModels] = useState(models);
@@ -73,7 +74,7 @@ export default function Models() {
 
     return (
         <>
-            <div className="flex flex-col items-start px-[25px] 2xl:px-[300px] py-16 gap-12">
+            <div className="flex flex-col items-start w-full px-[25px] 2xl:px-[300px] py-16 gap-6">
                 {/* HEADER BEGIN */}
                 <div className="flex flex-row w-[100%] items-start py-2.5">
                     <div className="lg:text-4xl text-[26px]">
@@ -82,10 +83,9 @@ export default function Models() {
                 </div>
                 {/* HEADER END */}
 
-                <div className="flex flex-col w-[100%] lg:flex-row items-start gap-12">
+                <div className="flex flex-row items-start gap-12 w-full">
                     {/* FILTER SECTION BEGIN */}
-                    <div className="flex flex-col items-start gap-5">
-
+                    <div className="hidden lg:flex flex-col items-start gap-5 min-w-[240px] max-w-[240px] border-r-2 pr-4 border-dc-light-gray">
                         {/* BACKEND BEGIN */}
                         <div className="category-filter">
                             <div className="category-text-filter">
@@ -135,17 +135,17 @@ export default function Models() {
                                 ))}
                             </div>
                         </div>
+                        {/* FEATURIZER END */}
                     </div>
-                    {/* FEATURIZER END */}
                     {/* FILTER SECTION END */}
 
                     {/* MODEL CARDS SECTION BEGIN */}
                     {/* <div className="flex flex-col items-start gap-12"> */}
-                        <div className="flex w-[100%] flex-col items-center lg:flex-row lg:items-start gap-12 flex-wrap shrink">
-                            {filteredModels && filteredModels.map((model) => (
-                                <ModelCard key={model.id} model={model} />
-                            ))}
-                        </div>
+                    <div className="model-conatiner items-start gap-8 justify-center model-container">
+                        {filteredModels && filteredModels.map((model) => (
+                            <ModelCard key={model.id} model={model} />
+                        ))}
+                    </div>
                     {/* </div> */}
                     {/* MODEL CARDS SECTION END */}
                 </div>

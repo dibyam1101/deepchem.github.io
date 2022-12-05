@@ -7,11 +7,11 @@
     /* FILTER SECTION */
     
     .btn-container-filter {
-        @apply flex flex-row items-start gap-2.5 flex-wrap w-96 shrink;
+        @apply flex flex-row items-start gap-2.5 flex-wrap;
     }
 
     .rmv-filter {
-        @apply p-0 normal-case;
+        @apply p-0 normal-case min-w-0;
     }
 
     .btn-filter {
@@ -23,11 +23,11 @@
     }
 
     .btn-text-filter {
-        @apply text-sm text-[#252422];
+        @apply text-[0.8rem] text-[#252422] text-ellipsis;
     }
 
     .btn-text-selected-filter {
-        @apply text-sm text-[#EBEBEB];
+        @apply text-[0.8rem] text-[#EBEBEB] break-all;
     }
 
     .category-text-filter {
@@ -38,4 +38,10 @@
         @apply flex flex-col items-start gap-2.5;
     }
 
+    .model-container {
+        @apply w-full grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-3;
+    }
+    .model-card {
+        @apply h-fit md:min-h-[250px];
+    }
 }

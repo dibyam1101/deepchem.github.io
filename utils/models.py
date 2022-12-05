@@ -41,10 +41,10 @@ for id in tables:
             name = cols[0]    
             url = link + name.lower()
             category = tables[id]
-            featurizers = cols[3].split(' ')
+            featurizers = cols[3].split(' ') if cols[3] != '' else []
             backends = cols[4].split('/')
             backends = ['PyTorch' if (item == 'PTorch' or item == 'Torch')  else item for item in backends]
-            types = cols[2].split('/ ')
+            types = cols[2].split('/ ') if cols[2] != '' else []
             if id == 'id83':
                 types = cols[2].split('/')
             modelId += 1
@@ -58,19 +58,19 @@ for id in tables:
 
 
 modelsJSONData = json.dumps(models, indent=4, cls=ModelEncoder)
-with open('deepchem.github.io/deepchem/data/models.json', 'w') as f:
+with open('../deepchem/data/models.json', 'w') as f:
     f.write(modelsJSONData)
 
 backendList = list(set([item for sublist in backendList for item in sublist]))
-with open('deepchem.github.io/deepchem/data/backends.json', 'w') as f:
+with open('../deepchem/data/backends.json', 'w') as f:
     f.write(json.dumps(backendList, indent=4))
 
 typeList = list(set([item for sublist in typeList for item in sublist]))
 typeList = list(filter(None, typeList))
-with open('deepchem.github.io/deepchem/data/types.json', 'w') as f:
+with open('../deepchem/data/types.json', 'w') as f:
     f.write(json.dumps(typeList, indent=4))
 
 featurizerList = list(set([item for sublist in featurizerList for item in sublist]))
 featurizerList = list(filter(None, featurizerList))
-with open('deepchem.github.io/deepchem/data/featurizers.json', 'w') as f:
+with open('../deepchem/data/featurizers.json', 'w') as f:
     f.write(json.dumps(featurizerList, indent=4))
