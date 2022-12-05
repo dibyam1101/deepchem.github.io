@@ -75,14 +75,14 @@ export default function Models() {
         <>
             <div className="flex flex-col items-start px-[25px] 2xl:px-[300px] py-16 gap-12">
                 {/* HEADER BEGIN */}
-                <div className="flex flex-row items-start py-2.5">
-                    <div className="text-4xl">
+                <div className="flex flex-row w-[100%] items-start py-2.5">
+                    <div className="lg:text-4xl text-[26px]">
                         Our Models
                     </div>
                 </div>
                 {/* HEADER END */}
 
-                <div className="flex flex-row items-start gap-12">
+                <div className="flex flex-col w-[100%] lg:flex-row items-start gap-12">
                     {/* FILTER SECTION BEGIN */}
                     <div className="flex flex-col items-start gap-5">
 
@@ -140,13 +140,13 @@ export default function Models() {
                     {/* FILTER SECTION END */}
 
                     {/* MODEL CARDS SECTION BEGIN */}
-                    <div className="flex flex-col items-start gap-12">
-                        <div className="flex flex-row items-start gap-12 flex-wrap shrink">
+                    {/* <div className="flex flex-col items-start gap-12"> */}
+                        <div className="flex w-[100%] flex-col items-center lg:flex-row lg:items-start gap-12 flex-wrap shrink">
                             {filteredModels && filteredModels.map((model) => (
                                 <ModelCard key={model.id} model={model} />
                             ))}
                         </div>
-                    </div>
+                    {/* </div> */}
                     {/* MODEL CARDS SECTION END */}
                 </div>
             </div>
