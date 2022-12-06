@@ -140,13 +140,11 @@ export default function Models() {
                     {/* FILTER SECTION END */}
 
                     {/* MODEL CARDS SECTION BEGIN */}
-                    {/* <div className="flex flex-col items-start gap-12"> */}
-                    <div className="model-conatiner items-start gap-8 justify-center model-container">
+                    <div className="items-start gap-8 justify-center model-container">
                         {filteredModels && filteredModels.map((model) => (
                             <ModelCard key={model.id} model={model} />
                         ))}
                     </div>
-                    {/* </div> */}
                     {/* MODEL CARDS SECTION END */}
                 </div>
             </div>
