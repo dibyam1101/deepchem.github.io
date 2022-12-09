@@ -22,7 +22,7 @@ export default function ModelCard({ model }) {
     return (
         <>
             <Link href={model.url} target="_blank">
-                <div className="flex flex-col gap-4 py-4 px-5 bg-white shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-lg model-card">
+                <div className="flex flex-col gap-4 py-4 px-5 bg-white shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] model-card">
                     <div className="flex flex-row justify-between w-full gap-8 items-start">
                         <p className="text-xl font-semibold tracking-wider text-dc-orange">{parseName(model.name)}</p>
                         <div className="flex flex-row items-center bg-dc-light-blue/5 px-2 py-1 rounded-md">
