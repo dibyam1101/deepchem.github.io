@@ -19,10 +19,7 @@ export default function ModelCard({ model }) {
     const TRUNC_LENGTH = 50;
 
     let featurizers = model.featurizers.length ? model.featurizers.join(', ') : "N/A";
-    let minimumlen = 300;
-    if(featurizers.length < minimumlen){
-        featurizers = featurizers + ' ' + '\xa0'.repeat(minimumlen);
-    }
+    featurizers = featurizers + ' ' + '\xa0'.repeat(300);
 
     return (
         <>
