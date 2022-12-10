@@ -42,6 +42,6 @@
         @apply w-full grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-3;
     }
     .model-card {
-        @apply h-fit md:min-h-[250px];
+        @apply h-fit md:min-h-[260px];
     }
 }

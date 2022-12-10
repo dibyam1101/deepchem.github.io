@@ -19,6 +19,10 @@ export default function ModelCard({ model }) {
     const TRUNC_LENGTH = 50;
 
     let featurizers = model.featurizers.length ? model.featurizers.join(', ') : "N/A";
+    let minimumlen = 300;
+    if(featurizers.length < minimumlen){
+        featurizers = featurizers + ' ' + '\xa0'.repeat(minimumlen);
+    }
 
     return (
         <>
@@ -38,8 +42,8 @@ export default function ModelCard({ model }) {
                         <div className="flex flex-col gap-0.5">
                             {model.backends.map((backend) => (
                                 <div className="flex flex-row justify-center items-center gap-2.5 w-fit">
-                                    {backend == "PyTorch" && <Image src={deepchemPytorch} alt="PyTorch" width={16} />}
-                                    {backend == "Keras" && <Image src={deepchemKeras} alt="Keras" width={16} />}
+                                    {backend === "PyTorch" && <Image src={deepchemPytorch} alt="PyTorch" width={16} />}
+                                    {backend === "Keras" && <Image src={deepchemKeras} alt="Keras" width={16} />}
                                     <div className="text-base font-semibold text-dc-light-blue">
                                         {backend}
                                     </div>
@@ -49,8 +53,8 @@ export default function ModelCard({ model }) {
                         {<div className="flex flex-col gap-0.5">
                             {model.types.map((type) => (
                                 <div className="flex flex-row items-center px-3 gap-2.5 border-box bg-[rgba(235, 235, 235, 0.2)] border-l-4 border-solid border-dc-light-gray">
-                                    {type == "Classifier" && <Image src={deepchemClassifier} alt="" width={16} />}
-                                    {type == "Regressor" && <Image src={deepchemRegressor} alt="" width={16} />}
+                                    {type === "Classifier" && <Image src={deepchemClassifier} alt="" width={16} />}
+                                    {type === "Regressor" && <Image src={deepchemRegressor} alt="" width={16} />}
                                     <div className="text-base font-medium text-dc-gray">
                                         {type}
                                     </div>
@@ -58,7 +62,7 @@ export default function ModelCard({ model }) {
                             ))}
                         </div>}
                     </div>
-                    {<div className="text-base font-medium text-dc-light-blue">
+                    {<div className="text-base font-medium text-dc-light-blue w-full">
                         <p>Acceptable Featurizers</p>
                         <p className="text-[0.75rem] leading-[1rem] text-dc-gray/60 font-bold break-all">
                             {featurizers}
