@@ -15,23 +15,23 @@
     }
 
     .btn-filter {
-        @apply flex flex-row items-center gap-2.5 py-0.5 px-2 box-border bg-[#FFFFFF] border border-solid border-[#C0C0C0] rounded-md;
+        @apply flex flex-row items-center gap-2.5 py-0.5 px-2 box-border bg-white border border-solid border-dc-light-gray rounded-md;
     }
 
     .btn-selected-filter {
-        @apply flex flex-row items-center gap-2.5 py-0.5 px-2 box-border bg-[#C0C0C0] border border-solid border-[#C0C0C0] rounded-md;
+        @apply flex flex-row items-center gap-2.5 py-0.5 px-2 box-border bg-dc-light-gray border border-solid border-dc-light-gray rounded-md;
     }
 
     .btn-text-filter {
-        @apply text-[0.8rem] text-[#252422] text-ellipsis;
+        @apply text-[0.8rem] text-dc-gray text-ellipsis;
     }
 
     .btn-text-selected-filter {
-        @apply text-[0.8rem] text-[#EBEBEB] break-all;
+        @apply text-[0.8rem] text-dc-white break-all;
     }
 
     .category-text-filter {
-        @apply text-lg text-[#3A6EA5];
+        @apply text-lg text-dc-light-blue;
     }
 
     .category-filter {

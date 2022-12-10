@@ -161,7 +161,7 @@ export default function Models() {
                     {/* FILTER SECTION END */}
 
                     {/* MODEL CARDS SECTION BEGIN */}
-                    <div className="items-start gap-8 justify-center model-container">
+                    <div className={`${isPopUp ? "" : ""} items-start gap-8 justify-center model-container`}>
                         {filteredModels && filteredModels.map((model) => (
                             <ModelCard key={model.id} model={model} />
                         ))}
