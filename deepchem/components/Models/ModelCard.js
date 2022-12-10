@@ -5,9 +5,10 @@ import deepchemPytorch from "../../public/icons/deepchem-pytorch.png";
 import deepchemKeras from "../../public/icons/deepchem-keras.png";
 import deepchemClassifier from "../../public/icons/deepchem-classifier.png";
 import deepchemRegressor from "../../public/icons/deepchem-regressor.png";
+import deepchemMaterial from "../../public/icons/deepchem-material.png";
+import deepchemMolecule from "../../public/icons/deepchem-molecule.png";
 
 function parseName(name) {
-    // name = name.replace(/Model$/i, '');
     name = name.replaceAll(/([A-Z]+)/g, ' $1');
     name = name.replace(/([^ ])(Model)/, '$1 Model')
     name = name.replace(/([^ ])(Classifier)/, '$1 Classifier')
@@ -24,11 +25,13 @@ export default function ModelCard({ model }) {
             <Link href={model.url} target="_blank">
                 <div className="flex flex-col gap-4 py-4 px-5 bg-white shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] model-card">
                     <div className="flex flex-row justify-between w-full gap-8 items-start">
-                        <p className="text-xl font-semibold tracking-wider text-dc-orange">{parseName(model.name)}</p>
-                        <div className="flex flex-row items-center bg-dc-light-blue/5 px-2 py-1 rounded-md">
-                            <p className="font-medium text-sm text-dc-gray">
+                        <div className="text-xl font-semibold tracking-wider text-dc-orange">{parseName(model.name)}</div>
+                        <div className="flex flex-row items-center gap-1.5 bg-dc-light-blue/5 px-2 py-1 rounded-md">
+                            {model.category === "Molecule" && <Image src={deepchemMolecule} alt="Molecule Logo" width={12} />}
+                            {model.category === "Material" && <Image src={deepchemMaterial} alt="Material Logo" width={12} />}
+                            <div className="font-medium text-sm text-dc-gray">
                                 {model.category}
-                            </p>
+                            </div>
                         </div>
                     </div>
                     <div className="flex justify-between flex-row">
