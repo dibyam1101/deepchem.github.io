@@ -37,6 +37,11 @@ export default function Models() {
             case "featurizers":
                 (featurizers.includes(value)) ? setFeaturizers(featurizers.filter((item) => item !== value)) : setFeaturizers([...featurizers, value]);
                 break;
+            case "clear":
+                setBackends([]);
+                setTypes([]);
+                setFeaturizers([]);
+                break;
             default:
                 break;
         }
@@ -82,8 +87,9 @@ export default function Models() {
 
     return (
         <>
-            <div className={` ${isPopUp ? "" : ""} flex flex-col items-start w-full px-[25px] 2xl:px-[300px] py-16 gap-6`}>
-                {/* HEADER BEGIN */}
+            <div className="flex flex-col items-start w-full px-[25px] 2xl:px-[300px] py-16 gap-6">
+
+                {/* HEADING BEGIN */}
                 <div className="flex flex-row w-[100%] items-center justify-between py-2.5">
                     <div className="lg:text-4xl text-[26px]">
                         Our Models
@@ -94,14 +100,17 @@ export default function Models() {
                         </Button>
                     </div>
                 </div>
-                {/* HEADER END */}
+                {/* HEADING END */}
 
+                {/* BODY BEGIN */}
                 <div className="flex flex-row items-start gap-12">
+
                     {/* FILTER SECTION BEGIN */}
                     <div className={`${isPopUp ? "fixed flex left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-4 bg-white shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] w-[89%]" : "hidden"} lg:flex lg:relative lg:left-0 lg:top-0 lg:translate-x-0 lg:translate-y-0 lg:shadow-none lg:rounded-none flex-col items-start gap-5 lg:min-w-[240px] lg:max-w-[240px] lg:border-r-2 lg:py-0 lg:pl-0 pr-4 lg:border-dc-light-gray`}>
+
                         {/* BACKEND BEGIN */}
                         <div className="category-filter w-full">
-                            <div className={`${isPopUp ? "flex flex-row justify-between items-center gap-1 w-full" : ""}`}>
+                            <div className="flex flex-row justify-between w-full items-center gap-1">
                                 <div className="category-text-filter">
                                     Backend
                                 </div>
@@ -109,6 +118,11 @@ export default function Models() {
                                     <Button className="min-w-0" onClick={handlePopUp}>
                                         <Image src={deepchemClose} alt={"Close Button"} width={18} />
                                     </Button>
+                                </div>
+                                <div className="hidden lg:block">
+                                    <Button className="text-dc-light-blue normal-case p-0" onClick={() => {
+                                        handleClick("clear", null);
+                                    }}>Clear All</Button>
                                 </div>
                             </div>
 
@@ -168,6 +182,7 @@ export default function Models() {
                     </div>
                     {/* MODEL CARDS SECTION END */}
                 </div>
+                {/* BODY END */}
             </div>
         </>
     );
