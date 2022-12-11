@@ -12,6 +12,42 @@ import CarouselItem from "../components/CustomCarousel/CarouselItem";
 
 import ExploreCardItem from "./../components/Home/ExploreCardItem";
 
+import atom from "../public/images/used-by/atom.png";
+
+import bist from "../public/images/used-by/bist.png";
+import csir from "../public/images/used-by/csir.png";
+import expedia from "../public/images/used-by/expedia.png";
+import firmenich from "../public/images/used-by/firmenich.png";
+import german from "../public/images/used-by/german-research-center-for-env-health.png";
+import ghddi from "../public/images/used-by/ghddi.png";
+import ibm from "../public/images/used-by/ibm-watson.png";
+import icms from "../public/images/used-by/icms.png";
+import jiangsu from "../public/images/used-by/jiangsu.png";
+import mit from "../public/images/used-by/mit.png";
+import northwestern from "../public/images/used-by/northwestern.png";
+import riken from "../public/images/used-by/riken.png";
+import skoltech from "../public/images/used-by/skoltech.png";
+import sri from "../public/images/used-by/sri-international.png";
+import strath from "../public/images/used-by/strath.png";
+import ucf from "../public/images/used-by/ucf.png";
+import uni_alberta from "../public/images/used-by/uni-alberta.png";
+import uni_bristol from "../public/images/used-by/uni-bristol.png";
+import uni_catalonia from "../public/images/used-by/uni-catalonia.png";
+import uni_central from "../public/images/used-by/uni-central-south.png";
+import uni_east from "../public/images/used-by/uni-east-china.png";
+import uni_geneva from "../public/images/used-by/uni-geneva.png";
+import uni_hunan from "../public/images/used-by/uni-hunan.png";
+import uni_macau from "../public/images/used-by/uni-macau.png";
+import uni_shanghai from "../public/images/used-by/uni-shanghai.png";
+import uni_taiwan from "../public/images/used-by/uni-taiwan.png";
+import uni_tartu from "../public/images/used-by/uni-tartu.png";
+import uni_tokyo from "../public/images/used-by/uni-tokyo.png";
+import uni_vienna from "../public/images/used-by/uni-vienna.png";
+import uni_zhejiang from "../public/images/used-by/uni-zhejiang.png";
+
+import explore_tutorials from "../public/images/explore-tutorials.png";
+import explore_projects from "../public/images/explore-projects.png";
+
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -117,7 +153,7 @@ export default function Home() {
       {/* GET STARTED END */}
 
       {/* SUPPORTERS SECTION BEGIN */}
-      {/* <section className="supporters py-16 px-6 lg:px-[300px]">
+      <section className="supporters py-16 px-6 px-[25px] 2xl:px-[300px]">
         <div className=" flex flex-row items-center justify-start gap-8">
           <h2 className="text-2xl lg:text-[32px] mb-8 lg:mb-16 uppercase">
             Used By
@@ -126,23 +162,37 @@ export default function Home() {
           </h2>
         </div>
         <CustomCarousel showArrows={true} showIndicators={true}>
-          <CarouselItem
-            src="/images/supporters/stanford-university-logo.png"
-            link=""
-          />
-          <CarouselItem src="/images/supporters/schrodinger-logo.png" link="" />
-          <CarouselItem src="/images/supporters/mit-logo.png" link="" />
-        </CustomCarousel>
-      </section> */}
-      <section className="supporters pt-8 pb-16 px-[25px] 2xl:px-[300px] ">
-        <h2 className="text-dc-gray text-2xl lg:text-[32px] mb-8 lg:mb-16 uppercase">
-          Used By<br />
-          Scientific Leaders
-        </h2>
-        <CustomCarousel>
-          <CarouselItem src="/images/supporters/stanford-university-logo.png" link="" />
-          <CarouselItem src="/images/supporters/schrodinger-logo.png" link="" />
-          <CarouselItem src="/images/supporters/mit-logo.png" link="" />
+          <CarouselItem src={atom} />
+          <CarouselItem src={bist} />
+          <CarouselItem src={csir} />
+          <CarouselItem src={expedia} />
+          <CarouselItem src={firmenich} />
+          <CarouselItem src={german} />
+          <CarouselItem src={ghddi} />
+          <CarouselItem src={ibm} />
+          <CarouselItem src={icms} />
+          <CarouselItem src={jiangsu} />
+          <CarouselItem src={mit} />
+          <CarouselItem src={northwestern} />
+          <CarouselItem src={riken} />
+          <CarouselItem src={skoltech} />
+          <CarouselItem src={sri} />
+          <CarouselItem src={strath} />
+          <CarouselItem src={ucf} />
+          <CarouselItem src={uni_alberta} />
+          <CarouselItem src={uni_bristol} />
+          <CarouselItem src={uni_catalonia} />
+          <CarouselItem src={uni_central} />
+          <CarouselItem src={uni_east} />
+          <CarouselItem src={uni_geneva} />
+          <CarouselItem src={uni_hunan} />
+          <CarouselItem src={uni_macau} />
+          <CarouselItem src={uni_shanghai} />
+          <CarouselItem src={uni_taiwan} />
+          <CarouselItem src={uni_tartu} />
+          <CarouselItem src={uni_tokyo} />
+          <CarouselItem src={uni_vienna} />
+          <CarouselItem src={uni_zhejiang} />
         </CustomCarousel>
       </section>
       {/* SUPPORTERS SECTION END */}
@@ -151,27 +201,30 @@ export default function Home() {
       <section className="explore flex flex-col items-center px-[25px] 2xl:px-[300px] py-16 bg-dc-light-gray bg-opacity-10 gap-4">
         <h2 className="text-3xl mb-8">Explore</h2>
         <div className="explore flex flex-wrap lg:flex-row items-center justify-center gap-10">
-          <ExploreCardItem
-            image="/images/explore-models.png"
+          {/* <ExploreCardItem
+            image={"/images/explore-models.png"}
             title="MODELS"
-            link="/models"
-          />
+            link={"/models"}
+          /> */}
           <ExploreCardItem
-            image="/images/explore-projects.png"
+            image={explore_projects}
             title="PROJECTS"
             link="https://github.com/deepchem/deepchem/tree/master/examples"
             blank={true}
           />
           <ExploreCardItem
-            image="/images/explore-tutorials.png"
+            image={explore_tutorials}
             title="TUTORIALS"
-            link="/tutorials"
+            link={
+              "https://github.com/deepchem/deepchem/tree/master/examples/tutorials"
+            }
+            blank={true}
           />
-          <ExploreCardItem
-            image="/images/explore-datasets.png"
+          {/* <ExploreCardItem
+            image={"/images/explore-datasets.png"}
             title="DATASETS"
-            link="/datasets"
-          />
+            link={"/datasets"}
+          /> */}
         </div>
       </section>
       {/* EXPLORE END */}
