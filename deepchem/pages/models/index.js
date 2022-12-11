@@ -85,10 +85,18 @@ export default function Models() {
         setFilteredModels(newmodels);
     }, [backends, types, featurizers]);
 
+    useEffect(()=> {
+        window.addEventListener('resize', ()=> {
+            if (window.innerWidth > 1024) {
+                setIsPopUp(false);
+            }
+        })
+     }, [])
+
     return (
         <>
-            <div className="flex flex-col items-start w-full px-[25px] 2xl:px-[300px] py-16 gap-6">
-
+            <div className={`${isPopUp ? "flex" : "hidden"} fixed bg-dc-gray/80 w-full h-[100vh] top-0 lg:hidden`} onClick={handlePopUp}></div>
+            <div className="flex flex-col items-start w-full px-[25px] 2xl:px-[300px] py-8 lg:py-16 gap-6">
                 {/* HEADING BEGIN */}
                 <div className="flex flex-row w-[100%] items-center justify-between py-2.5">
                     <div className="lg:text-4xl text-[26px]">
@@ -106,26 +114,26 @@ export default function Models() {
                 <div className="flex flex-row items-start gap-12">
 
                     {/* FILTER SECTION BEGIN */}
-                    <div className={`${isPopUp ? "fixed flex left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-4 bg-white shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] w-[89%]" : "hidden"} lg:flex lg:relative lg:left-0 lg:top-0 lg:translate-x-0 lg:translate-y-0 lg:shadow-none lg:rounded-none flex-col items-start gap-5 lg:min-w-[240px] lg:max-w-[240px] lg:border-r-2 lg:py-0 lg:pl-0 pr-4 lg:border-dc-light-gray`}>
-
+                    <div className={`${isPopUp ? "fixed flex left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-8 py-6 bg-white shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] w-[89%]" : "hidden"} lg:flex lg:relative lg:left-0 lg:top-0 lg:translate-x-0 lg:translate-y-0 lg:shadow-none lg:rounded-none flex-col items-start gap-5 lg:min-w-[240px] lg:max-w-[240px] lg:border-r-2 lg:py-0 lg:pl-0 pr-4 lg:border-dc-light-gray`}>
                         {/* BACKEND BEGIN */}
                         <div className="category-filter w-full">
                             <div className="flex flex-row justify-between w-full items-center gap-1">
                                 <div className="category-text-filter">
                                     Backend
                                 </div>
-                                <div className="lg:hidden">
-                                    <Button className="min-w-0" onClick={handlePopUp}>
-                                        <Image src={deepchemClose} alt={"Close Button"} width={18} />
-                                    </Button>
-                                </div>
-                                <div className="hidden lg:block">
-                                    <Button className="text-dc-light-blue normal-case p-0" onClick={() => {
-                                        handleClick("clear", null);
-                                    }}>Clear All</Button>
+                                <div className="flex flex-row items-center gap-4">
+                                    <div className="block">
+                                        <Button className="text-dc-gray normal-case p-0" onClick={() => {
+                                            handleClick("clear", null);
+                                        }}>Clear All</Button>
+                                    </div>
+                                    <div className="lg:hidden">
+                                        <Button className="min-w-0" onClick={handlePopUp}>
+                                            <i className="fa fa-close text-dc-gray text-lg"></i>
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
-
                             <div className="btn-container-filter">
                                 {backendList.map((backend) => (
                                     <Button className="rmv-filter" onClick={() => {
@@ -137,7 +145,6 @@ export default function Models() {
                             </div>
                         </div>
                         {/* BACKEND END */}
-
                         {/* TYPE BEGIN */}
                         <div className="category-filter">
                             <div className="category-text-filter">
@@ -154,7 +161,6 @@ export default function Models() {
                             </div>
                         </div>
                         {/* TYPE END */}
-
                         {/* FEATURIZER BEGIN */}
                         <div className="category-filter">
                             <div className="category-text-filter">

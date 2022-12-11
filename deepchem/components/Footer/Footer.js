@@ -6,7 +6,7 @@ export default function Footer() {
   const prod = process.env.NODE_ENV === "production";
 
   return (
-    <footer className="px-[25px] 2xl:px-[300px] bg-dc-gray py-8 flex flex-col text-dc-light-gray">
+    <footer className="mt-auto px-[25px] 2xl:px-[300px] bg-dc-gray py-8 flex flex-col text-dc-light-gray">
       <div className="flex flex-row justify-center lg:justify-between text-sm lg:text-base flex-1">
         <div className="hidden lg:flex flex-col items-start gap-[0.5px]">
           <Logo />

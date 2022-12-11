@@ -53,7 +53,7 @@ export default function About() {
 
       <section className="py-8 px-[25px] 2xl:px-[300px] about text-center lg:text-left">
         <h2 className="text-2xl lg:text-3xl mb-4 text-dc-gray font-medium">
-          Licensing and Commercial Uses
+          Licensing & Commercial Uses
         </h2>
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
           <p className="text-justify font-normal leading-[1.5rem] text-base lg:text-lg text-dc-gray/60">

@@ -201,11 +201,11 @@ export default function Home() {
       <section className="explore flex flex-col items-center px-[25px] 2xl:px-[300px] py-16 bg-dc-light-gray bg-opacity-10 gap-4">
         <h2 className="text-3xl mb-8">Explore</h2>
         <div className="explore flex flex-wrap lg:flex-row items-center justify-center gap-10">
-          {/* <ExploreCardItem
+          <ExploreCardItem
             image={"/images/explore-models.png"}
             title="MODELS"
             link={"/models"}
-          /> */}
+          />
           <ExploreCardItem
             image={explore_projects}
             title="PROJECTS"
