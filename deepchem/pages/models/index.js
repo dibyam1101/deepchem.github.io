@@ -16,7 +16,6 @@ import deepchemKeras from "/public/icons/deepchem-keras.png";
 import deepchemClassifier from "/public/icons/deepchem-classifier.png";
 import deepchemRegressor from "/public/icons/deepchem-regressor.png";
 import deepchemFilter from "/public/icons/deepchem-filter.png";
-import deepchemClose from "/public/icons/deepchem-close.png";
 
 
 export default function Models() {
@@ -85,13 +84,13 @@ export default function Models() {
         setFilteredModels(newmodels);
     }, [backends, types, featurizers]);
 
-    useEffect(()=> {
-        window.addEventListener('resize', ()=> {
+    useEffect(() => {
+        window.addEventListener('resize', () => {
             if (window.innerWidth > 1024) {
                 setIsPopUp(false);
             }
         })
-     }, [])
+    }, [])
 
     return (
         <>
