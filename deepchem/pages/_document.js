@@ -33,7 +33,7 @@ function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body>
+      <body className="flex flex-col min-h-screen">
         <Main />
         <NextScript />
       </body>
