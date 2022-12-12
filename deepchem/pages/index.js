@@ -216,9 +216,8 @@ export default function Home() {
             image={explore_tutorials}
             title="TUTORIALS"
             link={
-              "https://github.com/deepchem/deepchem/tree/master/examples/tutorials"
+              "/tutorials"
             }
-            blank={true}
           />
           {/* <ExploreCardItem
             image={"/images/explore-datasets.png"}

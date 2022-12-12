@@ -2,9 +2,9 @@ name: Deploy to gh-pages
   
 on:
   push:
-    branches: [ revamp ]
+    branches: [ revamp, tutorials ]
   pull_request:
-    branches: [ revamp ]
+    branches: [ revamp, tutorials  ]
 
 permissions:
   contents: write
