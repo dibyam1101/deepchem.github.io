@@ -7,6 +7,8 @@ import Layout from "../layouts/layout";
 
 import "../components/CustomCarousel/CustomCarousel.styles.css";
 
+import "../styles/notebook-styles.css";
+
 export default function MyApp({ Component, pageProps }) {
   return (
     <>

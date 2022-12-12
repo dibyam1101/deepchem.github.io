@@ -36,9 +36,11 @@ canvas {
   background: linear-gradient(35deg, rgba(0,78,152,1) 0%, rgba(58,110,165,1) 34%, rgba(255,103,0,1) 100%);
 }
 
-@media(-webkit-device-pixel-ratio: 1.25) {
+
+/* -webkit-device-pixel-ratio */
+@media only screen and (resolution: 1.25dppx) {
   header,
-  nav,
+  nav.main-nav-bar,
   i,
   .hero,
   .get-started,
@@ -46,23 +48,20 @@ canvas {
   .contributors,
   footer,
   .explore,
-  .about {
+  .about, 
+  .tutorials{
     zoom: 0.8;
 
   };
 
-  /* .get-started,
-  .hero,
-  .explore,
-  header {
-    padding-left: calc(0.46 * 100vw - 400px) !important;
-    padding-right: calc(0.46 * 100vw - 400px) !important;
-  } */
+  .scroll-nav__item{
+    /* @apply text-lg text-dc-blue; */
+  }
 
-
+  
 }
 
-@media(min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
 
 
   .carousel::before,
@@ -109,4 +108,15 @@ footer {
 header,
 footer {
   margin: 0;
+}
+
+
+.scroll-nav__item--active {
+  @apply text-dc-orange;
+}
+
+
+.scroll-nav__item {
+  @apply pb-2;
+      
 }

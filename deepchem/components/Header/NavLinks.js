@@ -4,7 +4,7 @@ import NavLink from "./NavLink";
 
 export default function NavLinks({}) {
   return (
-    <nav className="w-full">
+    <nav className="w-full main-nav-bar">
       <ul className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 lg:gap-10">
         <li>
           <NavLink label="About" link="/about" icon="fa-solid fa-circle-info" relative={true}/>
