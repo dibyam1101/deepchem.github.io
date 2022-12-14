@@ -13,24 +13,25 @@ export default function Tutorials() {
     useEffect(() => {
         document.getElementsByClassName('scroll-nav')[0]?.remove();
         const content = document.querySelector(".notebook");
-        const navpane = document.querySelector(".notebook");
-        scrollnav.init(content, {
-            sections: "h1, h2",
-            insertTarget: navpane,
-            insertLocation: "after",
-        });
+        const insertTarget = document.querySelector(".notebook");
+
+        if (insertTarget && content) {
+            scrollnav.init(content, {
+                sections: "h1, h2", insertTarget: insertTarget, insertLocation: "after",
+            });
+        }
 
         MathJax?.Hub?.Queue(["Typeset", MathJax.Hub]);
     }, [currentTutorialIndex]);
 
     useEffect(() => {
             document.addEventListener("scroll", event => {
-                var doc = document.documentElement;
-                var top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+                let doc = document.documentElement;
+                let top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
 
 
                 let multiplier = 1;
-                var x = window.matchMedia("(resolution: 1.25dppx)")
+                let x = window.matchMedia("(resolution: 1.25dppx)")
                 if (x.matches)
                     multiplier = 1.25;
 
@@ -39,6 +40,11 @@ export default function Tutorials() {
                 }
             });
 
+            // Runs after the component unmounts
+            return () => {
+                console.log("Destroying scrollNav")
+                scrollnav.destroy();
+            }
         }
         , []);
     return (
@@ -71,7 +77,7 @@ export default function Tutorials() {
 
             <h1 className="text-3xl tutorials px-[25px] 2xl:px-[300px] mt-16 font-semibold">Tutorials</h1>
             <div
-                className="tutorials flex flex-row px-[25px] 2xl:px-[300px] items-start p-8 overflow-x-auto gap-4 lg:gap-8">
+                className="tutorials flex flex-row px-[25px] 2xl:px-[300px] items-start p-8 overflow-x-scroll gap-4 lg:gap-8">
                 <div className="basis-1/6 shrink-0">
                     {
                         tutorials.map((tutorial, i) => {
@@ -82,7 +88,7 @@ export default function Tutorials() {
                     }
                 </div>
                 <div
-                    className="basis-4/6 notebook flex-1 overflow-auto  bg-dc-light-gray/10 "
+                    className="basis-4/6 notebook flex-1 overflow-x-auto  bg-dc-light-gray/10 "
 
                     dangerouslySetInnerHTML={{
                         __html: `${tutorials[currentTutorialIndex].html}`,
