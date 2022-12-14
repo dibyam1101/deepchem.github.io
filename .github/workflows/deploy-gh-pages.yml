@@ -10,16 +10,16 @@ permissions:
   contents: write
 
 jobs:
-  build-and-deploy:
+  build_and_deploy:
     runs-on: ubuntu-latest  
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: install and build
+      - name: Install and Build
         run: |
           cd deepchem
-          npm i
+          npm i --legacy-peer-deps
           npm run export
           cd out
           touch .nojekyll
