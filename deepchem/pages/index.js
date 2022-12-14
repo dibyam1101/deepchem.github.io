@@ -48,6 +48,7 @@ import uni_zhejiang from "../public/images/used-by/uni-zhejiang.png";
 
 import explore_tutorials from "../public/images/explore-tutorials.png";
 import explore_projects from "../public/images/explore-projects.png";
+import explore_models from "../public/images/explore-models.png";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -227,7 +228,7 @@ export default function Home() {
         <h2 className="mb-8">Explore</h2>
         <div className="explore flex flex-wrap lg:flex-row items-center justify-center gap-10">
           <ExploreCardItem
-            image={"/images/explore-models.png"}
+            image={explore_models}
             title="MODELS"
             link={"/models"}
           />
