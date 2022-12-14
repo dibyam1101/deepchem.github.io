@@ -1,0 +1,6 @@
+[
+    "Classifier",
+    "Regressor",
+    "Generator",
+    "Adversarial"
+]
