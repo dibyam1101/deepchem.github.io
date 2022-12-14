@@ -1,5 +1,4 @@
 import TutorialLink from "./../components/Tutorials/TutorialLink";
-import Head from "next/head";
 import {useEffect, useState} from "react";
 
 import tutorials from "../data/tutorials/tutorials";
@@ -35,7 +34,9 @@ export default function Tutorials() {
                 if (x.matches)
                     multiplier = 1.25;
 
-                document.querySelector("nav.scroll-nav").style.margin = `${Math.ceil(top) * multiplier}px 0 0 0`;
+                if (document.querySelector("nav.scroll-nav")) {
+                    document.querySelector("nav.scroll-nav").style.margin = `${Math.ceil(top) * multiplier}px 0 0 0`
+                }
             });
 
         }
