@@ -1,18 +1,16 @@
 import Head from "next/head";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-
 import Layout from "../layouts/layout";
 
-import "../styles/models.css";
-import "../styles/CustomCarousel.styles.css";
-import "../styles/globals.css";
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "react-tooltip/dist/react-tooltip.css";
 
-import "../styles/notebook-styles.css";
-
-import "../components/Tutorials/ScrollNav.styles.css"
+import "../styles/models.css";
+import "../styles/globals.css";
+import "../styles/carousel.css";
+import "../styles/scroll-nav.css"
+// import "../styles/notebook.css";
 
 export default function MyApp({ Component, pageProps }) {
   return (
