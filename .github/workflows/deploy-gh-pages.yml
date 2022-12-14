@@ -2,9 +2,9 @@ name: Deploy to gh-pages
   
 on:
   push:
-    branches: [ main, revamp ]
+    branches: [ main, revamp, models ]
   pull_request:
-    branches: [ main, revamp ]
+    branches: [ main, revamp, models ]
 
 permissions:
   contents: write
@@ -19,7 +19,7 @@ jobs:
       - name: install and build
         run: |
           cd deepchem
-          npm i --legacy-peer-deps
+          npm i
           npm run export
           cd out
           touch .nojekyll

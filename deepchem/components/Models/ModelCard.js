@@ -12,6 +12,8 @@ function parseName(name) {
     name = name.replaceAll(/([A-Z]+)/g, ' $1');
     name = name.replace(/([^ ])(Model)/, '$1 Model')
     name = name.replace(/([^ ])(Classifier)/, '$1 Classifier')
+    name = name.replace(/( Classifier$)/, '')
+    name = name.replace(/( Regressor$)/, '')
     return name;
 }
 
@@ -26,7 +28,7 @@ export default function ModelCard({ model }) {
             <Link href={model.url} target="_blank">
                 <div className="flex flex-col gap-4 py-4 px-5 bg-white shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] model-card">
                     <div className="flex flex-row justify-between w-full gap-8 items-start">
-                        <div className="text-xl font-semibold tracking-wider text-dc-orange">{parseName(model.name)}</div>
+                        <div className="text-xl font-medium text-dc-orange">{parseName(model.name)}</div>
                         <div className="flex flex-row items-center gap-1.5 bg-dc-light-blue/5 px-2 py-1 rounded-md">
                             {model.category === "Molecule" && <Image src={deepchemMolecule} alt="Molecule Logo" width={12} />}
                             {model.category === "Material" && <Image src={deepchemMaterial} alt="Material Logo" width={12} />}
@@ -37,19 +39,19 @@ export default function ModelCard({ model }) {
                     </div>
                     <div className="flex justify-between flex-row">
                         <div className="flex flex-col gap-0.5">
-                            {model.backends.map((backend) => (
-                                <div className="flex flex-row justify-center items-center gap-2.5 w-fit">
+                            {model.backends.map((backend, index) => (
+                                <div className="flex flex-row justify-center items-center gap-2.5 w-fit" key={`m-back-${index}`}>
                                     {backend === "PyTorch" && <Image src={deepchemPytorch} alt="PyTorch" width={16} />}
                                     {backend === "Keras" && <Image src={deepchemKeras} alt="Keras" width={16} />}
-                                    <div className="text-base font-semibold text-dc-light-blue">
+                                    <div className="text-base font-medium text-dc-light-blue">
                                         {backend}
                                     </div>
                                 </div>
                             ))}
                         </div>
                         {<div className="flex flex-col gap-0.5">
-                            {model.types.map((type) => (
-                                <div className="flex flex-row items-center px-3 gap-2.5 border-box bg-[rgba(235, 235, 235, 0.2)] border-l-4 border-solid border-dc-light-gray">
+                            {model.types.map((type, index) => (
+                                <div key={`m-type-${index}`} className="flex flex-row items-center px-3 gap-2.5 border-box bg-[rgba(235, 235, 235, 0.2)] border-l-4 border-solid border-dc-light-gray">
                                     {type === "Classifier" && <Image src={deepchemClassifier} alt="" width={16} />}
                                     {type === "Regressor" && <Image src={deepchemRegressor} alt="" width={16} />}
                                     <div className="text-base font-medium text-dc-gray">
@@ -59,9 +61,9 @@ export default function ModelCard({ model }) {
                             ))}
                         </div>}
                     </div>
-                    {<div className="text-base font-medium text-dc-light-blue w-full">
-                        <p>Acceptable Featurizers</p>
-                        <p className="text-[0.75rem] leading-[1rem] text-dc-gray/60 font-bold break-all">
+                    {<div className="text-base font-medium text-dc-light-blue w-full mt-4 md:mt-auto">
+                        <p className="text-dc-gray/60">Acceptable Featurizers</p>
+                        <p className="text-xs text-dc-gray font-medium break-all">
                             {featurizers}
                         </p>
                     </div>}

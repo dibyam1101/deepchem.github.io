@@ -17,7 +17,6 @@ import deepchemClassifier from "/public/icons/deepchem-classifier.png";
 import deepchemRegressor from "/public/icons/deepchem-regressor.png";
 import deepchemFilter from "/public/icons/deepchem-filter.png";
 
-
 export default function Models() {
     const [filteredModels, setFilteredModels] = useState(models);
     const [backends, setBackends] = useState([]);
@@ -134,12 +133,14 @@ export default function Models() {
                                 </div>
                             </div>
                             <div className="btn-container-filter">
-                                {backendList.map((backend) => (
-                                    <Button className="rmv-filter" onClick={() => {
-                                        handleClick("backends", backend);
-                                    }}>
-                                        <FilterButton category={backends} name={backend} image={backend == "PyTorch" ? deepchemPyTorch : backend == "Keras" ? deepchemKeras : null} />
-                                    </Button>
+                                {backendList.map((backend, index) => (
+                                    <div key={`backend-${index}`}>
+                                        <Button className="rmv-filter" onClick={() => {
+                                            handleClick("backends", backend);
+                                        }}>
+                                            <FilterButton category={backends} name={backend} image={backend == "PyTorch" ? deepchemPyTorch : backend == "Keras" ? deepchemKeras : null} />
+                                        </Button>
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -150,12 +151,14 @@ export default function Models() {
                                 Type
                             </div>
                             <div className="btn-container-filter">
-                                {typeList.map((type) => (
-                                    <Button className="rmv-filter" onClick={() => {
-                                        handleClick("types", type);
-                                    }}>
-                                        <FilterButton category={types} name={type} image={type == "Classifier" ? deepchemClassifier : type == "Regressor" ? deepchemRegressor : null} />
-                                    </Button>
+                                {typeList.map((type, index) => (
+                                    <div key={`type-${index}`}>
+                                        <Button className="rmv-filter" onClick={() => {
+                                            handleClick("types", type);
+                                        }}>
+                                            <FilterButton category={types} name={type} image={type == "Classifier" ? deepchemClassifier : type == "Regressor" ? deepchemRegressor : null} />
+                                        </Button>
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -166,12 +169,14 @@ export default function Models() {
                                 Featurizer
                             </div>
                             <div className="btn-container-filter">
-                                {featurizerList.map((featurizer) => (
-                                    <Button className="rmv-filter" onClick={() => {
-                                        handleClick("featurizers", featurizer);
-                                    }}>
-                                        <FilterButton category={featurizers} name={featurizer} image={null} />
-                                    </Button>
+                                {featurizerList.map((featurizer, index) => (
+                                    <div key={`feat-${index}`}>
+                                        <Button className="rmv-filter" onClick={() => {
+                                            handleClick("featurizers", featurizer);
+                                        }}>
+                                            <FilterButton category={featurizers} name={featurizer} image={null} />
+                                        </Button>
+                                    </div>
                                 ))}
                             </div>
                         </div>

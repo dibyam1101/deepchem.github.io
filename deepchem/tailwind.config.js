@@ -6,7 +6,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'sans': ['ui-sans-serif', 'system-ui'],
+      'sans': ['Poppins', 'ui-sans-serif', 'system-ui'],
       'inconsolata': ['Inconsolata', 'monospace'],
       'poppins': ['Poppins', 'monospace'],
       'serif': ['ui-serif', 'Georgia'],
