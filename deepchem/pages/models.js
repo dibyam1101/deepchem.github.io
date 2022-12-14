@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import { Button } from "@mui/material";
 import Image from "next/image";
 
 import ModelCard from "/components/Models/ModelCard";
@@ -101,9 +100,9 @@ export default function Models() {
                         Our Models
                     </div>
                     <div className="lg:hidden">
-                        <Button className="min-w-0" onClick={handlePopUp}>
+                        <button className="min-w-0" onClick={handlePopUp}>
                             <Image src={deepchemFilter} alt={"Filter Button"} width={18} />
-                        </Button>
+                        </button>
                     </div>
                 </div>
                 {/* HEADING END */}
@@ -121,25 +120,25 @@ export default function Models() {
                                 </div>
                                 <div className="flex flex-row items-center gap-4">
                                     <div className="block">
-                                        <Button className="text-dc-gray normal-case p-0" onClick={() => {
+                                        <button className="text-dc-gray normal-case p-0" onClick={() => {
                                             handleClick("clear", null);
-                                        }}>Clear All</Button>
+                                        }}>Clear All</button>
                                     </div>
                                     <div className="lg:hidden">
-                                        <Button className="min-w-0" onClick={handlePopUp}>
+                                        <button className="min-w-0" onClick={handlePopUp}>
                                             <i className="fa fa-close text-dc-gray text-lg"></i>
-                                        </Button>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             <div className="btn-container-filter">
                                 {backendList.map((backend, index) => (
                                     <div key={`backend-${index}`}>
-                                        <Button className="rmv-filter" onClick={() => {
+                                        <button className="rmv-filter" onClick={() => {
                                             handleClick("backends", backend);
                                         }}>
                                             <FilterButton category={backends} name={backend} image={backend == "PyTorch" ? deepchemPyTorch : backend == "Keras" ? deepchemKeras : null} />
-                                        </Button>
+                                        </button>
                                     </div>
                                 ))}
                             </div>
@@ -153,11 +152,11 @@ export default function Models() {
                             <div className="btn-container-filter">
                                 {typeList.map((type, index) => (
                                     <div key={`type-${index}`}>
-                                        <Button className="rmv-filter" onClick={() => {
+                                        <button className="rmv-filter" onClick={() => {
                                             handleClick("types", type);
                                         }}>
                                             <FilterButton category={types} name={type} image={type == "Classifier" ? deepchemClassifier : type == "Regressor" ? deepchemRegressor : null} />
-                                        </Button>
+                                        </button>
                                     </div>
                                 ))}
                             </div>
@@ -171,11 +170,11 @@ export default function Models() {
                             <div className="btn-container-filter">
                                 {featurizerList.map((featurizer, index) => (
                                     <div key={`feat-${index}`}>
-                                        <Button className="rmv-filter" onClick={() => {
+                                        <button className="rmv-filter" onClick={() => {
                                             handleClick("featurizers", featurizer);
                                         }}>
                                             <FilterButton category={featurizers} name={featurizer} image={null} />
-                                        </Button>
+                                        </button>
                                     </div>
                                 ))}
                             </div>
