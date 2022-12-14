@@ -1,0 +1,62 @@
+[
+    {
+        "Compound ID": "Amigdalin",
+        "ESOL predicted log solubility in mols per litre": -0.974,
+        "Minimum Degree": 1,
+        "Molecular Weight": 457.432,
+        "Number of H-Bond Donors": 7,
+        "Number of Rings": 3,
+        "Number of Rotatable Bonds": 7,
+        "Polar Surface Area": 202.32,
+        "measured log solubility in mols per litre": -0.77,
+        "smiles": "OCC3OC(OCC2OC(OC(C#N)c1ccccc1)C(O)C(O)C2O)C(O)C(O)C3O "
+    },
+    {
+        "Compound ID": "Fenfuram",
+        "ESOL predicted log solubility in mols per litre": -2.885,
+        "Minimum Degree": 1,
+        "Molecular Weight": 201.225,
+        "Number of H-Bond Donors": 1,
+        "Number of Rings": 2,
+        "Number of Rotatable Bonds": 2,
+        "Polar Surface Area": 42.24,
+        "measured log solubility in mols per litre": -3.3,
+        "smiles": "Cc1occc1C(=O)Nc2ccccc2"
+    },
+    {
+        "Compound ID": "citral",
+        "ESOL predicted log solubility in mols per litre": -2.579,
+        "Minimum Degree": 1,
+        "Molecular Weight": 152.237,
+        "Number of H-Bond Donors": 0,
+        "Number of Rings": 0,
+        "Number of Rotatable Bonds": 4,
+        "Polar Surface Area": 17.07,
+        "measured log solubility in mols per litre": -2.06,
+        "smiles": "CC(C)=CCCC(C)=CC(=O)"
+    },
+    {
+        "Compound ID": "Picene",
+        "ESOL predicted log solubility in mols per litre": -6.618,
+        "Minimum Degree": 2,
+        "Molecular Weight": 278.354,
+        "Number of H-Bond Donors": 0,
+        "Number of Rings": 5,
+        "Number of Rotatable Bonds": 0,
+        "Polar Surface Area": 0.0,
+        "measured log solubility in mols per litre": -7.87,
+        "smiles": "c1ccc2c(c1)ccc3c2ccc4c5ccccc5ccc43"
+    },
+    {
+        "Compound ID": "Thiophene",
+        "ESOL predicted log solubility in mols per litre": -2.232,
+        "Minimum Degree": 2,
+        "Molecular Weight": 84.143,
+        "Number of H-Bond Donors": 0,
+        "Number of Rings": 1,
+        "Number of Rotatable Bonds": 0,
+        "Polar Surface Area": 0.0,
+        "measured log solubility in mols per litre": -1.33,
+        "smiles": "c1ccsc1"
+    }
+]
