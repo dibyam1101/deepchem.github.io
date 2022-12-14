@@ -2,10 +2,11 @@ import Head from "next/head";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import "../styles/globals.css";
 import Layout from "../layouts/layout";
 
-import "../components/CustomCarousel/CustomCarousel.styles.css";
+import "../styles/models.css";
+import "../styles/CustomCarousel.styles.css";
+import "../styles/globals.css";
 
 import "react-tooltip/dist/react-tooltip.css";
 

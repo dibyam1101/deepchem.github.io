@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import Link from "next/link"
 
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { TypeAnimation } from "react-type-animation";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import {Tooltip as ReactTooltip} from "react-tooltip";
-import Link from "next/link"
+import { Tooltip as ReactTooltip } from "react-tooltip";
+import Bounce from 'react-reveal/Bounce';
 
 import BouncingAtoms from "../components/Home/BouncingAtoms/BouncingAtoms";
 import CustomCarousel from "../components/CustomCarousel/CustomCarousel";
 import CarouselItem from "../components/CustomCarousel/CarouselItem";
-
 import ExploreCardItem from "./../components/Home/ExploreCardItem";
 
 import atom from "../public/images/used-by/atom.png";
@@ -49,6 +48,7 @@ import uni_zhejiang from "../public/images/used-by/uni-zhejiang.png";
 
 import explore_tutorials from "../public/images/explore-tutorials.png";
 import explore_projects from "../public/images/explore-projects.png";
+import explore_models from "../public/images/explore-models.png";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -61,6 +61,7 @@ export default function Home() {
   const handleClick = () => {
     setOpen(true);
   };
+  const [terminalVisible, setTerminalVisible] = useState(true);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -75,16 +76,9 @@ export default function Home() {
 
   return (
     <>
-      <div
-        className="h-72 xl:h-96 w-full "
-        style={{
-          background:
-            "linear-gradient(35deg, rgba(0,78,152,1) 0%, rgba(58,110,165,1) 34%, rgba(255,103,0,1) 100%)",
-        }}
-        id="static-banner"
-      ></div>
-      <BouncingAtoms />
-
+      <div className="h-[300px] xl:h-[400px]" style={{ background: "linear-gradient(35deg, rgba(0,78,152,1) 0%, rgba(58,110,165,1) 34%, rgba(255,103,0,1) 100%)" }}>
+        <BouncingAtoms />
+      </div>
       {/* HERO */}
       <section className="flex flex-row py-8 items-center justify-between px-[25px] 2xl:px-[300px] hero">
         <div className="flex-1">
@@ -119,10 +113,10 @@ export default function Home() {
         <div className="h-[250px] rotate-[18deg] w-[2px] bg-dc-orange mr-10 hidden lg:flex"></div>
         <div className="flex-col flex-1 text-dc-gray text-opacity-60 hidden lg:flex">
           <p className="italic text-lg">
-            "Chemistry itself knows altogether too well that - given the real
+            &quot;Chemistry itself knows altogether too well that - given the real
             fear that the scarcity of global resources and energy might threaten
             the unity of mankind - chemistry is in a position to make a
-            contribution towards securing a true peace on earth."
+            contribution towards securing a true peace on earth.&quot;
           </p>
           <p className="text-right font-medium mt-2">~ Kenichi Ukui</p>
         </div>
@@ -135,10 +129,10 @@ export default function Home() {
         <h2 id="get-started">
           Get Started
         </h2>
-        <div className="flex flex-col max-w-[600px] w-full shadow-xl font-inconsolata rounded-2xl">
+        {terminalVisible && <div className="flex flex-col max-w-[600px] w-full shadow-xl font-inconsolata rounded-2xl">
           <div className="flex flex-row justify-between bg-terminal-header px-8 py-4 rounded-t-2xl">
             <div className="flex flex-row gap-2 items-center">
-              <span className="h-4 w-4 bg-terminal-red inline-block rounded-full" />
+              <span className="h-4 w-4 bg-terminal-red inline-block rounded-full" onClick={() => { setTerminalVisible(false) }} />
               <span className="h-4 w-4 bg-terminal-yellow inline-block rounded-full" />
               <span className="h-4 w-4 bg-terminal-green inline-block rounded-full" />
             </div>
@@ -163,25 +157,27 @@ export default function Home() {
               ></i>
             </CopyToClipboard>
           </div>
-        </div>
+        </div>}
         <div className="hidden lg:block h-full w-[300px] flex-1"></div>
       </section>
       {/* GET STARTED END */}
 
       {/* SUPPORTERS SECTION BEGIN */}
-      
-     
+
+
       <section className="supporters py-16 px-[25px] 2xl:px-[300px]">
-      {isMounted && <ReactTooltip anchorId="used-by-carousel" place = "top" className = "hidden md:block"/>  }
+        {isMounted && <ReactTooltip anchorId="used-by-carousel" place="top" className="hidden md:block" />}
         <div className=" flex flex-row items-start justify-start gap-4 lg:gap-8 mb-8 lg:mb-16">
-          <Link href = "https://forum.deepchem.io/t/organizations-using-deepchem/567" target = "_blank">
-          <i
-            class="fa-solid fa-circle-info text-2xl text-terminal-yellow"
-            id="used-by-carousel"
-            data-tooltip-content="Click for more info"
-          >
-          </i>
-          </Link>
+          <Bounce left>
+            <Link href="https://forum.deepchem.io/t/organizations-using-deepchem/567" target="_blank">
+              <i
+                className="fa-solid fa-circle-info text-[20px] lg:text-[32px] text-terminal-yellow"
+                id="used-by-carousel"
+                data-tooltip-content="Click for more info"
+              >
+              </i>
+            </Link>
+          </Bounce>
           <h2
             className="uppercase"
           >
@@ -231,11 +227,11 @@ export default function Home() {
       <section className="explore flex flex-col items-center px-[25px] 2xl:px-[300px] py-16 bg-dc-light-gray bg-opacity-10 gap-4">
         <h2 className="mb-8">Explore</h2>
         <div className="explore flex flex-wrap lg:flex-row items-center justify-center gap-10">
-          {/* <ExploreCardItem
-            image={"/images/explore-models.png"}
+          <ExploreCardItem
+            image={explore_models}
             title="MODELS"
             link={"/models"}
-          /> */}
+          />
           <ExploreCardItem
             image={explore_projects}
             title="Projects"
@@ -259,7 +255,7 @@ export default function Home() {
       {/* EXPLORE END */}
 
       <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%", background: "#252422" }}>
           Copied!
         </Alert>
       </Snackbar>

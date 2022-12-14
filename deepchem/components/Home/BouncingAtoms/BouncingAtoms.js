@@ -28,12 +28,12 @@ let MAX_STRONG_BONDING_DISTANCE = 3000;
 const atoms = [];
 
 function updateP5ParametersBasedOnWindowDimensions(windowWidth, windowHeight) {
-  CANVAS_HEIGHT = windowHeight / 2 - 80;
+  CANVAS_HEIGHT = 400;
   CANVAS_WIDTH = windowWidth;
 
-  if (windowWidth < 1200) {
+  if (windowWidth < 1280) {
     NUM_ATOMS = 30;
-    CANVAS_HEIGHT = windowHeight / 3;
+    CANVAS_HEIGHT = 300;
     MAX_BONDING_DISTANCE = 6000;
     MAX_STRONG_BONDING_DISTANCE = 2000;
   }
@@ -114,16 +114,7 @@ const useEffectOnlyOnUpdate = (callback, dependencies) => {
   }, [callback, dependencies]);
 };
 
-export default (props) => {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffectOnlyOnUpdate(
-    (dependencies) => {
-      document.getElementById("static-banner")?.classList.add("hidden");
-    },
-    [loaded]
-  );
-
+export default function BouncingAtoms(props) {
   const setup = (p5, canvasParentRef) => {
     updateP5ParametersBasedOnWindowDimensions(p5.windowWidth, p5.windowHeight);
     p5.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT).parent(canvasParentRef);
@@ -142,29 +133,42 @@ export default (props) => {
       );
     }
 
-    setLoaded(true);
   };
-
+  
   const draw = (p5) => {
     p5.clear();
-
+    
     for (let i = 0; i < atoms.length; i++) {
       for (let j = i + 1; j < atoms.length; j++) {
         const distance = distanceSq(atoms[i], atoms[j], p5);
         formBond(atoms[i], atoms[j], distance, p5);
       }
     }
-
+    
     for (let atom of atoms) {
       atom.move(p5);
       p5.circle(atom.x, atom.y, atom.dia);
     }
   };
 
+  const mouseClicked = (p5) => {
+    p5.append(
+        atoms,
+        new Atom(
+            p5.random(MIN_DIA, MAX_DIA),
+            p5.mouseX,
+            p5.mouseY,
+            p5.random(-MAX_SPEED, MAX_SPEED),
+            p5.random(-MAX_SPEED, MAX_SPEED),
+            p5.random(-MAX_DIA_CHANGE_SPEED, MAX_DIA_CHANGE_SPEED)
+        )
+    );
+  }
+
   const windowResized = (p5) => {
     updateP5ParametersBasedOnWindowDimensions(p5.windowWidth, p5.windowHeight);
     p5.resizeCanvas(p5.windowWidth, CANVAS_HEIGHT);
   };
 
-  return <Sketch setup={setup} draw={draw} windowResized={windowResized} />;
+  return <Sketch setup={setup} draw={draw} windowResized={windowResized} mouseClicked = {mouseClicked}/>;
 };
