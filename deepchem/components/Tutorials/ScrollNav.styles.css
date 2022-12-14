@@ -3,7 +3,7 @@
 }
 
 .scroll-nav__item--active {
-    @apply text-dc-orange;
+    @apply text-dc-orange font-semibold;
 }
 
 

@@ -12,7 +12,7 @@ export default function TutorialLink({ title, active, onClick, index }) {
     }}
     >
       <div
-        className={`flex-shrink-0 w-2 bg-dc-${
+        className={`flex-shrink-0 w-2 bg-${
           active ? "light-blue" : "light-gray"
         }`}
       ></div>

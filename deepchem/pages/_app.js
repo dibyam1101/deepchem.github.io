@@ -11,6 +11,8 @@ import "react-tooltip/dist/react-tooltip.css";
 
 import "../styles/notebook-styles.css";
 
+import "../components/Tutorials/ScrollNav.styles.css"
+
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
