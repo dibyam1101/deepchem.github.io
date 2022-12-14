@@ -171,7 +171,7 @@ export default function Home() {
           <Bounce left>
             <Link href="https://forum.deepchem.io/t/organizations-using-deepchem/567" target="_blank">
               <i
-                className="fa-solid fa-circle-info text-[32px] text-terminal-yellow"
+                className="fa-solid fa-circle-info text-[20px] lg:text-[32px] text-terminal-yellow"
                 id="used-by-carousel"
                 data-tooltip-content="Click for more info"
               >
