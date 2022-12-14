@@ -52,7 +52,7 @@ export default function Tutorials() {
             <Script
                 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"/>
             <Script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"/>
-            <Script>
+            <Script id = "mathjax-setup-script">
                 {`MathJax = {
                     TeX: {
                         equationNumbers: {
@@ -77,7 +77,7 @@ export default function Tutorials() {
 
             <h1 className="text-3xl tutorials px-[25px] 2xl:px-[300px] mt-16 font-semibold">Tutorials</h1>
             <div
-                className="tutorials flex flex-row px-[25px] 2xl:px-[300px] items-start p-8 overflow-x-scroll gap-4 lg:gap-8">
+                className="tutorials flex flex-row px-[25px] 2xl:px-[300px] items-start p-8 overflow-x-scroll gap-4 lg:gap-8 font-poppins">
                 <div className="basis-1/6 shrink-0">
                     {
                         tutorials.map((tutorial, i) => {

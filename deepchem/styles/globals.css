@@ -88,17 +88,6 @@ footer {
     margin: 0;
 }
 
-
-.scroll-nav__item--active {
-    @apply text-dc-orange;
-}
-
-
-.scroll-nav__item {
-    @apply pb-2;
-
-}
-
 @layer base {
     html {
         @apply
