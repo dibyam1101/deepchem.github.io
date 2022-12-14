@@ -3,7 +3,6 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 
 import tutorials from "../data/tutorials/tutorials";
-import TutorialNavigationPane from "./../components/Tutorials/TutorialNavigationPane";
 
 import scrollnav from "scrollnav";
 
