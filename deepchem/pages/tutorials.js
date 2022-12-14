@@ -52,7 +52,7 @@ export default function Tutorials() {
             <Script
                 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"/>
             <Script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"/>
-            <Script>
+            <Script id = "mathjax-setup-script">
                 {`MathJax = {
                     TeX: {
                         equationNumbers: {
