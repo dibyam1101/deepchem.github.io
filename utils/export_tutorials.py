@@ -3,7 +3,7 @@ import json
 
 tutorials = []
 
-with open('./files.txt', 'r') as notebook_files:
+with open('./notebooks.txt', 'r') as notebook_files:
     for file in notebook_files:
         with open(f'./html-notebooks/{file.strip()}', 'r', encoding="utf-8") as f:
             tutorial = {}
@@ -21,6 +21,8 @@ with open('./files.txt', 'r') as notebook_files:
 
             soup.find('body').hidden=True
             html = soup.body.prettify()
+
+
 
             tutorial['title'] = title
             tutorial['html'] = html
