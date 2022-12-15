@@ -189,7 +189,7 @@ export default function Models() {
                             <ModelCard key={model.id} model={model} />
                         )) : <div className="w-full mt-[5vh] flex items-center flex-col flex-grow">
                             <i class="fa-solid fa-triangle-exclamation text-7xl text-dc-gray/10 mb-2"></i>
-                            <p className="text-dc-gray/60">Err 404!</p>
+                            <p className="text-dc-gray/60">No such models exist!</p>
                         </div>}
                     </div>
                     {/* MODEL CARDS SECTION END */}
