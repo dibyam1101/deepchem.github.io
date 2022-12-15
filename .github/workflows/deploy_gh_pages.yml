@@ -18,7 +18,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: install and build
+      - name: Fetch model data
+        run: |
+          cd utils
+          pip install -r ./requirements.txt
+          python get_models.py
+
+      - name: Install and Build
         run: |
           cd deepchem
           npm i --legacy-peer-deps

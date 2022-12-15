@@ -5,10 +5,10 @@ import Image from "next/image";
 import ModelCard from "/components/Models/ModelCard";
 import FilterButton from "/components/Models/FilterButton";
 
-import models from "/data/models.json";
-import backendList from "/data/backends.json";
-import typeList from "/data/types.json";
-import featurizerList from "/data/featurizers.json";
+import models from "/data/models/models.json";
+import backendList from "/data/models/backends.json";
+import typeList from "/data/models/types.json";
+import featurizerList from "/data/models/featurizers.json";
 
 import deepchemPyTorch from "/public/icons/deepchem-pytorch.png";
 import deepchemKeras from "/public/icons/deepchem-keras.png";
@@ -92,7 +92,7 @@ export default function Models() {
 
     return (
         <>
-            <div className={`${isPopUp ? "flex" : "hidden"} fixed bg-dc-gray/80 w-full h-[100vh] top-0 lg:hidden`} onClick={handlePopUp}></div>
+            <div className={`${isPopUp ? "flex" : "hidden"} fixed bg-dc-gray/80 w-full h-[100vh] top-0 lg:hidden transform`} onClick={handlePopUp}></div>
             <div className="flex flex-col items-start w-full px-[25px] 2xl:px-[300px] py-8 lg:py-16 gap-6">
                 {/* HEADING BEGIN */}
                 <div className="flex flex-row w-[100%] items-center justify-between py-2.5">
