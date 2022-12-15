@@ -1,0 +1,19 @@
+[
+    "chembl_5thresh",
+    "chembl_sparse",
+    "crystal_desc_canvas_aug30",
+    "delaney-processed",
+    "desc_canvas_aug30",
+    "flash_points",
+    "gdb1k",
+    "medium_muv",
+    "membrane_permeability",
+    "mini_muv",
+    "muv",
+    "nci_1",
+    "nci_2",
+    "nci_unique",
+    "pcba",
+    "rev8020split_desc",
+    "tox21"
+]
