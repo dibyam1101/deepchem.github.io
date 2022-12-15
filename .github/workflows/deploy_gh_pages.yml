@@ -1,10 +1,12 @@
 name: Deploy to gh-pages
-  
+
 on:
   push:
     branches: [ main, revamp, models ]
   pull_request:
     branches: [ main, revamp, models ]
+  repository_dispatch:
+    types: [ update ]
 
 permissions:
   contents: write
@@ -16,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install and Build
+      - name: install and build
         run: |
           cd deepchem
           npm i --legacy-peer-deps
