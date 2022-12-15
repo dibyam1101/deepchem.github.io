@@ -35,7 +35,8 @@ canvas {
     .contributors,
     footer,
     .explore,
-    .about {
+    .about,
+    .tutorials{
         zoom: 0.8;
 
     }
@@ -114,4 +115,17 @@ footer {
     50% {
         opacity: 0;
     }
+}
+
+
+code {
+    white-space: normal !important;
+}
+
+.bg-light-blue{
+    @apply bg-dc-light-blue;
+}
+
+.bg-light-gray{
+    @apply bg-dc-light-gray;
 }

@@ -2,6 +2,7 @@ import TutorialLink from "./../components/Tutorials/TutorialLink";
 import {useEffect, useState} from "react";
 
 import tutorials from "../data/tutorials/tutorials";
+import notebookStyles from "../data/tutorials/styles"
 
 import scrollnav from "scrollnav";
 
@@ -33,7 +34,7 @@ export default function Tutorials() {
                 let multiplier = 1;
                 let x = window.matchMedia("(resolution: 1.25dppx)")
                 if (x.matches)
-                    multiplier = 1.25;
+                    multiplier = 1.25 * 1.25;
 
                 if (document.querySelector("nav.scroll-nav")) {
                     document.querySelector("nav.scroll-nav").style.margin = `${Math.ceil(top) * multiplier}px 0 0 0`
@@ -47,6 +48,7 @@ export default function Tutorials() {
             }
         }
         , []);
+
     return (
         <>
             <Script
@@ -74,7 +76,9 @@ export default function Tutorials() {
                     }
                 }`}
             </Script>
-
+            {/*<div dangerouslySetInnerHTML={{*/}
+            {/*    __html: notebookStyles,*/}
+            {/*}}></div>*/}
             <h1 className="text-3xl tutorials px-[25px] 2xl:px-[300px] mt-16 font-semibold">Tutorials</h1>
             <div
                 className="tutorials flex flex-row px-[25px] 2xl:px-[300px] items-start p-8 overflow-x-scroll gap-4 lg:gap-8 font-poppins">
@@ -91,7 +95,7 @@ export default function Tutorials() {
                     className="basis-4/6 notebook flex-1 overflow-x-auto  bg-dc-light-gray/10 "
 
                     dangerouslySetInnerHTML={{
-                        __html: `${tutorials[currentTutorialIndex].html}`,
+                        __html: `${tutorials[currentTutorialIndex].html} ${notebookStyles}`,
                     }}
                 ></div>
 
