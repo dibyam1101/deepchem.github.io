@@ -39,9 +39,9 @@ export default function Datasets() {
 
     return (
         <>
-            <div className="flex flex-col items-start w-full px-[25px] 2xl:px-[300px] py-8 lg:py-16 gap-6">
+            <div className="flex flex-col items-start w-full px-[25px] 2xl:px-[300px] py-8 lg:py-16 gap-6 overflow-x-scroll">
                 {/* HEADING BEGIN */}
-                <div className="flex flex-row items-center py-2.5 w-full">
+                <div className="flex flex-row items-center py-2.5">
                     <div className="lg:text-4xl text-[26px]">
                         Our Datasets
                     </div>
@@ -49,8 +49,20 @@ export default function Datasets() {
                 {/* HEADING END */}
 
                 {/* BODY BEGIN */}
-                <div className="flex flex-row items-start gap-40 justify-between w-full">
-                    <div className="flex flex-col items-start gap-8 basis-3/4">
+                <div className="flex flex-row items-start gap-32 w-full box-border">
+                    {/* SIDEBAR BEGIN */}
+                    <div className="flex flex-col items-start gap-0.5">
+                        {datasets.map((dataset) => (
+                            <button className={currDataset === dataset ? "text-dc-orange" : "text-dc-gray"} key={dataset}
+                                onClick={() => {
+                                    setCurrDataset(dataset);
+                                }}>
+                                {dataset}
+                            </button>))}
+                    </div>
+                    {/* SIDEBAR END */}
+
+                    <div className="flex flex-col items-start gap-8 w-full">
                         <div className="flex flex-row items-center justify-between w-full">
                             <div className="flex flex-row text-2xl text-dc-light-blue">
                                 {currDataset}
@@ -64,40 +76,13 @@ export default function Datasets() {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="flex flex-col items-start gap-2 rounded-lg">
-                            <div className="flex flex-row w-[42.9vw] items-center overflow-x-scroll gap-1.5">
-                                {attributes.map((attribute) => (
-                                    <div>{attribute}</div>
-                                ))}
-                            </div>
-                        </div> */}
-                        {/* <div className="overflow-x-scroll w-[42.9vw]">
-                            <table className="">
-                                <thead>
-                                    <tr>
-                                        {attributes.map((attribute) => (
-                                            <th className="px-4 py-2">{attribute}</th>
-                                        ))}
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {data[currDataset].map((row) => (
-                                        <tr>
-                                            {attributes.map((attribute) => (
-                                                <td className="px-4 py-2">{row[attribute]}</td>
-                                            ))}
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div> */}
-                        <div className="lg:w-[61vw] 2xl:w-[43vw]">
-                            <TableContainer component={Paper}>
-                                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                        <div className="box-border w-full">
+                            <TableContainer className="" component={Paper}>
+                                <Table sx={{ minWidth:0, overflowX:'auto' }} aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
                                             {attributes.map((attribute) => (
-                                                <TableCell>{attribute}</TableCell>
+                                                <TableCell align="center">{attribute}</TableCell>
                                             ))}
                                         </TableRow>
                                     </TableHead>
@@ -118,17 +103,7 @@ export default function Datasets() {
                         </div>
                     </div>
 
-                    {/* SIDEBAR BEGIN */}
-                    <div className="flex flex-col items-end gap-0.5 basis-1/4 shrink-0">
-                        {datasets.map((dataset) => (
-                            <button className={currDataset === dataset ? "text-dc-orange" : "text-dc-gray"} key={dataset}
-                                onClick={() => {
-                                    setCurrDataset(dataset);
-                                }}>
-                                {dataset}
-                            </button>))}
-                    </div>
-                    {/* SIDEBAR END */}
+                    
                 </div>
                 {/* BODY END */}
             </div>
