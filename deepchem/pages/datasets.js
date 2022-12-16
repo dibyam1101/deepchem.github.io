@@ -39,7 +39,7 @@ export default function Datasets() {
 
     return (
         <>
-            <div className="flex flex-col items-start w-full px-[25px] 2xl:px-[300px] py-8 lg:py-16 gap-6 overflow-x-scroll">
+            <div className="flex flex-col items-start w-full px-[25px] 2xl:px-[300px] py-8 lg:py-16 gap-6">
                 {/* HEADING BEGIN */}
                 <div className="flex flex-row items-center py-2.5">
                     <div className="lg:text-4xl text-[26px]">
@@ -49,7 +49,7 @@ export default function Datasets() {
                 {/* HEADING END */}
 
                 {/* BODY BEGIN */}
-                <div className="flex flex-row items-start gap-32 w-full box-border">
+                <div className="flex flex-row items-start gap-32 w-full">
                     {/* SIDEBAR BEGIN */}
                     <div className="flex flex-col items-start gap-0.5">
                         {datasets.map((dataset) => (
@@ -62,7 +62,8 @@ export default function Datasets() {
                     </div>
                     {/* SIDEBAR END */}
 
-                    <div className="flex flex-col items-start gap-8 w-full">
+                    {/* TABLE BEGIN */}
+                    <div className="flex flex-col items-start gap-8 w-full overflow-auto">
                         <div className="flex flex-row items-center justify-between w-full">
                             <div className="flex flex-row text-2xl text-dc-light-blue">
                                 {currDataset}
@@ -76,13 +77,13 @@ export default function Datasets() {
                                 </div>
                             </div>
                         </div>
-                        <div className="box-border w-full">
+                        <div className="w-full box-border">
                             <TableContainer className="" component={Paper}>
                                 <Table sx={{ minWidth:0, overflowX:'auto' }} aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
                                             {attributes.map((attribute) => (
-                                                <TableCell align="center">{attribute}</TableCell>
+                                                <TableCell align="center">{`${attribute.toString().substring(0, 10)}`}</TableCell>
                                             ))}
                                         </TableRow>
                                     </TableHead>
@@ -93,7 +94,7 @@ export default function Datasets() {
                                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                             >
                                                 {attributes.map((attribute) => (
-                                                    <TableCell align="center">{row[attribute]}</TableCell>
+                                                    <TableCell align="center">{row[attribute] ? row[attribute] : "NaN"}</TableCell>
                                                 ))}
                                             </TableRow>
                                         ))}
@@ -102,8 +103,7 @@ export default function Datasets() {
                             </TableContainer>
                         </div>
                     </div>
-
-                    
+                    {/* TABLE END */}
                 </div>
                 {/* BODY END */}
             </div>
