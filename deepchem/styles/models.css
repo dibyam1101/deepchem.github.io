@@ -23,7 +23,7 @@
     }
 
     .btn-text-filter {
-        @apply text-[0.8rem] text-dc-gray text-ellipsis;
+        @apply text-[0.8rem] text-dc-gray text-ellipsis font-medium;
     }
 
     .btn-text-selected-filter {
