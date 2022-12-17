@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -36,13 +37,20 @@ export default function Datasets() {
         setIsSidebarOpen(!isSidebarOpen);
     }
 
-    const [currDataset, setCurrDataset] = useState(datasets[0]);
+    const [currDataset, setCurrDataset] = useState('');
     const [attributes, setAttributes] = useState([]);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const router = useRouter();
 
     useEffect(() => {
-        setAttributes(Object.keys(data[currDataset][0]));
-    }, [currDataset]);
+        const dataset = router.asPath.split('#').pop();
+        if (dataset === '/datasets') {
+            router.push(`/datasets#${datasets[0]}`);
+        } else {
+            setCurrDataset(dataset);
+            setAttributes(Object.keys(data[dataset][0]));
+        }
+    }, [router]);
 
     return (
         <>
@@ -77,7 +85,7 @@ export default function Datasets() {
                                 <div>
                                     <button className={currDataset === dataset ? "w-[260px] text-dc-light-blue font-bold" : "w-[260px] text-dc-gray"}
                                         onClick={() => {
-                                            setCurrDataset(dataset);
+                                            router.push(`/datasets#${dataset}`);
                                         }}>
                                         <div className="break-all text-left">{dataset}</div>
                                     </button>
@@ -114,7 +122,7 @@ export default function Datasets() {
                                     <TableHead>
                                         <TableRow>
                                             {attributes?.map((attribute, index) => (
-                                                <TableCell key={index} align="center" className="bg-dc-gray text-dc-light-gray">{attribute.length < 20 ? 
+                                                <TableCell key={index} align="center" className="bg-dc-gray text-dc-light-gray">{attribute.length < 20 ?
                                                     <div className="text-dc-light-gray">
                                                         <span className="text-dc-light-gray">{attribute}</span>
                                                     </div> :
