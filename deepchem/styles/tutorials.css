@@ -20,6 +20,7 @@ code {
 
 .notebook-menu {
     flex: 2 1 0 !important;
+    height: 80vh;
 }
 
 .scroll-nav {
