@@ -22,6 +22,8 @@ export default function Datasets() {
     const [attributes, setAttributes] = useState([]);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+    let space = '\xa0\xa0';
+
     const handleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     }
@@ -72,17 +74,18 @@ export default function Datasets() {
                             </div>
                         </div>
                         {datasets.map((dataset) => (
-                            <div className="flex items-center gap-1">
-                                <button className={currDataset === dataset ? "text-dc-orange" : "text-dc-gray"} key={dataset}
-                                    onClick={() => {
-                                        setCurrDataset(dataset);
-                                    }}>
-                                    <div className="break-all text-left">{dataset}</div>
-                                </button>
-                                <div className="lg:hidden">
-                                    {currDataset === dataset && <Image src={deepchemArrowLeft} alt={"Filter Button"} width={5} />}
+                            <div className="flex flex-row items-center gap-2 m-0.5 cursor-pointer hover:bg-dc-light-gray/30">
+                                <div className={`flex-shrink-0 h-full ${currDataset === dataset ? "bg-dc-light-blue" : "bg-dc-light-gray"}`}>{space}</div>
+                                <div>
+                                    <button className={currDataset === dataset ? "text-dc-light-blue font-bold" : "text-dc-gray"} key={dataset}
+                                        onClick={() => {
+                                            setCurrDataset(dataset);
+                                        }}>
+                                        <div className="break-all text-left">{dataset}</div>
+                                    </button>
                                 </div>
-                            </div>))}
+                            </div>
+                        ))}
                     </div>
                     {/* SIDEBAR END */}
 
