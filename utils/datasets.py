@@ -1,6 +1,7 @@
 import os
 import requests
 from bs4 import BeautifulSoup
+import subprocess
 
 datasets = []
 
@@ -17,4 +18,5 @@ for fileName in fileNames:
 os.makedirs('../deepchem/data/datasets')
 
 for dataset in datasets:
-    os.system(f'cmd /c "curl -o ../deepchem/data/datasets/{dataset} {datasetURL + dataset}"')
+    subprocess.call(f'curl -o ../deepchem/data/datasets/{dataset} {datasetURL + dataset}', shell=True)
+    # os.system(f'cmd /c "curl -o ../deepchem/data/datasets/{dataset} {datasetURL + dataset}"')
