@@ -15,7 +15,6 @@ import Image from "next/image";
 import deepchemLink from "/public/icons/deepchem-link.png";
 import deepchemDownload from "/public/icons/deepchem-download.png";
 import deepchemArrowRight from "/public/icons/deepchem-arrow-right.png";
-import deepchemArrowLeft from "/public/icons/deepchem-arrow-left.png";
 
 const loadData = () => {
     const requireContext = require.context('/data/datasetsJSON', false, /\.json$/);
@@ -31,8 +30,6 @@ const loadData = () => {
 
 const data = loadData();
 const space = '\xa0\xa0';
-
-console.log(data);
 
 export default function Datasets() {
     const handleSidebar = () => {
@@ -118,8 +115,8 @@ export default function Datasets() {
                                         <TableRow>
                                             {attributes?.map((attribute, index) => (
                                                 <TableCell key={index} align="center" className="bg-dc-gray text-dc-light-gray">{attribute.length < 20 ? attribute :
-                                                    <div className="">
-                                                        <span className="text-[#FFFFFF]">{`${attribute.substring(0, 20)}...`}</span>
+                                                    <div className="text-dc-light-gray">
+                                                        <span className="text-dc-light-gray">{`${attribute.substring(0, 20)}...`}</span>
                                                     </div>
                                                 }</TableCell>
                                             ))}

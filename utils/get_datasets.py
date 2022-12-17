@@ -2,7 +2,27 @@ import os
 import json
 import gzip
 import shutil
+import requests
+import subprocess
 import pandas as pd
+from bs4 import BeautifulSoup
+
+datasets = []
+
+r = requests.get('https://github.com/deepchem/deepchem/tree/master/datasets')
+datasetURL = 'https://raw.githubusercontent.com/deepchem/deepchem/master/datasets/'
+soup = BeautifulSoup(r.content, 'html.parser')
+
+fileNames = soup.find_all('a', attrs= {'class': 'js-navigation-open Link--primary'})
+for fileName in fileNames:
+    fileName = fileName.text
+    if(fileName != '.gitignore'):
+        datasets.append(fileName.replace(' ', '%20'))
+
+os.makedirs('../deepchem/data/datasets')
+
+for dataset in datasets:
+    subprocess.call(f'curl -o ../deepchem/data/datasets/{dataset} {datasetURL + dataset}', shell=True)
 
 fromPath = "../deepchem/data/datasets/"
 toPath = "../deepchem/data/datasetsCSV/"
@@ -49,11 +69,3 @@ for fileName in fileNames:
     jsonFile = df.iloc[0:5].to_json(orient='records')
     with open(file[:-3] + 'json', 'w') as outfile:
         outfile.write(jsonFile)
-
-
-# # # list all files in the directory
-# # import subprocess
-# # print(fileNames)
-# # subprocess.call(["ls", "-l", "../deepchem/data/"])
-# # subprocess.call(["ls", "-l", "../deepchem/data/datasets/"])
-# # subprocess.call(["ls", "-l", "../deepchem/data/datasetsFormat/"])
