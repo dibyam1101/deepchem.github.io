@@ -37,7 +37,8 @@ next-env.d.ts
 
 out/
 
-#Data
+# data
+data/models/
 pages/tutorials/*
 !pages/tutorials/index.js
 data/tutorials/*

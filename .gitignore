@@ -1,3 +1,7 @@
 .idea
-utils/tutorials/html-notebooks/*
-utils/tutorials/ipynb-notebooks/*
+
+venv/
+
+utils/tutorials/html_notebooks/*
+utils/tutorials/ipynb_notebooks/*
+utils/tutorials/*.txt

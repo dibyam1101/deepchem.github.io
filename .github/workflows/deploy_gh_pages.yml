@@ -2,9 +2,9 @@ name: Deploy to gh-pages
 
 on:
   push:
-    branches: [ main, revamp, models, tutorials ]
+    branches: [ main, revamp, models ]
   pull_request:
-    branches: [ main, revamp, models, tutorials ]
+    branches: [ main, revamp, models ]
   repository_dispatch:
     types: [ update ]
 
@@ -13,22 +13,30 @@ permissions:
 
 jobs:
   build_and_deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  
 
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install dependencies
+        run: |
+          cd utils
+          pip install -r ./requirements.txt
+
+      - name: Fetch model data
+        run: |
+          cd utils/models
+          python get_models.py
+
       - name: Fetch tutorial data
         run: |
           cd utils/tutorials
-          pip install -r ./requirements.txt
-          mkdir ipynb-notebooks
-          mkdir html-notebooks
-          python3 fetch-tutorials.py
-          python3 export-tutorials.py
-          
+          mkdir ipynb_notebooks
+          mkdir html_notebooks
+          python3 fetch_tutorials.py
+          python3 export_tutorials.py
 
-      - name: Install and Build
+      - name: Install and build
         run: |
           cd deepchem
           npm i --legacy-peer-deps

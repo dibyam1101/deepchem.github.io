@@ -5,10 +5,10 @@ import Image from "next/image";
 import ModelCard from "/components/Models/ModelCard";
 import FilterButton from "/components/Models/FilterButton";
 
-import models from "/data/models.json";
-import backendList from "/data/backends.json";
-import typeList from "/data/types.json";
-import featurizerList from "/data/featurizers.json";
+import models from "/data/models/models.json";
+import backendList from "/data/models/backends.json";
+import typeList from "/data/models/types.json";
+import featurizerList from "/data/models/featurizers.json";
 
 import deepchemPyTorch from "/public/icons/deepchem-pytorch.png";
 import deepchemKeras from "/public/icons/deepchem-keras.png";
@@ -108,7 +108,7 @@ export default function Models() {
                 {/* HEADING END */}
 
                 {/* BODY BEGIN */}
-                <div className="flex flex-row items-start gap-12">
+                <div className="flex flex-row items-start gap-12 w-full">
 
                     {/* FILTER SECTION BEGIN */}
                     <div className={`${isPopUp ? "fixed flex left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-8 py-6 bg-white shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] w-[89%]" : "hidden"} lg:flex lg:relative lg:left-0 lg:top-0 lg:translate-x-0 lg:translate-y-0 lg:shadow-none lg:rounded-none flex-col items-start gap-5 lg:min-w-[240px] lg:max-w-[240px] lg:border-r-2 lg:py-0 lg:pl-0 pr-4 lg:border-dc-light-gray`}>
@@ -184,10 +184,13 @@ export default function Models() {
                     {/* FILTER SECTION END */}
 
                     {/* MODEL CARDS SECTION BEGIN */}
-                    <div className="items-start gap-8 justify-center model-container">
-                        {filteredModels && filteredModels.map((model) => (
+                    <div className={`items-start ${filteredModels.length ? "gap-8 justify-center model-container" : ""} w-full`}>
+                        {filteredModels.length ? filteredModels.map((model) => (
                             <ModelCard key={model.id} model={model} />
-                        ))}
+                        )) : <div className="w-full mt-[5vh] flex items-center flex-col flex-grow">
+                            <i class="fa-solid fa-triangle-exclamation text-7xl text-dc-gray/10 mb-2"></i>
+                            <p className="text-dc-gray/60">No such models exist!</p>
+                        </div>}
                     </div>
                     {/* MODEL CARDS SECTION END */}
                 </div>
