@@ -18,7 +18,7 @@ import deepchemArrowRight from "/public/icons/deepchem-arrow-right.png";
 import deepchemArrowLeft from "/public/icons/deepchem-arrow-left.png";
 
 const loadData = () => {
-    const requireContext = require.context('/data/datasetsFormat', false, /\.json$/);
+    const requireContext = require.context('/data/datasetsJSON', false, /\.json$/);
     const data = {};
     requireContext.keys().forEach((key) => {
         const obj = requireContext(key);
@@ -31,6 +31,8 @@ const loadData = () => {
 
 const data = loadData();
 const space = '\xa0\xa0';
+
+console.log(data);
 
 export default function Datasets() {
     const handleSidebar = () => {
