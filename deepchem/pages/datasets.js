@@ -44,7 +44,7 @@ export default function Datasets() {
 
     useEffect(() => {
         setAttributes(Object.keys(data[currDataset][0]));
-    }, [currDataset]);
+    }, [data, currDataset]);
 
     return (
         <>
