@@ -1,0 +1,33 @@
+code {
+    white-space: normal !important;
+}
+
+.bg-light-blue {
+    @apply bg-dc-light-blue;
+}
+
+.bg-light-gray {
+    @apply bg-dc-light-gray;
+}
+
+.tutorials {
+    margin-top: 40px
+}
+
+.notebook {
+    flex: 6 1 0 !important;
+}
+
+.notebook-menu {
+    flex: 2 1 0 !important;
+}
+
+.scroll-nav {
+    flex: 2 1 0 !important;
+    @apply text-right text-sm hidden lg:block font-poppins overflow-x-hidden;
+}
+
+
+.scroll-nav__item {
+    @apply pb-2 px-2;
+}

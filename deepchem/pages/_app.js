@@ -10,7 +10,7 @@ import "../styles/models.css";
 import "../styles/globals.css";
 import "../styles/carousel.css";
 import "../styles/scroll-nav.css"
-import "../styles/notebook.css";
+import "../styles/tutorials.css";
 import DefaultLayout from "../layouts/default"
 
 export default function MyApp({Component, pageProps}) {

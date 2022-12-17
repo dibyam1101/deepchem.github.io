@@ -1,11 +1,3 @@
-.scroll-nav {
-    @apply basis-1/6 shrink-0 text-right text-sm hidden lg:block font-poppins overflow-x-hidden;
-}
-
-
-.scroll-nav__item {
-    @apply pb-2 px-2;
-}
 ::-webkit-scrollbar {
     width: 18px;
 }

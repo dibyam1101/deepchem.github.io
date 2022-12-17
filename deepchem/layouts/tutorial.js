@@ -24,9 +24,9 @@ const TutorialLayout = ({children}) => {
 
 
         // Runs after the component unmounts
-        return () => {
-            scrollnav?.destroy();
-        }
+        // return () => {
+        //     scrollnav?.destroy();
+        // }
     }, []);
 
 
@@ -60,8 +60,8 @@ const TutorialLayout = ({children}) => {
 
             <h1 className="text-3xl px-[25px] 2xl:px-[300px] mt-8 font-semibold">Tutorials</h1>
             <div
-                className="tutorials flex flex-row px-[25px] 2xl:px-[300px] items-start p-8 overflow-x-scroll gap-4 lg:gap-8 font-poppins">
-                <div className="basis-2/6 shrink-0">
+                className="tutorials flex flex-row px-[25px] 2xl:px-[300px] items-start overflow-x-scroll gap-4 lg:gap-8 font-poppins">
+                <div className=" overflow-x-scroll notebook-menu">
                     {tutorials.map((tutorial, i) => {
                         return <TutorialLink key={i} title={tutorial.title.slice(0, tutorial.title.length - 1)}
                                              active={i === currentTutorialIndex} onClick={setCurrentTutorialIndex}
@@ -69,7 +69,7 @@ const TutorialLayout = ({children}) => {
                     })}
                 </div>
 
-                <div className="basis-3/6 notebook  overflow-x-auto">
+                <div className="notebook  overflow-x-scroll bg-dc-light-gray/10">
                     {children}
                 </div>
 

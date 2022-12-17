@@ -55,7 +55,7 @@ with open('./notebooks.txt', 'r') as notebook_files:
                             MathJax?.Hub?.Queue(["Typeset", MathJax.Hub]);
                         }}, []);
 
-                    return <div dangerouslySetInnerHTML={{{{
+                    return <div className="overflow-x-scroll" dangerouslySetInnerHTML={{{{
                                            __html: `${{innerHTML.html}} ${{notebookStyles}}`,
                                        }}}}
                                    ></div>
