@@ -114,7 +114,10 @@ export default function Datasets() {
                                     <TableHead>
                                         <TableRow>
                                             {attributes?.map((attribute, index) => (
-                                                <TableCell key={index} align="center" className="bg-dc-gray text-dc-light-gray">{attribute.length < 20 ? attribute :
+                                                <TableCell key={index} align="center" className="bg-dc-gray text-dc-light-gray">{attribute.length < 20 ? 
+                                                    <div className="text-dc-light-gray">
+                                                        <span className="text-dc-light-gray">{attribute}</span>
+                                                    </div> :
                                                     <div className="text-dc-light-gray">
                                                         <span className="text-dc-light-gray">{`${attribute.substring(0, 20)}...`}</span>
                                                     </div>
