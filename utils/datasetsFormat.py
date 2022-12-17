@@ -42,3 +42,9 @@ for fileName in fileNames:
     # save the json to a file
     with open(file[:-3] + 'json', 'w') as outfile:
         outfile.write(reqd)
+
+# list all files in the directory
+import subprocess
+subprocess.call(["ls", "-l", "../deepchem/data/"])
+subprocess.call(["ls", "-l", "../deepchem/data/datasets/"])
+subprocess.call(["ls", "-l", "../deepchem/data/datasetsFormat/"])
