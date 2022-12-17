@@ -72,7 +72,7 @@ export default function Datasets() {
                                 </button>
                             </div>
                         </div>
-                        {datasets.map((dataset, index) => (
+                        {datasets?.map((dataset, index) => (
                             <div key={index} className="flex flex-row items-center gap-2 m-0.5 py-0.5 w-full px-1 cursor-pointer hover:bg-dc-light-gray/30">
                                 <div className={`flex-shrink-0 h-full ${currDataset === dataset ? "bg-dc-light-blue" : "bg-dc-light-gray"}`}>{space}</div>
                                 <div>
@@ -114,7 +114,7 @@ export default function Datasets() {
                                 <Table sx={{ minWidth: 0, overflowX: 'auto' }} aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
-                                            {attributes.map((attribute, index) => (
+                                            {attributes?.map((attribute, index) => (
                                                 <TableCell key={index} align="center" className="bg-dc-gray text-dc-light-gray">{attribute.length < 20 ? attribute :
                                                     <div className="">
                                                         <span className="text-[#FFFFFF]">{`${attribute.substring(0, 20)}...`}</span>
@@ -124,12 +124,12 @@ export default function Datasets() {
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {data[currDataset].map((row, index) => (
+                                        {data[currDataset]?.map((row, index) => (
                                             <TableRow
                                                 key={index}
                                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                             >
-                                                {attributes.map((attribute, index) => (
+                                                {attributes?.map((attribute, index) => (
                                                     <TableCell key={index} align="center">{row[attribute] !== null ? row[attribute] : "-"}</TableCell>
                                                 ))}
                                             </TableRow>
