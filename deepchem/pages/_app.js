@@ -5,6 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Layout from "../layouts/layout";
 
 import "../styles/models.css";
+import "../styles/datasets.css";
 import "../styles/CustomCarousel.styles.css";
 import "../styles/globals.css";
 

@@ -62,8 +62,8 @@ export default function Datasets() {
                 <div className="flex flex-row items-start gap-32 w-full">
 
                     {/* SIDEBAR BEGIN */}
-                    <div className={`${isSidebarOpen ? "fixed flex top-0 text-sm gap-1 left-0 bg-white border-r-2 p-4 h-full" : "hidden"} lg:flex lg:text-base lg:relative flex-col items-start lg:pr-2 lg:min-w-[250px] lg:h-[60vh] overflow-x-hidden overflow-y-auto lg:gap-0.5`}>
-                        <div className="lg:hidden flex flex-row text-lg pb-2.5 items-center justify-between w-full">
+                    <div className={`${isSidebarOpen ? "fixed flex top-0 text-sm gap-1 left-0 bg-white border-r-2 w-[250px] p-4 h-full" : "hidden"} lg:flex lg:text-base lg:relative flex-col items-start lg:min-w-[280px] lg:max-w-[280px] lg:h-[65vh] overflow-x-hidden overflow-y-auto lg:gap-0.5`}>
+                        <div className="lg:hidden flex flex-row text-lg pb-2.5 pl-2.5 items-center justify-between w-full">
                             <div>
                                 Our Datasets
                             </div>
@@ -74,7 +74,7 @@ export default function Datasets() {
                             </div>
                         </div>
                         {datasets.map((dataset) => (
-                            <div className="flex flex-row items-center gap-2 m-0.5 cursor-pointer hover:bg-dc-light-gray/30">
+                            <div className="flex flex-row items-center gap-2 m-0.5 py-0.5 w-full px-1 cursor-pointer hover:bg-dc-light-gray/30">
                                 <div className={`flex-shrink-0 h-full ${currDataset === dataset ? "bg-dc-light-blue" : "bg-dc-light-gray"}`}>{space}</div>
                                 <div>
                                     <button className={currDataset === dataset ? "text-dc-light-blue font-bold" : "text-dc-gray"} key={dataset}
@@ -90,7 +90,7 @@ export default function Datasets() {
                     {/* SIDEBAR END */}
 
                     {/* TABLE BEGIN */}
-                    <div className="flex flex-col items-start gap-8 w-full overflow-auto">
+                    <div className="flex flex-col items-start gap-6 w-full overflow-auto">
                         <div className="flex flex-row items-center justify-between w-full">
                             <div className="flex flex-row items-center text-lg gap-1 lg:text-2xl text-dc-light-blue">
                                 <div className="flex items-center lg:hidden">
@@ -98,26 +98,27 @@ export default function Datasets() {
                                         <Image src={deepchemArrowRight} alt={"Filter Button"} width={8} />
                                     </button>
                                 </div>
-                                {currDataset}
+                                <div>{currDataset}</div>
                             </div>
                             <div className="flex flex-row items-start gap-5">
                                 <div className="flex flex-row items-start p-2.5 gap-2.5 bg-dc-light-gray rounded-lg">
-                                    <Image src={deepchemLink} width={16} height={16} />
+                                    <Image src={deepchemLink} width={15} height={15} />
                                 </div>
                                 <div className="flex flex-row items-start p-2.5 gap-2.5 bg-dc-light-gray rounded-lg">
-                                    <Image src={deepchemDownload} width={16} height={16} />
+                                    <Image src={deepchemDownload} width={15} height={15} />
                                 </div>
                             </div>
                         </div>
+
                         <div className="w-full box-border">
                             <TableContainer className="" component={Paper}>
                                 <Table sx={{ minWidth: 0, overflowX: 'auto' }} aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
                                             {attributes.map((attribute) => (
-                                                <TableCell align="center">{attribute.length < 20 ? attribute :
+                                                <TableCell align="center" className="bg-dc-gray text-dc-light-gray">{attribute.length < 20 ? attribute :
                                                     <div className="">
-                                                        <span className="">{`${attribute.substring(0, 20)}...`}</span>
+                                                        <span className="text-[#FFFFFF]">{`${attribute.substring(0, 20)}...`}</span>
                                                     </div>
                                                 }</TableCell>
                                             ))}
