@@ -43,6 +43,11 @@ for fileName in fileNames:
     with open(file[:-3] + 'json', 'w') as outfile:
         outfile.write(reqd)
 
+    os.remove(file)
+
+# delete csv files from datasetsFormat
+
+
 # list all files in the directory
 import subprocess
 subprocess.call(["ls", "-l", "../deepchem/data/"])
