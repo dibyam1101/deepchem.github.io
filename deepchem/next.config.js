@@ -20,6 +20,12 @@ const nextConfig = {
         destination: '/tutorials/About_nODE_Using_Torchdiffeq_in_Deepchem',
         permanent: true,
       },
+
+      {
+        source: '/deepchem.github.io/tutorials/',
+        destination: '/tutorials/About_nODE_Using_Torchdiffeq_in_Deepchem',
+        permanent: true,
+      },
     ]
   },
 
