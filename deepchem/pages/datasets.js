@@ -18,19 +18,11 @@ import deepchemArrowRight from "/public/icons/deepchem-arrow-right.png";
 import deepchemArrowLeft from "/public/icons/deepchem-arrow-left.png";
 
 export default function Datasets() {
-    const [currDataset, setCurrDataset] = useState(datasets[0]);
-    const [attributes, setAttributes] = useState([]);
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
     let space = '\xa0\xa0';
 
     const handleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     }
-
-    useEffect(() => {
-        setAttributes(Object.keys(data[currDataset][0]));
-    }, [currDataset]);
 
     const loadData = () => {
         const requireContext = require.context('/data/datasetsFormat', false, /\.json$/);
@@ -45,6 +37,14 @@ export default function Datasets() {
     }
 
     const data = loadData();
+
+    const [currDataset, setCurrDataset] = useState(datasets[0]);
+    const [attributes, setAttributes] = useState([]);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    useEffect(() => {
+        setAttributes(Object.keys(data[currDataset][0]));
+    }, [currDataset]);
 
     return (
         <>
