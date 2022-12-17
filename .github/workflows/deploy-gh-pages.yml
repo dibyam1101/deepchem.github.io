@@ -5,6 +5,8 @@ on:
     branches: [ main, revamp, models, tutorials ]
   pull_request:
     branches: [ main, revamp, models, tutorials ]
+  repository_dispatch:
+    types: [ update ]
 
 permissions:
   contents: write
@@ -15,6 +17,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Fetch tutorial data
+        run: |
+          cd utils/tutorials
+          pip install -r ./requirements.txt
+          python3 fetch-tutorials.py
+          python3 export-tutorials.py
+          
 
       - name: Install and Build
         run: |
