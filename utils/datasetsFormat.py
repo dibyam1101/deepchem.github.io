@@ -28,6 +28,14 @@ import pandas as pd
 
 fileNames = os.listdir(toPath)
 
+# if filename has .sdf, remove it
+for i in range(len(fileNames)):
+    # if filename has .sdf, remove it
+    if fileNames[i].replace('.sdf', '') != fileNames[i]:
+        fileNames[i] = fileNames[i].replace('.sdf', '')
+
+print(fileNames)
+
 # convert list to json
 import json
 with open('../deepchem/data/datasets.json', 'w') as f:
