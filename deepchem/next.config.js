@@ -13,6 +13,16 @@ const nextConfig = {
   basePath: !debug ? "/deepchem.github.io" : "",
   assetPrefix: !debug ? "/deepchem.github.io/" : "",
 
+  async redirects() {
+    return [
+      {
+        source: '/tutorials',
+        destination: '/tutorials/About_nODE_Using_Torchdiffeq_in_Deepchem',
+        permanent: true,
+      },
+    ]
+  },
+
   
 };
 

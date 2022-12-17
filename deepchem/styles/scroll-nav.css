@@ -1,9 +1,5 @@
 .scroll-nav {
-    @apply basis-1/6 text-right text-base hidden lg:block font-poppins h-[60vh] overflow-y-auto overflow-x-hidden;
-}
-
-.scroll-nav__item--active {
-    @apply text-dc-orange font-semibold;
+    @apply basis-1/6 shrink-0 text-right text-sm hidden lg:block font-poppins overflow-x-hidden;
 }
 
 

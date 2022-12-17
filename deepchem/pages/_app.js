@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import Layout from "../layouts/layout";
+import MainLayout from "../layouts/main";
 
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -11,18 +11,24 @@ import "../styles/globals.css";
 import "../styles/carousel.css";
 import "../styles/scroll-nav.css"
 import "../styles/notebook.css";
+import DefaultLayout from "../layouts/default"
 
-export default function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <Head>
-        <title>DeepChem</title>
+export default function MyApp({Component, pageProps}) {
 
-        <link rel="shortcut icon" href="/deepchem.github.io/favicon.ico" />
-      </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </>
-  );
+    const Layout = Component.Layout || DefaultLayout;
+
+    return (
+        <>
+            <Head>
+                <title>DeepChem</title>
+
+                <link rel="shortcut icon" href="/deepchem.github.io/favicon.ico"/>
+            </Head>
+            <MainLayout>
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </MainLayout>
+        </>
+    );
 }

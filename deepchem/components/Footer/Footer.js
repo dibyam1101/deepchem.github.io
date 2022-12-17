@@ -20,7 +20,7 @@ export default function Footer() {
             <Link href="/#get-started">Get Started</Link>
             <Link href="/about">About</Link>
             <Link
-              href="/tutorials"
+              href="/tutorials/tutorials"
             >
               Tutorials
             </Link>
