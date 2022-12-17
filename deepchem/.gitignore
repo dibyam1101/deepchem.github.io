@@ -36,3 +36,10 @@ yarn-error.log*
 next-env.d.ts
 
 out/
+
+#Data
+pages/tutorials/*
+!pages/tutorials/index.js
+data/tutorials/*
+!data/tutorials/styles.js
+
