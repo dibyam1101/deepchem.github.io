@@ -22,6 +22,8 @@ jobs:
         run: |
           cd utils/tutorials
           pip install -r ./requirements.txt
+          mkdir ipynb-notebooks
+          mkdir html-notebooks
           python3 fetch-tutorials.py
           python3 export-tutorials.py
           
