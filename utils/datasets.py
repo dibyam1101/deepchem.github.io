@@ -14,5 +14,7 @@ for fileName in fileNames:
     if(fileName != '.gitignore'):
         datasets.append(fileName.replace(' ', '%20'))
 
+os.makedirs('../deepchem/data/datasets')
+
 for dataset in datasets:
     os.system(f'cmd /c "curl -o ../deepchem/data/datasets/{dataset} {datasetURL + dataset}"')

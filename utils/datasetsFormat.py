@@ -1,10 +1,13 @@
 import os
 import gzip
 import shutil
+
 fromPath = "../deepchem/data/datasets/"
 toPath = "../deepchem/data/datasetsFormat/"
 
 fileNames = os.listdir(fromPath)
+
+os.makedirs('../deepchem/data/datasetsFormat')
 
 for fileName in fileNames:
     if fileName.endswith(".csv"):
@@ -22,7 +25,6 @@ for fileName in fileNames:
 
 # load csv files
 import pandas as pd
-import numpy as np
 
 fileNames = os.listdir(toPath)
 
