@@ -15,16 +15,16 @@ code {
 }
 
 .notebook {
-    flex: 6 1 0 !important;
+    flex: 6 1 0 ;
 }
 
 .notebook-menu {
-    flex: 2 1 0 !important;
+    flex: 2 1 0;
     height: 80vh;
 }
 
 .scroll-nav {
-    flex: 2 1 0 !important;
+    flex: 2 1 0 ;
     @apply text-right text-sm hidden lg:block font-poppins overflow-x-hidden;
 }
 
