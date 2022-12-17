@@ -17,26 +17,25 @@ import deepchemDownload from "/public/icons/deepchem-download.png";
 import deepchemArrowRight from "/public/icons/deepchem-arrow-right.png";
 import deepchemArrowLeft from "/public/icons/deepchem-arrow-left.png";
 
-export default function Datasets() {
-    let space = '\xa0\xa0';
+const loadData = () => {
+    const requireContext = require.context('/data/datasetsFormat', false, /\.json$/);
+    const data = {};
+    requireContext.keys().forEach((key) => {
+        const obj = requireContext(key);
+        const simpleKey = key.split('/').pop().split('.').shift();
+        data[simpleKey] = obj;
+    });
 
+    return data;
+}
+
+const data = loadData();
+const space = '\xa0\xa0';
+
+export default function Datasets() {
     const handleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     }
-
-    const loadData = () => {
-        const requireContext = require.context('/data/datasetsFormat', false, /\.json$/);
-        const data = {};
-        requireContext.keys().forEach((key) => {
-            const obj = requireContext(key);
-            const simpleKey = key.split('/').pop().split('.').shift();
-            data[simpleKey] = obj;
-        });
-
-        return data;
-    }
-
-    const data = loadData();
 
     const [currDataset, setCurrDataset] = useState(datasets[0]);
     const [attributes, setAttributes] = useState([]);
@@ -44,7 +43,7 @@ export default function Datasets() {
 
     useEffect(() => {
         setAttributes(Object.keys(data[currDataset][0]));
-    }, [data, currDataset]);
+    }, [currDataset]);
 
     return (
         <>
@@ -73,11 +72,11 @@ export default function Datasets() {
                                 </button>
                             </div>
                         </div>
-                        {datasets.map((dataset) => (
-                            <div className="flex flex-row items-center gap-2 m-0.5 py-0.5 w-full px-1 cursor-pointer hover:bg-dc-light-gray/30">
+                        {datasets.map((dataset, index) => (
+                            <div key={index} className="flex flex-row items-center gap-2 m-0.5 py-0.5 w-full px-1 cursor-pointer hover:bg-dc-light-gray/30">
                                 <div className={`flex-shrink-0 h-full ${currDataset === dataset ? "bg-dc-light-blue" : "bg-dc-light-gray"}`}>{space}</div>
                                 <div>
-                                    <button className={currDataset === dataset ? "text-dc-light-blue font-bold" : "text-dc-gray"} key={dataset}
+                                    <button className={currDataset === dataset ? "text-dc-light-blue font-bold" : "text-dc-gray"}
                                         onClick={() => {
                                             setCurrDataset(dataset);
                                         }}>
@@ -102,10 +101,10 @@ export default function Datasets() {
                             </div>
                             <div className="flex flex-row items-start gap-5">
                                 <div className="flex flex-row items-start p-2.5 gap-2.5 bg-dc-light-gray rounded-lg">
-                                    <Image src={deepchemLink} width={15} height={15} />
+                                    <Image src={deepchemLink} width={15} height={15} alt={"LinkImage"} />
                                 </div>
                                 <div className="flex flex-row items-start p-2.5 gap-2.5 bg-dc-light-gray rounded-lg">
-                                    <Image src={deepchemDownload} width={15} height={15} />
+                                    <Image src={deepchemDownload} width={15} height={15} alt={"DownloadImage"} />
                                 </div>
                             </div>
                         </div>
@@ -115,8 +114,8 @@ export default function Datasets() {
                                 <Table sx={{ minWidth: 0, overflowX: 'auto' }} aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
-                                            {attributes.map((attribute) => (
-                                                <TableCell align="center" className="bg-dc-gray text-dc-light-gray">{attribute.length < 20 ? attribute :
+                                            {attributes.map((attribute, index) => (
+                                                <TableCell key={index} align="center" className="bg-dc-gray text-dc-light-gray">{attribute.length < 20 ? attribute :
                                                     <div className="">
                                                         <span className="text-[#FFFFFF]">{`${attribute.substring(0, 20)}...`}</span>
                                                     </div>
@@ -125,13 +124,13 @@ export default function Datasets() {
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {data[currDataset].map((row) => (
+                                        {data[currDataset].map((row, index) => (
                                             <TableRow
-                                                key={row.name}
+                                                key={index}
                                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                             >
-                                                {attributes.map((attribute) => (
-                                                    <TableCell align="center">{row[attribute] !== null ? row[attribute] : "-"}</TableCell>
+                                                {attributes.map((attribute, index) => (
+                                                    <TableCell key={index} align="center">{row[attribute] !== null ? row[attribute] : "-"}</TableCell>
                                                 ))}
                                             </TableRow>
                                         ))}
