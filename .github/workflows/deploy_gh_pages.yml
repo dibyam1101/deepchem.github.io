@@ -2,9 +2,9 @@ name: Deploy to gh-pages
 
 on:
   push:
-    branches: [ main, revamp, models ]
+    branches: [ main, revamp, models, datasets ]
   pull_request:
-    branches: [ main, revamp, models ]
+    branches: [ main, revamp, models, datasets ]
   repository_dispatch:
     types: [ update ]
 
