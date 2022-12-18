@@ -2,6 +2,8 @@ import os
 import requests
 from bs4 import BeautifulSoup
 import re
+import shutil
+import subprocess
 
 tutorials = []
 
@@ -14,21 +16,35 @@ soup = BeautifulSoup(r.content, 'html.parser')
 fileNames = soup.find_all('a', attrs= {'class': 'js-navigation-open Link--primary'})
 for fileName in fileNames:
     fileName = fileName.text
-    if fileName.endswith('.ipynb'):
+    if(fileName != '.gitignore' and fileName != 'assets'):
         tutorials.append(fileName)
 
 print(tutorials)
 
-if not os.path.exists('ipynb_notebooks'):
-  os.makedirs('ipynb_notebooks')
-if not os.path.exists('html_notebooks'):
-  os.makedirs('html_notebooks')
+try:
+    os.makedirs('./html-notebooks')
+    os.makedirs('./ipynb-notebooks')
+except:
+    print("Directories already exists, or could not create directories. ")
+
+fromPath = "./ipynb-notebooks/"
+toPath = "./html-notebooks/"
+
+with open('./notebooks.txt', "w") as notebook_list:
+            notebook_list.write('')
 
 for tutorial in tutorials:
-    response = requests.get(tutorialURL + tutorial)
-    with open(f'./ipynb_notebooks/{tutorial}', 'wb') as f:
-      f.write(response.content)
-      os.system(f'jupyter nbconvert --output-dir ./html_notebooks --to html ./ipynb_notebooks/{tutorial}')
+    try:
+        file_name_html = f'{tutorial.rsplit(".")[0]}.html'
+        response = requests.get(tutorialURL + tutorial)
+        with open(f"./ipynb-notebooks/{tutorial}", "wb") as f:
+          f.write(response.content)
+        subprocess.call(f'python -m nbconvert --to html ./ipynb-notebooks/{tutorial}', shell=True)
+        shutil.copyfile(fromPath + file_name_html, toPath + file_name_html)
 
-f = open('notebooks.txt', 'w')
-f.write('\n'.join(os.listdir('./html_notebooks')))
+        with open('./notebooks.txt', "a") as notebook_list:
+            notebook_list.write(file_name_html + '\n')
+    except:
+        print(f"Could not process {tutorial}")
+
+
