@@ -24,6 +24,7 @@ jobs:
           pip install -r ./requirements.txt
           python get_models.py
           python get_datasets.py
+          python dataLoaders.py
 
       - name: Install and Build
         run: |
