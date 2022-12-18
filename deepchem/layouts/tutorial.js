@@ -8,6 +8,20 @@ import tutorials from "../data/tutorials/tutorials"
 import ScrollToTop from "react-scroll-to-top";
 
 
+function toTitleCase(str) {
+    // Remove the ¶ character from the end of the title
+    if(str.charAt(str.length - 1) == '¶')
+            str = str.slice(0, -1);
+
+    str = str.toLowerCase();
+    const words = str.split(' ');
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    }
+    return words.join(' ');
+}
+
+
 export default function TutorialLayout({children}) {
     const [currentTutorialIndex, setCurrentTutorialIndex] = useState(1);
     const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -76,7 +90,7 @@ export default function TutorialLayout({children}) {
                     className={`notebook-menu ${isNavbarOpen ? "translate-x-0" : "-translate-x-full"} bg-white ease-in-out duration-300 lg:duration-0 fixed top-0 left-0 shadow-xl py-8 lg:py-0 h-screen w-[70vw] max-w-[300px]`}>
                     {/* <i className="block lg:hidden fas fa-close text-lg mb-5 cursor-pointer self-end" onClick={toggleNavbar}></i> */}
                     {tutorials.map((tutorial, i) => {
-                        return <TutorialLink key={i} title={tutorial.title.slice(0, tutorial.title.length - 1)}
+                        return <TutorialLink key={i} title={toTitleCase(tutorial.title)}
                                              active={i === currentTutorialIndex} onClick={setCurrentTutorialIndex}
                                              index={i} fileName={tutorial.urlifiedFileName}/>
                     })}
