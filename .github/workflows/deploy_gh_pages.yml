@@ -33,11 +33,11 @@ jobs:
           cd out
           touch .nojekyll
 
-      # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     folder: deepchem/out
-      #     branch: gh-pages
-      #     clean-exclude: |
-      #       .nojekyll
-      #       CNAME
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: deepchem/out
+          branch: gh-pages
+          clean-exclude: |
+            .nojekyll
+            CNAME
