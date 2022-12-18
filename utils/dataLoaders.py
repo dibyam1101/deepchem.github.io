@@ -3,6 +3,7 @@ import re
 import requests
 from bs4 import BeautifulSoup
 import urllib.request
+import subprocess
 
 dataLoaders = []
 dataLoaderURLs = {}
@@ -30,14 +31,21 @@ for i in range(len(dataLoaders)):
             dataLoaderURLs[dataLoaders[i][:index]] = _n
             break
 
-# os.system(f'cmd /c "curl -o --range 0-2 deepchem/data/dataLoaders/delaney-processed.csv "https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/delaney-processed.csv""')
-os.system(f'cmd /c "curl -o --range 0-2 temp.html "www.google.com""')
+for dataset in dataLoaderURLs:
+    print(dataset, dataLoaderURLs[dataset])
 
-# for dataset in dataLoaderURLs:
-#     # get the dataset name
-#     index = dataLoaderURLs[dataset].find('datasets/')
-#     datasetName = dataLoaderURLs[dataset][index + 9:]
-#     # remove the double quotes
-#     datasetName = datasetName.replace('"', '')
-#     if datasetName != '':
-#         os.system(f'cmd /c "curl -o  deepchem/data/dataLoaders/{datasetName} {dataLoaderURLs[dataset]} | head -10"')
+os.makedirs('..deepchem/data/dataLoaders')
+
+for dataset in dataLoaderURLs:
+    # get the dataset name
+    index = dataLoaderURLs[dataset].find('datasets/')
+    datasetName = dataLoaderURLs[dataset][index + 9:]
+    # remove the double quotes
+    datasetName = datasetName.replace('"', '')
+
+    print(datasetName)
+    if datasetName != '':
+        subprocess.call(f'curl -o  deepchem/data/dataLoaders/{datasetName} {dataLoaderURLs[dataset]}', shell=True)
+
+# list of datasets
+subprocess.call(['ls', 'deepchem/data/dataLoaders/'])
