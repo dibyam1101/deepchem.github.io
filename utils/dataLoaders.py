@@ -93,6 +93,8 @@ fileNames = os.listdir(toPath)
 os.makedirs('../deepchem/data/datasetsJSON')
 
 for fileName in fileNames:
+    if fileName.endswith(".tar"):
+        continue
     file = toPath + fileName
     df = pd.read_csv(file, nrows=6)
     file = finalPath + fileName
