@@ -34,7 +34,7 @@ for i in range(len(dataLoaders)):
 for dataset in dataLoaderURLs:
     print(dataset, dataLoaderURLs[dataset])
 
-os.makedirs('..deepchem/data/dataLoaders')
+os.makedirs('../deepchem/data/dataLoaders')
 
 for dataset in dataLoaderURLs:
     # get the dataset name
