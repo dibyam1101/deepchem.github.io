@@ -57,22 +57,22 @@ for id in tables:
             model = Model(name, url, category, featurizers, backends, types, modelId)
             models.append(model)
 
-os.makedirs('../deepchem/data/models')
+os.makedirs('../../deepchem/data/models')
 
 modelsJSONData = json.dumps(models, indent=4, cls=ModelEncoder)
-with open('../deepchem/data/models/models.json', 'w') as f:
+with open('../../deepchem/data/models/models.json', 'w') as f:
     f.write(modelsJSONData)
 
 backendList = list(set([item for sublist in backendList for item in sublist]))
-with open('../deepchem/data/models/backends.json', 'w') as f:
+with open('../../deepchem/data/models/backends.json', 'w') as f:
     f.write(json.dumps(backendList, indent=4))
 
 typeList = list(set([item for sublist in typeList for item in sublist]))
 typeList = list(filter(None, typeList))
-with open('../deepchem/data/models/types.json', 'w') as f:
+with open('../../deepchem/data/models/types.json', 'w') as f:
     f.write(json.dumps(typeList, indent=4))
 
 featurizerList = list(set([item for sublist in featurizerList for item in sublist]))
 featurizerList = list(filter(None, featurizerList))
-with open('../deepchem/data/models/featurizers.json', 'w') as f:
+with open('../../deepchem/data/models/featurizers.json', 'w') as f:
     f.write(json.dumps(featurizerList, indent=4))

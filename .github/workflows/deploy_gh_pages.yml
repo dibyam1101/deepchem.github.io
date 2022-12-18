@@ -31,8 +31,6 @@ jobs:
       - name: Fetch tutorial data
         run: |
           cd utils/tutorials
-          mkdir ipynb_notebooks
-          mkdir html_notebooks
           python3 fetch_tutorials.py
           python3 export_tutorials.py
 

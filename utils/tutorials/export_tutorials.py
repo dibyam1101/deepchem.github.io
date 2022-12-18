@@ -8,7 +8,7 @@ def clean(varStr): return re.sub(r'\W+|^(?=\d)','_', varStr)
 
 with open('./notebooks.txt', 'r') as notebook_files:
     for file in notebook_files:
-        with open(f'./html-notebooks/{file.strip()}', 'r', encoding="utf-8") as f:
+        with open(f'./html_notebooks/{file.strip()}', 'r', encoding="utf-8") as f:
             tutorial = {}
             soup = BeautifulSoup(f.read(), 'html.parser')
             body = soup.body
@@ -33,37 +33,37 @@ with open('./notebooks.txt', 'r') as notebook_files:
 
             with open(f'../../deepchem/pages/tutorials/{file.strip()[:-5]}.js', 'w', encoding = "utf-8" ) as component:
                 component.write(f"""
-                    import TutorialLayout from "../../layouts/tutorial";
-                    import notebookStyles from "../../data/tutorials/styles";
-                    import innerHTML from "../../data/tutorials/{file.strip()[:-5]}.js";
-                    import {{useEffect}} from "react";
-                    import scrollnav from "scrollnav";
+import TutorialLayout from "../../layouts/tutorial";
+import notebookStyles from "../../data/tutorials/styles";
+import innerHTML from "../../data/tutorials/{file.strip()[:-5]}.js";
+import {{useEffect}} from "react";
+import scrollnav from "scrollnav";
 
-                    const {cleaned_tutorial_name} = () => {{
+const {cleaned_tutorial_name} = () => {{
 
-                    useEffect(() => {{
-                            document.getElementsByClassName('scroll-nav')[0]?.remove();
-                            const content = document.querySelector(".notebook");
-                            const insertTarget = document.querySelector(".notebook");
+useEffect(() => {{
+        document.getElementsByClassName('scroll-nav')[0]?.remove();
+        const content = document.querySelector(".notebook");
+        const insertTarget = document.querySelector(".notebook");
 
-                            if (insertTarget && content) {{
-                                scrollnav.init(content, {{
-                                    sections: "h1, h2", insertTarget: insertTarget, insertLocation: "after",
-                                }});
-                            }}
+        if (insertTarget && content) {{
+            scrollnav.init(content, {{
+                sections: "h1, h2", insertTarget: insertTarget, insertLocation: "after",
+            }});
+        }}
 
-                            MathJax?.Hub?.Queue(["Typeset", MathJax.Hub]);
-                        }}, []);
+        MathJax?.Hub?.Queue(["Typeset", MathJax.Hub]);
+    }}, []);
 
-                    return <div className="overflow-x-scroll" dangerouslySetInnerHTML={{{{
-                                           __html: `${{innerHTML.html}} ${{notebookStyles}}`,
-                                       }}}}
-                                   ></div>
-                                   }}
+return <div className="overflow-x-scroll" dangerouslySetInnerHTML={{{{
+                        __html: `${{innerHTML.html}} ${{notebookStyles}}`,
+                    }}}}
+                ></div>
+                }}
 
-                    {cleaned_tutorial_name}.Layout = TutorialLayout;
+{cleaned_tutorial_name}.Layout = TutorialLayout;
 
-                    export default {cleaned_tutorial_name};
+export default {cleaned_tutorial_name};
                 """)
 
             tutorial['title'] = title

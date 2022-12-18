@@ -129,3 +129,63 @@ code {
 .bg-light-gray{
     @apply bg-dc-light-gray;
 }
+
+@layer components {
+    .btn-container-filter {
+        @apply flex flex-row items-start gap-2.5 flex-wrap;
+    }
+
+    .rmv-filter {
+        @apply p-0 normal-case min-w-0;
+    }
+
+    .btn-filter {
+        @apply flex flex-row items-center gap-2.5 py-0.5 px-2 box-border bg-white border border-solid border-dc-light-gray rounded-md;
+    }
+
+    .btn-selected-filter {
+        @apply flex flex-row items-center gap-2.5 py-0.5 px-2 box-border bg-dc-light-gray border border-solid border-dc-light-gray rounded-md;
+    }
+
+    .btn-text-filter {
+        @apply text-[0.8rem] text-dc-gray text-ellipsis font-medium;
+    }
+
+    .btn-text-selected-filter {
+        @apply text-[0.8rem] text-dc-white break-all;
+    }
+
+    .category-text-filter {
+        @apply text-lg text-dc-light-blue;
+    }
+
+    .category-filter {
+        @apply flex flex-col items-start gap-2.5;
+    }
+
+    .model-container {
+        @apply w-full grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-3;
+    }
+    .model-card {
+        @apply h-fit md:min-h-[260px];
+    }
+
+    /* Tutorials */
+
+    .notebook-menu {
+        @apply hidden;
+    }
+    
+    .notebook {
+        @apply mb-40 flex;
+    }
+
+    
+    .scroll-nav {
+        @apply text-right text-xs hidden lg:block font-poppins overflow-x-hidden;
+    }
+
+    .scroll-nav__item {
+        @apply pb-2 px-2;
+    }
+}
