@@ -51,7 +51,7 @@ for dataset in dataLoaderURLs:
         subprocess.call(f'curl -o  ../deepchem/data/dataLoaders/{datasetName} {dataLoaderURLs[dataset]}', shell=True)
 
 # list of datasets
-subprocess.call(['ls', 'deepchem/data/dataLoaders/'])
+subprocess.call(['ls', '../deepchem/data/dataLoaders/'])
 
 os.makedirs('../deepchem/data/dataLoadersCSV')
 
@@ -69,7 +69,7 @@ for fileName in fileNames:
         tar = tarfile.open(fileName, "r:gz")
         tar.extractall()
         tar.close()
-        shutil.move(fileName[:-7], toPath + fileName[:-7])
+        # shutil.move(fileName[:-7], toPath + fileName[:-7])
     elif fileName.endswith(".gz"):
         inFile = fromPath + fileName
         outfile = toPath + fileName[:-3]
