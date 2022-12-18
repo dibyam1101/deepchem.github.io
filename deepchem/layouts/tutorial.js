@@ -102,8 +102,8 @@ export default function TutorialLayout({children}) {
         </div>
 
         <ScrollToTop
-            className="flex items-center justify-center !rounded-full !opacity-50 hover:!opacity-100 transition-all !bg-dc-gray !text-3xl !font-bold"
-            smooth component={<i className="fa-solid fa-arrow-up text-dc-light-gray "></i>}
+            className="flex items-center justify-center !rounded-full !opacity-70 hover:!opacity-100 transition-all !bg-dc-orange"
+            smooth component={<i className="fa-solid fa-chevron-up text-dc-white !text-lg "></i>}
         />
 
     </>
