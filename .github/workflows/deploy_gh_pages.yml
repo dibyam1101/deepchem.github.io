@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Fetch model data
+      - name: Fetch models and datasets data
         run: |
           cd utils
           pip install -r ./requirements.txt

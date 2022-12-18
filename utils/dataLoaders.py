@@ -45,7 +45,7 @@ for dataset in dataLoaderURLs:
 
     print(datasetName)
     if datasetName != '':
-        subprocess.call(f'curl -o  deepchem/data/dataLoaders/{datasetName} {dataLoaderURLs[dataset]}', shell=True)
+        subprocess.call(f'curl -o  ../deepchem/data/dataLoaders/{datasetName} {dataLoaderURLs[dataset]}', shell=True)
 
 # list of datasets
 subprocess.call(['ls', 'deepchem/data/dataLoaders/'])
