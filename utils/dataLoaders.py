@@ -79,4 +79,5 @@ for fileName in fileNames:
     else:
         continue
 
+subprocess.call(['ls', '../deepchem/data/dataLoadersCSV/'])
 fileNames = os.listdir(toPath)
