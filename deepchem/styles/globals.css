@@ -174,7 +174,7 @@ code {
 
     .notebook-menu {
         flex: 2 1 0;
-        @apply z-10 fixed flex flex-col h-[70vh] overflow-y-scroll px-0 lg:!translate-x-0 lg:!static lg:!shadow-none;
+        @apply z-10 fixed flex flex-col lg:!h-[70vh] overflow-y-scroll px-0 lg:!translate-x-0 lg:!static lg:!shadow-none;
     }
     
     .notebook {
