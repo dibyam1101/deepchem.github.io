@@ -85,47 +85,31 @@ for dataset in filteredDatasetURLs:
     # Download the dataset
     subprocess.call(f'curl -o {fromPath}{datasetName} {filteredDatasetURLs[dataset]}', shell=True)
 
-subprocess.call(['ls', '../deepchem/data/datasets/'])
 
+# Extract the datasets to csv format
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# fileNames = os.listdir(fromPath)
-
-# for fileName in fileNames:
-#     if fileName.endswith(".csv"):
-#         shutil.copyfile(fromPath + fileName, toPath + fileName)
-#     elif fileName.endswith(".pkl.gz"):
-#         continue
+datasetNames = os.listdir(fromPath)
+for datasetName in datasetNames:
+    if fileName.endswith(".csv"):
+        shutil.copyfile(fromPath + fileName, toPath + fileName)
+    elif fileName.endswith(".pkl.gz"):
+        continue
 #     # elif fileName.endswith(".tar.gz"):
 #     #     tar = tarfile.open(fileName, "r:gz")
 #     #     tar.extractall()
 #     #     tar.close()
 #         # shutil.move(fileName[:-7], toPath + fileName[:-7])
-#     elif fileName.endswith(".gz"):
-#         inFile = fromPath + fileName
-#         outfile = toPath + fileName[:-3]
-#         with gzip.open(inFile, 'rb') as f_in:
-#             with open (outfile, 'wb') as f_out:
-#                 shutil.copyfileobj(f_in, f_out)
-#     else:
-#         continue
+    elif fileName.endswith(".gz"):
+        inFile = fromPath + fileName
+        outfile = toPath + fileName[:-3]
+        with gzip.open(inFile, 'rb') as f_in:
+            with open (outfile, 'wb') as f_out:
+                shutil.copyfileobj(f_in, f_out)
+    else:
+        continue
 
-# # subprocess.call(['ls', '../deepchem/data/datasetsCSV/'])
+subprocess.call(['ls', '../deepchem/data/datasetsCSV/'])
+
 
 # fileNames = os.listdir(toPath)
 
