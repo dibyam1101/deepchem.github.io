@@ -23,7 +23,7 @@ jobs:
           cd utils
           pip install -r ./requirements.txt
           python get_models.py
-          python dataLoaders.py
+          python get_datasets.py
 
       - name: Install and Build
         run: |
