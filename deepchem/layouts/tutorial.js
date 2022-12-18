@@ -21,7 +21,7 @@ export default function TutorialLayout({children}) {
         if (!router.isReady) return;
         const url = router.pathname;
         const tutorialName = url.split('\/')[2];
-        let tutorialIndex = tutorials.findIndex((element) => element.fileName.includes(tutorialName))
+        let tutorialIndex = tutorials.findIndex((element) => element.urlifiedFileName.includes(tutorialName))
         setCurrentTutorialIndex(tutorialIndex)
     }, [router.isReady]);
 
@@ -78,7 +78,7 @@ export default function TutorialLayout({children}) {
                     {tutorials.map((tutorial, i) => {
                         return <TutorialLink key={i} title={tutorial.title.slice(0, tutorial.title.length - 1)}
                                              active={i === currentTutorialIndex} onClick={setCurrentTutorialIndex}
-                                             index={i} fileName={tutorial.fileName.slice(0, -5)}/>
+                                             index={i} fileName={tutorial.urlifiedFileName}/>
                     })}
                 </nav>
                 <div className="notebook overflow-x-hidden bg-dc-light-gray/10">
