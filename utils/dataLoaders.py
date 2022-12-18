@@ -88,6 +88,8 @@ for i in range(len(fileNames)):
 with open('../deepchem/data/datasets.json', 'w') as f:
     f.write(json.dumps(fileNames, indent=4))
 
+fileNames = os.listdir(toPath)
+
 os.makedirs('../deepchem/data/datasetsJSON')
 
 for fileName in fileNames:
