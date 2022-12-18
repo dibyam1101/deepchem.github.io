@@ -12,9 +12,9 @@ from bs4 import BeautifulSoup
 datasets = []
 datasetURLs = {}
 filteredDatasetURLs = {}
-fromPath = "../deepchem/data/datasets/"
-toPath = "../deepchem/data/datasetsCSV/"
-finalPath = "../deepchem/data/datasetsJSON/"
+fromPath = "../../deepchem/data/datasets/"
+toPath = "../../deepchem/data/datasetsCSV/"
+finalPath = "../../deepchem/data/datasetsJSON/"
 os.makedirs(fromPath)
 os.makedirs(toPath)
 os.makedirs(finalPath)
@@ -127,7 +127,7 @@ datasetNames = os.listdir(toPath)
 for datasetName in datasetNames:
     datasetNames[datasetNames.index(datasetName)] = datasetName[:-4]
 
-with open('../deepchem/data/datasets.json', 'w') as f:
+with open('../../deepchem/data/datasets.json', 'w') as f:
     f.write(json.dumps(datasetNames, indent=4))
 
 
