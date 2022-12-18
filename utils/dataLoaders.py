@@ -86,7 +86,7 @@ for dataset in filteredDatasetURLs:
     subprocess.call(f'curl -o {fromPath}{datasetName} {filteredDatasetURLs[dataset]}', shell=True)
 
 
-subprocess.call(['ls', '../deepchem/data/datasets/'])
+subprocess.call(['ls', '../deepchem/data/datasetsCSV/'])
 
 
 # Extract the datasets to csv format
@@ -97,11 +97,8 @@ for datasetName in datasetNames:
         shutil.copyfile(fromPath + datasetName, toPath + datasetName)
     elif datasetName.endswith(".pkl.gz"):
         continue
-    # elif fileName.endswith(".tar.gz"):
-    #     tar = tarfile.open(fileName, "r:gz")
-    #     tar.extractall()
-    #     tar.close()
-        # shutil.move(fileName[:-7], toPath + fileName[:-7])
+    elif fileName.endswith(".tar.gz"):
+        shutil.unpack_archive(datasetName, toPath)
     elif datasetName.endswith(".gz"):
         inFile = fromPath + datasetName
         outfile = toPath + datasetName[:-3]
