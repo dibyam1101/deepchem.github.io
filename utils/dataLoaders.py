@@ -90,6 +90,8 @@ with open('../deepchem/data/datasets.json', 'w') as f:
 
 fileNames = os.listdir(toPath)
 
+subprocess.call(['ls', '../deepchem/data/dataLoadersCSV/'])
+
 os.makedirs('../deepchem/data/datasetsJSON')
 
 for fileName in fileNames:
