@@ -86,12 +86,10 @@ for dataset in filteredDatasetURLs:
     subprocess.call(f'curl -o {fromPath}{datasetName} {filteredDatasetURLs[dataset]}', shell=True)
 
 
-subprocess.call(['ls', '../deepchem/data/datasets/'])
-
-
 # Extract the datasets to csv format
 
 datasetNames = os.listdir(fromPath)
+
 for datasetName in datasetNames:
     if datasetName.endswith(".csv"):
         shutil.copyfile(fromPath + datasetName, toPath + datasetName)
@@ -109,12 +107,20 @@ for datasetName in datasetNames:
         continue
 
 
+# Remove the .sdf.csv extension from the dataset names
+
+datasetNames = os.listdir(toPath)
+
+for datasetName in datasetNames:
+    if datasetName.endswith(".sdf.csv"):
+        os.rename(toPath + datasetName, toPath + datasetName[:-8] + '.csv')
+    elif datasetName.endswith(".csv"):
+        continue
+    else:
+        os.remove(toPath + datasetName)
+
+
 subprocess.call(['ls', '../deepchem/data/datasetsCSV/'])
-
-
-
-
-
 
 
 # fileNames = os.listdir(toPath)
