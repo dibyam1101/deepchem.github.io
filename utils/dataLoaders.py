@@ -98,7 +98,7 @@ for datasetName in datasetNames:
     elif datasetName.endswith(".pkl.gz"):
         continue
     elif datasetName.endswith(".tar.gz"):
-        shutil.unpack_archive(datasetName, toPath)
+        shutil.unpack_archive(fromPath + datasetName, toPath)
     elif datasetName.endswith(".gz"):
         inFile = fromPath + datasetName
         outfile = toPath + datasetName[:-3]
