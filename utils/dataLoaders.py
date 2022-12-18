@@ -120,33 +120,29 @@ for datasetName in datasetNames:
         os.remove(toPath + datasetName)
 
 
-subprocess.call(['ls', '../deepchem/data/datasetsCSV/'])
+# Create a json file for list of datasets
+
+datasetNames = os.listdir(toPath)
+
+for datasetName in datasetNames:
+    datasetNames[datasetNames.index(datasetName)] = datasetName[:-4]
+
+with open('../deepchem/data/datasets.json', 'w') as f:
+    f.write(json.dumps(datasetNames, indent=4))
 
 
-# fileNames = os.listdir(toPath)
+# Convert the datasets to json format
 
-# for i in range(len(fileNames)):
-#     if fileNames[i].endswith('.sdf.csv'):
-#         fileNames[i] = fileNames[i].replace('.sdf.csv', '')
-#     elif fileNames[i].endswith('.csv'):
-#         fileNames[i] = fileNames[i].replace('.csv', '')
+datasetNames = os.listdir(toPath)
 
-# with open('../deepchem/data/datasets.json', 'w') as f:
-#     f.write(json.dumps(fileNames, indent=4))
+for datasetName in datasetNames:
+    dataset = toPath + datasetName
+    df = pd.read_csv(dataset, nrows=6)
+    dataset = finalPath + dataset
 
-# fileNames = os.listdir(toPath)
+    jsonDataset = df.iloc[0:5].to_json(orient='records')
+    with open(dataset[:-3] + 'json', 'w') as outfile:
+        outfile.write(jsonDataset)
 
-# subprocess.call(['ls', '../deepchem/data/datasetsCSV/'])
 
-# for fileName in fileNames:
-#     if fileName.endswith(".tar"):
-#         continue
-#     file = toPath + fileName
-#     df = pd.read_csv(file)
-#     file = finalPath + fileName
-
-#     jsonFile = df.iloc[0:5].to_json(orient='records')
-#     with open(file[:-3] + 'json', 'w') as outfile:
-#         outfile.write(jsonFile)
-
-# subprocess.call(['ls', '../deepchem/data/datasetsJSON/'])
+subprocess.call(['ls', '../deepchem/data/datasetsJSON/'])
