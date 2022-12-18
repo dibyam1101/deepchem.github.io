@@ -63,7 +63,7 @@ os.makedirs('../deepchem/data/datasetsJSON')
 
 for fileName in fileNames:
     file = toPath + fileName
-    df = pd.read_csv(file)
+    df = pd.read_csv(file, nrows=6)
     file = finalPath + fileName
 
     jsonFile = df.iloc[0:5].to_json(orient='records')

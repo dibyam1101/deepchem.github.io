@@ -6,6 +6,7 @@ import shutil
 from bs4 import BeautifulSoup
 import urllib.request
 import subprocess
+import pandas as pd
 import tarfile
 
 dataLoaders = []
@@ -37,17 +38,14 @@ for i in range(len(dataLoaders)):
 os.makedirs('../deepchem/data/dataLoaders')
 
 for dataset in dataLoaderURLs:
-    # get the dataset name
     index = dataLoaderURLs[dataset].find('datasets/')
     datasetName = dataLoaderURLs[dataset][index + 9:]
-    # remove the double quotes
     datasetName = datasetName.replace('"', '')
 
     if datasetName != '':
         subprocess.call(f'curl -o ../deepchem/data/dataLoaders/{datasetName} {dataLoaderURLs[dataset]}', shell=True)
 
-# list of datasets
-subprocess.call(['ls', '../deepchem/data/dataLoaders/'])
+# subprocess.call(['ls', '../deepchem/data/dataLoaders/'])
 
 os.makedirs('../deepchem/data/dataLoadersCSV')
 
@@ -75,5 +73,30 @@ for fileName in fileNames:
     else:
         continue
 
-subprocess.call(['ls', '../deepchem/data/dataLoadersCSV/'])
+# subprocess.call(['ls', '../deepchem/data/dataLoadersCSV/'])
+
 fileNames = os.listdir(toPath)
+
+finalPath = "../deepchem/data/datasetsJSON/"
+
+for i in range(len(fileNames)):
+    if fileNames[i].endswith('.sdf.csv'):
+        fileNames[i] = fileNames[i].replace('.sdf.csv', '')
+    elif fileNames[i].endswith('.csv'):
+        fileNames[i] = fileNames[i].replace('.csv', '')
+
+with open('../deepchem/data/datasets.json', 'w') as f:
+    f.write(json.dumps(fileNames, indent=4))
+
+os.makedirs('../deepchem/data/datasetsJSON')
+
+for fileName in fileNames:
+    file = toPath + fileName
+    df = pd.read_csv(file, nrows=6)
+    file = finalPath + fileName
+
+    jsonFile = df.iloc[0:5].to_json(orient='records')
+    with open(file[:-3] + 'json', 'w') as outfile:
+        outfile.write(jsonFile)
+
+subprocess.call(['ls', '../deepchem/data/datasetsJSON/'])
