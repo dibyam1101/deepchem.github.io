@@ -1,10 +1,8 @@
-import Link from "next/link";
-
 import NavLink from "./NavLink";
 
 export default function NavLinks({}) {
   return (
-    <nav className="w-full">
+    <nav className="w-full main-nav-bar">
       <ul className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 lg:gap-10">
         <li>
           <NavLink
@@ -17,9 +15,8 @@ export default function NavLinks({}) {
         <li>
           <NavLink
             label="Tutorials"
-            link="https://github.com/deepchem/deepchem/tree/master/examples/tutorials"
+            link="/tutorials"
             icon="fa-solid fa-book-open"
-            blank={true}
           />
         </li>
         <li>

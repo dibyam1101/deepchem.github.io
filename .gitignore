@@ -1,3 +1,7 @@
 .idea
 
 venv/
+
+utils/tutorials/html_notebooks/*
+utils/tutorials/ipynb_notebooks/*
+utils/tutorials/*.txt

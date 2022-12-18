@@ -2,9 +2,9 @@ name: Deploy to gh-pages
 
 on:
   push:
-    branches: [ main, revamp, models, datasets ]
+    branches: [ main, revamp, models, tutorials, datasets ]
   pull_request:
-    branches: [ main, revamp, models, datasets ]
+    branches: [ main, revamp, models, tutorials, datasets ]
   repository_dispatch:
     types: [ update ]
 
@@ -18,14 +18,28 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Fetch models and datasets data
+      - name: Install dependencies
         run: |
           cd utils
           pip install -r ./requirements.txt
+
+      - name: Fetch model data
+        run: |
+          cd utils/models
           python get_models.py
+
+      - name: Fetch tutorial data
+        run: |
+          cd utils/tutorials
+          python3 fetch_tutorials.py
+          python3 export_tutorials.py
+
+      - name: Fetch datasets data
+        run: |
+          cd utils/datasets
           python get_datasets.py
 
-      - name: Install and Build
+      - name: Install and build
         run: |
           cd deepchem
           npm i --legacy-peer-deps

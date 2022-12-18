@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    -webkit-tap-highlight-color: transparent;
+}
+
 html,
 body {
     padding: 0;
@@ -35,7 +39,8 @@ canvas {
     .contributors,
     footer,
     .explore,
-    .about {
+    .about,
+    .tutorials{
         zoom: 0.8;
 
     }
@@ -114,4 +119,92 @@ footer {
     50% {
         opacity: 0;
     }
+}
+
+
+code {
+    white-space: normal !important;
+}
+
+.bg-light-blue{
+    @apply bg-dc-light-blue;
+}
+
+.bg-light-gray{
+    @apply bg-dc-light-gray;
+}
+
+@layer components {
+    .btn-container-filter {
+        @apply flex flex-row items-start gap-2.5 flex-wrap;
+    }
+
+    .rmv-filter {
+        @apply p-0 normal-case min-w-0;
+    }
+
+    .btn-filter {
+        @apply flex flex-row items-center gap-2.5 py-0.5 px-2 box-border bg-white border border-solid border-dc-light-gray rounded-md;
+    }
+
+    .btn-selected-filter {
+        @apply flex flex-row items-center gap-2.5 py-0.5 px-2 box-border bg-dc-light-gray border border-solid border-dc-light-gray rounded-md;
+    }
+
+    .btn-text-filter {
+        @apply text-[0.8rem] text-dc-gray text-ellipsis font-medium;
+    }
+
+    .btn-text-selected-filter {
+        @apply text-[0.8rem] text-dc-white break-all;
+    }
+
+    .category-text-filter {
+        @apply text-lg text-dc-light-blue;
+    }
+
+    .category-filter {
+        @apply flex flex-col items-start gap-2.5;
+    }
+
+    .model-container {
+        @apply w-full grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-3;
+    }
+    .model-card {
+        @apply h-fit md:min-h-[260px];
+    }
+
+    /* Tutorials */
+
+    .notebook-menu {
+        flex: 2 1 0;
+        @apply z-10 fixed flex flex-col lg:!h-[70vh] overflow-y-scroll px-0 lg:!translate-x-0 lg:!static lg:!shadow-none;
+    }
+    
+    .notebook {
+        flex: 6 1 0;
+        @apply mb-10 overflow-x-scroll;
+    }
+
+    
+    .scroll-nav {
+        flex: 2 1 0;
+        @apply text-right text-xs hidden xl:block font-poppins max-w-[200px] pl-2;
+    }
+
+    /* .scroll-nav__item {
+        @apply mt-2 hover:font-semibold;
+    }
+
+    .scroll-nav__list {
+        @apply hidden;
+    } */
+}
+
+.scroll-nav__item {
+    margin-bottom: 10px;
+}
+
+.scroll-nav__item:hover {
+    font-weight: 600;
 }

@@ -4,16 +4,16 @@
 const debug = process.env.NODE_ENV !== "production";
 
 const nextConfig = {
-  swcMinify: true,
+    swcMinify: true,
 
-  images: {
-    unoptimized: true,
-  },
+    images: {
+        unoptimized: true,
+    },
 
-  basePath: !debug ? "/deepchem.github.io" : "",
-  assetPrefix: !debug ? "/deepchem.github.io/" : "",
+    basePath: !debug ? "/deepchem.github.io" : "",
+    assetPrefix: !debug ? "/deepchem.github.io/" : "",
 
-  
+
 };
 
 module.exports = nextConfig;
