@@ -1,9 +1,12 @@
 import os
-import re
 import requests
+import json
+import gzip
+import shutil
 from bs4 import BeautifulSoup
 import urllib.request
 import subprocess
+import tarfile
 
 dataLoaders = []
 dataLoaderURLs = {}
@@ -49,3 +52,31 @@ for dataset in dataLoaderURLs:
 
 # list of datasets
 subprocess.call(['ls', 'deepchem/data/dataLoaders/'])
+
+os.makedirs('../deepchem/data/dataLoadersCSV')
+
+fromPath = "../deepchem/data/dataLoaders/"
+toPath = "../deepchem/data/dataLoadersCSV/"
+
+fileNames = os.listdir(fromPath)
+
+for fileName in fileNames:
+    if fileName.endswith(".csv"):
+        shutil.copyfile(fromPath + fileName, toPath + fileName)
+    elif fileName.endswith(".pkl.gz") or fileName.endswith(".mat"):
+        continue
+    elif fileName.endswith(".tar.gz"):
+        tar = tarfile.open(fileName, "r:gz")
+        tar.extractall()
+        tar.close()
+        shutil.move(fileName[:-7], toPath + fileName[:-7])
+    elif fileName.endswith(".gz"):
+        inFile = fromPath + fileName
+        outfile = toPath + fileName[:-3]
+        with gzip.open(inFile, 'rb') as f_in:
+            with open (outfile, 'wb') as f_out:
+                shutil.copyfileobj(f_in, f_out)
+    else:
+        continue
+
+fileNames = os.listdir(toPath)
