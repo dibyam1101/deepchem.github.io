@@ -8,7 +8,7 @@ def clean(varStr): return re.sub(r'\W+|^(?=\d)', '_', varStr)
 
 with open('./notebooks.txt', 'r') as notebook_files:
     for file in notebook_files:
-        with open(f'./html_notebooks/{file.strip()}', 'r', encoding="utf-8") as f:
+        with open(f'./html-notebooks/{file.strip()}', 'r', encoding="utf-8") as f:
             tutorial = {}
             soup = BeautifulSoup(f.read(), 'html.parser')
             body = soup.body
