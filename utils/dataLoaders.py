@@ -138,7 +138,7 @@ datasetNames = os.listdir(toPath)
 for datasetName in datasetNames:
     dataset = toPath + datasetName
     df = pd.read_csv(dataset, nrows=6)
-    dataset = finalPath + dataset
+    dataset = finalPath + datasetName
 
     jsonDataset = df.iloc[0:5].to_json(orient='records')
     with open(dataset[:-3] + 'json', 'w') as outfile:
