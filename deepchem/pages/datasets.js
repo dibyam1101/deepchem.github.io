@@ -12,6 +12,7 @@ import Paper from '@mui/material/Paper';
 import datasets from "/data/datasets.json";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import deepchemLink from "/public/icons/deepchem-link.png";
 import deepchemDownload from "/public/icons/deepchem-download.png";
@@ -40,6 +41,8 @@ export default function Datasets() {
     const [currDataset, setCurrDataset] = useState('');
     const [attributes, setAttributes] = useState([]);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [documentationLink, setDocumentationLink] = useState('');
+    const [dataLoaderLink, setDataLoaderLink] = useState('');
     const router = useRouter();
 
     useEffect(() => {
@@ -49,6 +52,8 @@ export default function Datasets() {
         } else {
             setCurrDataset(dataset);
             setAttributes(Object.keys(data[dataset][0]));
+            setDocumentationLink({`https://deepchem.readthedocs.io/en/latest/api_reference/moleculenet.html#${dataset}-dataset`});
+            setDataLoaderLink({`https://github.com/deepchem/deepchem/blob/master/deepchem/molnet/load_function/${dataset}_datasets.py`});
         }
     }, [router]);
 
@@ -107,12 +112,16 @@ export default function Datasets() {
                                 <div>{currDataset}</div>
                             </div>
                             <div className="flex flex-row items-start gap-5">
-                                <div className="flex flex-row items-start p-2.5 gap-2.5 bg-dc-light-gray rounded-lg">
-                                    <Image src={deepchemLink} width={15} height={15} alt={"LinkImage"} />
-                                </div>
-                                <div className="flex flex-row items-start p-2.5 gap-2.5 bg-dc-light-gray rounded-lg">
-                                    <Image src={deepchemDownload} width={15} height={15} alt={"DownloadImage"} />
-                                </div>
+                                <Link href={documentationLink} target="_blank">
+                                    <div className="flex flex-row items-start p-2.5 gap-2.5 bg-dc-light-gray rounded-lg">
+                                        <Image src={deepchemLink} width={15} height={15} alt={"LinkImage"} />
+                                    </div>
+                                </Link>
+                                <Link href={dataLoaderLink} target="_blank">
+                                    <div className="flex flex-row items-start p-2.5 gap-2.5 bg-dc-light-gray rounded-lg">
+                                        <Image src={deepchemDownload} width={15} height={15} alt={"DownloadImage"} />
+                                    </div>
+                                </Link>
                             </div>
                         </div>
 
