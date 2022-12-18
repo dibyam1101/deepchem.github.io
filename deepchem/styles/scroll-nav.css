@@ -1,18 +1,18 @@
-::-webkit-scrollbar {
-    width: 18px;
+:not(html) ::-webkit-scrollbar {
+    width: 17px;
 }
 
-::-webkit-scrollbar-track {
+:not(html) ::-webkit-scrollbar-track {
     background-color: transparent;
 }
 
-::-webkit-scrollbar-thumb {
+:not(html) ::-webkit-scrollbar-thumb {
     background-color: #d6dee1;
     border-radius: 28px;
     border: 6px solid transparent;
     background-clip: content-box;
 }
 
-::-webkit-scrollbar-thumb:hover {
+:not(html) ::-webkit-scrollbar-thumb:hover {
     background-color: #a8bbbf;
 }
