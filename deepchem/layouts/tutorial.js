@@ -24,11 +24,12 @@ export default function TutorialLayout({ children }) {
     }, [router.isReady]);
 
     useEffect(() => {
-        // Runs after the component unmounts
-        // return () => {
-        //     scrollnav?.destroy();
-        // }
-    }, []);
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                setIsNavbarOpen(false);
+            }
+        })
+    }, [])
 
 
     return <>
@@ -57,24 +58,27 @@ export default function TutorialLayout({ children }) {
                     }
                 }`}
         </Script>
-
-        <div className="text-3xl px-[25px] 2xl:px-[300px] mt-8 font-semibold flex flex-row items-center gap-8">
-            <h1 className="">Tutorials</h1>
-        </div>
-        <i className={`fa-solid ${isNavbarOpen ? "fa-xmark" : "fa-bars"} md:hidden cursor-pointer text-3xl px-[25px] 2xl:px-[300px] mt-8 font-semibold  gap-8`} onClick={toggleNavbar}></i>
+        
+        <div className={`${isNavbarOpen ? "flex" : "hidden"} fixed bg-dc-gray/80 w-full h-[100vh] top-0 lg:hidden z-10`} onClick={toggleNavbar}></div>
         <div
-            className="mt-8 flex flex-row px-[25px] 2xl:px-[300px] items-start overflow-x-scroll gap-4 lg:gap-8"
+        className="flex flex-col px-[25px] 2xl:px-[300px] items-start overflow-x-scroll gap-8 font-poppins py-8 lg:py-16"
         >
-            <nav className="">
-                {tutorials.map((tutorial, i) => {
-                    return <TutorialLink key={i} title={tutorial.title.slice(0, tutorial.title.length - 1)}
-                        active={i === currentTutorialIndex} onClick={setCurrentTutorialIndex}
-                        index={i} fileName={tutorial.fileName.slice(0, -5)} />
-                })}
-            </nav>
-
-            <div className={`${isNavbarOpen ? "hidden" : ""} notebook overflow-x-scroll bg-dc-light-gray/10`}>
-                {children}
+            <div className="flex flex-row items-center">
+                <i className="block lg:hidden fas fa-angle-right text-lg mr-5 cursor-pointer" onClick={toggleNavbar}></i>
+                <h2 className="mb-0">Tutorials</h2>
+            </div>
+            <div className="flex flex-row justify-between w-full">
+                <nav className={`notebook-menu ${isNavbarOpen ? "translate-x-0" : "-translate-x-full"} bg-white ease-in-out duration-300 lg:duration-0 fixed top-0 left-0 shadow-xl py-8 lg:py-0 h-screen w-[70vw] max-w-[300px]`}>
+                    {/* <i className="block lg:hidden fas fa-close text-lg mb-5 cursor-pointer self-end" onClick={toggleNavbar}></i> */}
+                    {tutorials.map((tutorial, i) => {
+                        return <TutorialLink key={i} title={tutorial.title.slice(0, tutorial.title.length - 1)}
+                            active={i === currentTutorialIndex} onClick={setCurrentTutorialIndex} 
+                            index={i} fileName={tutorial.fileName.slice(0, -5)} />
+                    })}
+                </nav>
+                <div className="notebook overflow-x-hidden bg-dc-light-gray/10">
+                    {children}
+                </div>
             </div>
         </div>
     </>

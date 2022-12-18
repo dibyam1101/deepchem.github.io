@@ -28,7 +28,7 @@ for tutorial in tutorials:
     response = requests.get(tutorialURL + tutorial)
     with open(f'./ipynb_notebooks/{tutorial}', 'wb') as f:
       f.write(response.content)
-      # os.system(f'jq -M \'del(.metadata.widgets)\' ./ipynb_notebooks/{tutorial} > ./ipynb_notebooks/{tutorial}')
-      os.system(f'jupyter nbconvert --to html ./ipynb_notebooks/{tutorial}')
-      os.system(f'mv ./ipynb_notebooks/{(tutorial[:-6])}.html ./html_notebooks')
-      os.system(f'ls html_notebooks/ > notebooks.txt')
+      os.system(f'jupyter nbconvert --output-dir ./html_notebooks --to html ./ipynb_notebooks/{tutorial}')
+
+f = open('notebooks.txt', 'w')
+f.write('\n'.join(os.listdir('./html_notebooks')))

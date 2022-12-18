@@ -173,19 +173,34 @@ code {
     /* Tutorials */
 
     .notebook-menu {
-        @apply hidden;
+        flex: 2 1 0;
+        @apply z-10 fixed flex flex-col h-[70vh] overflow-y-scroll px-0 lg:!translate-x-0 lg:!static lg:!shadow-none;
     }
     
     .notebook {
-        @apply mb-40 flex;
+        flex: 6 1 0;
+        @apply mb-10 overflow-x-scroll;
     }
 
     
     .scroll-nav {
-        @apply text-right text-xs hidden lg:block font-poppins overflow-x-hidden;
+        flex: 2 1 0;
+        @apply text-right text-xs hidden xl:block font-poppins max-w-[200px] pl-2;
     }
 
-    .scroll-nav__item {
-        @apply pb-2 px-2;
+    /* .scroll-nav__item {
+        @apply mt-2 hover:font-semibold;
     }
+
+    .scroll-nav__list {
+        @apply hidden;
+    } */
+}
+
+.scroll-nav__item {
+    margin-bottom: 10px;
+}
+
+.scroll-nav__item:hover {
+    font-weight: 600;
 }

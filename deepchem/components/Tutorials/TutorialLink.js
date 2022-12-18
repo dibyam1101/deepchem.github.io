@@ -7,7 +7,7 @@ export default function TutorialLink({ title, active, onClick, index, fileName }
   }
   return (
       <Link href = {`/tutorials/${fileName}`}>
-        <div className={`m-2 cursor-pointer hover:bg-dc-light-gray/30 border-l-8 ${active ? "border-dc-blue" : "border-dc-light-gray"} px-2 py-1`}
+        <div className={`mx-0 my-1 cursor-pointer font-poppins hover:bg-dc-light-gray/30 lg:border-l-8 ${active ? "border-dc-blue" : "border-dc-light-gray"} px-2 py-1`}
              onClick={() => {
                setCurrentTutorialIndex(index);
              }}
