@@ -22,7 +22,7 @@ for fileName in fileNames:
 os.makedirs('../deepchem/data/datasets')
 
 for dataset in datasets:
-    subprocess.call(f'curl -o ../deepchem/data/datasets/{dataset} {datasetURL + dataset}', shell=True)
+    subprocess.call(f'curl -o -s ../deepchem/data/datasets/{dataset} {datasetURL + dataset}', shell=True)
 
 fromPath = "../deepchem/data/datasets/"
 toPath = "../deepchem/data/datasetsCSV/"

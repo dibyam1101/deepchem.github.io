@@ -34,9 +34,6 @@ for i in range(len(dataLoaders)):
             dataLoaderURLs[dataLoaders[i][:index]] = _n
             break
 
-for dataset in dataLoaderURLs:
-    print(dataset, dataLoaderURLs[dataset])
-
 os.makedirs('../deepchem/data/dataLoaders')
 
 for dataset in dataLoaderURLs:
@@ -46,9 +43,8 @@ for dataset in dataLoaderURLs:
     # remove the double quotes
     datasetName = datasetName.replace('"', '')
 
-    print(datasetName)
     if datasetName != '':
-        subprocess.call(f'curl -o  ../deepchem/data/dataLoaders/{datasetName} {dataLoaderURLs[dataset]}', shell=True)
+        subprocess.call(f'curl -o -s  ../deepchem/data/dataLoaders/{datasetName} {dataLoaderURLs[dataset]}', shell=True)
 
 # list of datasets
 subprocess.call(['ls', '../deepchem/data/dataLoaders/'])
