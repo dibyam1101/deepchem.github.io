@@ -80,6 +80,7 @@ with open('./notebooks.txt', 'r') as notebook_files:
             file_name = file.rsplit(".")[0]
             urlified_file_name = to_valid_url_path(file_name)
             component_name = to_valid_identifier(file_name)
+            print(urlified_file_name)
 
             with open(f'../../deepchem/data/tutorials/{urlified_file_name}.js', 'w', encoding="utf-8") as data_file:
                 data_file.write('export default')
@@ -87,9 +88,9 @@ with open('./notebooks.txt', 'r') as notebook_files:
 
             with open(f'../../deepchem/pages/tutorials/{urlified_file_name}.js', 'w', encoding="utf-8") as component:
                 component.write(get_component(urlified_file_name, component_name))
-            tutorial['title'] = title
+
+            tutorial['title'] = file_name.replace("_", " ")
             tutorial['urlifiedFileName'] = urlified_file_name
-#             tutorial['html'] = html
             tutorials.append(tutorial)
 
 with open('../../deepchem/data/tutorials/tutorials.js', 'w') as f:
