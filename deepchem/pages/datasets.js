@@ -123,15 +123,15 @@ export default function Datasets() {
                                     border: 1,
                                     borderColor: '#252422',
                                     fontFamily: 'Poppins',
-                                    paddingX: 1
+                                    paddingX: 1,
+                                    fontSize: '0.75rem',
                                 },
                                 'td': {
                                     paddingY: 0.5,
-                                    fontSize: '0.75rem',
                                 },
                                 'th': {
                                     paddingY: 0.75,
-                                    fontSize: '1rem',
+                                    // fontSize: '1rem',
                                     backgroundColor: '#252422',
                                     color: '#fff',
                                 }
