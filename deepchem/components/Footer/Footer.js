@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="hidden lg:flex flex-col items-start gap-[0.5px]">
           <Logo />
           <p className="mt-4">Maintained by the DeepChem core team</p>
-          <p>Design by <a href="https://www.linkedin.com/in/mehul-todi/" target="_blank">@kid-116</a></p>
+          <p>Design by <a href="https://www.linkedin.com/in/mehul-todi/" target="_blank" rel="noreferrer">@kid-116</a></p>
           <p>&copy; DeepChem 2022</p>
         </div>
         <div className="flex flex-row gap-8 lg:gap-20 items-start font-light">
