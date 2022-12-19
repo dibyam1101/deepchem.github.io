@@ -116,12 +116,31 @@ export default function Datasets() {
                         </div>
 
                         <div className="w-full box-border">
-                            <TableContainer className="rounded-none shadow-none" component={Paper}>
-                                <Table sx={{ minWidth: 0, overflowX: 'auto', 'th, td': { border: 1, borderColor: '#252422' } }} aria-label="simple table">
+                            <TableContainer sx={{ 
+                                minWidth: 0,
+                                overflowX: 'auto',
+                                'th, td': {
+                                    border: 1,
+                                    borderColor: '#252422',
+                                    fontFamily: 'Poppins',
+                                    paddingX: 1
+                                },
+                                'td': {
+                                    paddingY: 0.5,
+                                    fontSize: '0.75rem',
+                                },
+                                'th': {
+                                    paddingY: 0.75,
+                                    fontSize: '1rem',
+                                    backgroundColor: '#252422',
+                                    color: '#fff',
+                                }
+                            }}>
+                                <Table aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
                                             {attributes?.map((attribute, index) => (
-                                                <TableCell key={index} align="center" className="bg-dc-gray text-white font-poppins py-2 text-base">{attribute.length < 20 ?
+                                                <TableCell key={index} align="center">{attribute.length < 20 ?
                                                     attribute : `${attribute.substring(0, 20)}...`
                                                 }</TableCell>
                                             ))}
@@ -133,7 +152,7 @@ export default function Datasets() {
                                                 key={index}
                                             >
                                                 {attributes?.map((attribute, index) => (
-                                                    <TableCell key={index} align="center" className="text-xs py-2 px-1 font-poppins text-dc-gray">{row[attribute] !== null ? row[attribute] : "-"}</TableCell>
+                                                    <TableCell key={index} align="center">{row[attribute] !== null ? row[attribute] : "-"}</TableCell>
                                                 ))}
                                             </TableRow>
                                         ))}
