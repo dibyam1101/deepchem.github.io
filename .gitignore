@@ -2,6 +2,6 @@
 
 venv/
 
-utils/tutorials/html_notebooks/*
-utils/tutorials/ipynb_notebooks/*
+utils/tutorials/html-notebooks/*
+utils/tutorials/ipynb-notebooks/*
 utils/tutorials/*.txt
