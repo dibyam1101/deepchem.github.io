@@ -33,18 +33,26 @@ toPath = "./html-notebooks/"
 with open('./notebooks.txt', "w") as notebook_list:
             notebook_list.write('')
 
+try:
+    subprocess.call(f'sudo apt-get install jq', shell=True)
+except:
+    printf("Could not install jq")
+
 for tutorial in tutorials:
     try:
         file_name_html = f'{tutorial.rsplit(".")[0]}.html'
         response = requests.get(tutorialURL + tutorial)
         with open(f"./ipynb-notebooks/{tutorial}", "wb") as f:
           f.write(response.content)
-        subprocess.call(f'python -m nbconvert --to html ./ipynb-notebooks/{tutorial}', shell=True)
-        shutil.copyfile(fromPath + file_name_html, toPath + file_name_html)
+        
+        subprocess.call(f'jq -M "del(.metadata.widgets)" ./ipynb-notebooks/{tutorial} > ./ipynb-notebooks/fixed-{tutorial}', shell=True)
+        subprocess.call(f'python -m nbconvert --to html ./ipynb-notebooks/fixed-{tutorial}', shell=True)
+        shutil.copyfile(f'{fromPath}fixed-{file_name_html}', toPath + file_name_html)
 
         with open('./notebooks.txt', "a") as notebook_list:
             notebook_list.write(file_name_html + '\n')
-    except:
+    except Exception as e:
+        print(e)
         print(f"Could not process {tutorial}")
 
 
