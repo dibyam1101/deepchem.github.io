@@ -39,9 +39,13 @@ out/
 
 # data
 data/models/
+
 pages/tutorials/*
 !pages/tutorials/index.js
 data/tutorials/*
 !data/tutorials/styles.js
+
 data/datasetsJSON
 data/datasets.json
+data/datasetsCSV
+data/datasets
