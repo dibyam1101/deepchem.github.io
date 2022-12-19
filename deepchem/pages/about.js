@@ -1,19 +1,20 @@
-import Image from "next/image";
+import Image from 'next/image';
+import React from 'react';
 
-import DeveloperDeskImage from "../public/images/about/developer.png";
-import DeepForestLogo from "../public/images/about/companies-developing-deepchem/deepforest_logo.png";
-import StanfordLogo from "../public/images/about/companies-developing-deepchem/stanford-logo.png";
+import DeveloperDeskImage from '../public/images/about/developer.png';
+import DeepForestLogo from '../public/images/about/companies-developing-deepchem/deepforest_logo.png';
+import StanfordLogo from '../public/images/about/companies-developing-deepchem/stanford-logo.png';
 
 const faqs = [
   {
-    question: "What is DeepChem?",
+    question: 'What is DeepChem?',
     answer:
-      "DeepChem is a Python library for machine learning and deep learning on molecular and quantum datasets. It is built on top of TensorFlow, Keras, and other popular ML frameworks. It is designed to make it easy to apply ML to new domains, and to build and benchmark new models. It is also designed to make it easy to use ML in production, by providing easy-to-use model export and deployment APIs.",
+      'DeepChem is a Python library for machine learning and deep learning on molecular and quantum datasets. It is built on top of TensorFlow, Keras, and other popular ML frameworks. It is designed to make it easy to apply ML to new domains, and to build and benchmark new models. It is also designed to make it easy to use ML in production, by providing easy-to-use model export and deployment APIs.',
   },
   {
-    question: "How to get started?",
+    question: 'How to get started?',
     answer:
-      "To get started, you can check out our tutorials and documentation. You can also join our community on GitHub and discuss with other users.",
+      'To get started, you can check out our tutorials and documentation. You can also join our community on GitHub and discuss with other users.',
   },
 ];
 
@@ -60,7 +61,7 @@ export default function About() {
         <div className="flex flex-col justify-between gap-6">
           {faqs.map((faq, index) => {
             return (
-              <div key={"faq-${index}"}>
+              <div key={'faq-${index}'}>
                 <h3 className="text-xl lg:text-2xl text-dc-orange font-normal py-1">
                   {faq.question}
                 </h3>

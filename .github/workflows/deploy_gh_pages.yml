@@ -31,10 +31,10 @@ jobs:
       - name: Fetch tutorial data
         run: |
           cd utils/tutorials
-          python3 fetch_tutorials.py
-          python3 export_tutorials.py
+          python fetch_tutorials.py
+          python export_tutorials.py
 
-      - name: Fetch datasets data
+      - name: Fetch dataset data
         run: |
           cd utils/datasets
           python get_datasets.py

@@ -1,6 +1,6 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import Logo from "../Logo/Logo";
+import Logo from '../Logo/Logo';
 
 export default function Footer() {
   return (
@@ -26,7 +26,7 @@ export default function Footer() {
             </Link>
             <Link
               href="https://github.com/deepchem/deepchem/tree/master/examples"
-              target={"_blank"}
+              target={'_blank'}
             >
               Projects
             </Link>
@@ -37,13 +37,13 @@ export default function Footer() {
             <p className="mb-2 text-white font-normal lg:text-2xl text-lg">
               Community
             </p>
-            <Link href="https://github.com/deepchem/deepchem" target={"_blank"}>
+            <Link href="https://github.com/deepchem/deepchem" target={'_blank'}>
               Github
             </Link>
-            <Link href="https://forum.deepchem.io/" target={"_blank"}>
+            <Link href="https://forum.deepchem.io/" target={'_blank'}>
               Forums
             </Link>
-            <Link href="https://gitter.im/deepchem/Lobby" target={"_blank"}>
+            <Link href="https://gitter.im/deepchem/Lobby" target={'_blank'}>
               Discuss
             </Link>
           </div>
@@ -53,19 +53,19 @@ export default function Footer() {
             </p>
             <Link
               href="https://www.linkedin.com/company/deep-forest-sciences/"
-              target={"_blank"}
+              target={'_blank'}
             >
               LinkedIn
             </Link>
             <Link
               href="https://www.facebook.com/groups/1362916627160962/"
-              target={"_blank"}
+              target={'_blank'}
             >
               Facebook
             </Link>
             <Link
               href="https://twitter.com/deep_chem?lang=en"
-              target={"_blank"}
+              target={'_blank'}
             >
               Twitter
             </Link>

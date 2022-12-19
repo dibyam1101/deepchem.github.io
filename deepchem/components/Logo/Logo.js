@@ -1,7 +1,7 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
-import deepchemLogo from "../../public/images/deepchem-logo.png";
+import deepchemLogo from '../../public/images/deepchem-logo.png';
 
 export default function Logo() {
   return (

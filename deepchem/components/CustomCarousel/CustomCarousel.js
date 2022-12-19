@@ -1,8 +1,8 @@
-import { Carousel } from "react-responsive-carousel";
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import {Carousel} from 'react-responsive-carousel';
+import React, {useState, useEffect} from 'react';
+import Image from 'next/image';
 
-export default function CustomCarousel({ children }) {
+export default function CustomCarousel({children}) {
   const [windowWidth, setWindowWidth] = React.useState(0);
 
   useEffect(() => {
@@ -12,10 +12,10 @@ export default function CustomCarousel({ children }) {
     }
 
     // Add event listener
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     // Call handler right away so state gets updated with initial window size
     handleResize();
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {

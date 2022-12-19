@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
+import React, {useState, useEffect} from 'react';
+import dynamic from 'next/dynamic';
 
-const Sketch = dynamic(() => import("react-p5").then((mod) => mod.default), {
+const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
   ssr: false,
 });
 
@@ -47,11 +47,11 @@ function updateP5ParametersBasedOnWindowDimensions(windowWidth, windowHeight) {
 
 function createMolecule(n, x, y, r, d, vx, vy, p5) {
   // console.log({n});
-  let angle = TWO_PI / n;
+  const angle = TWO_PI / n;
   let a = 0;
   for (let i = 0; i < n; i += 1) {
-    let ax = x + p5.cos(a) * r;
-    let ay = y + p5.sin(a) * r;
+    const ax = x + p5.cos(a) * r;
+    const ay = y + p5.sin(a) * r;
     p5.append(atoms, new Atom(d, ax, ay, vx, vy, 0));
     a = a + angle;
   }
@@ -121,31 +121,30 @@ export default function BouncingAtoms(props) {
 
     for (let i = atoms.length; i < NUM_ATOMS; i++) {
       p5.append(
-        atoms,
-        new Atom(
-          p5.random(MIN_DIA, MAX_DIA),
-          p5.random(0, CANVAS_WIDTH),
-          p5.random(0, CANVAS_HEIGHT),
-          p5.random(-MAX_SPEED, MAX_SPEED),
-          p5.random(-MAX_SPEED, MAX_SPEED),
-          p5.random(-MAX_DIA_CHANGE_SPEED, MAX_DIA_CHANGE_SPEED)
-        )
+          atoms,
+          new Atom(
+              p5.random(MIN_DIA, MAX_DIA),
+              p5.random(0, CANVAS_WIDTH),
+              p5.random(0, CANVAS_HEIGHT),
+              p5.random(-MAX_SPEED, MAX_SPEED),
+              p5.random(-MAX_SPEED, MAX_SPEED),
+              p5.random(-MAX_DIA_CHANGE_SPEED, MAX_DIA_CHANGE_SPEED),
+          ),
       );
     }
-
   };
-  
+
   const draw = (p5) => {
     p5.clear();
-    
+
     for (let i = 0; i < atoms.length; i++) {
       for (let j = i + 1; j < atoms.length; j++) {
         const distance = distanceSq(atoms[i], atoms[j], p5);
         formBond(atoms[i], atoms[j], distance, p5);
       }
     }
-    
-    for (let atom of atoms) {
+
+    for (const atom of atoms) {
       atom.move(p5);
       p5.circle(atom.x, atom.y, atom.dia);
     }
@@ -160,10 +159,10 @@ export default function BouncingAtoms(props) {
             p5.mouseY,
             p5.random(-MAX_SPEED, MAX_SPEED),
             p5.random(-MAX_SPEED, MAX_SPEED),
-            p5.random(-MAX_DIA_CHANGE_SPEED, MAX_DIA_CHANGE_SPEED)
-        )
+            p5.random(-MAX_DIA_CHANGE_SPEED, MAX_DIA_CHANGE_SPEED),
+        ),
     );
-  }
+  };
 
   const windowResized = (p5) => {
     updateP5ParametersBasedOnWindowDimensions(p5.windowWidth, p5.windowHeight);

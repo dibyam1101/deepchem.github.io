@@ -1,3 +1,3 @@
 export default function Default({children}) {
-    return children;
+  return children;
 }

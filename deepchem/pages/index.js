@@ -1,54 +1,54 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link"
+import React, {useState, useEffect} from 'react';
+import Link from 'next/link';
 
-import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
-import { TypeAnimation } from "react-type-animation";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import { Tooltip as ReactTooltip } from "react-tooltip";
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+import {TypeAnimation} from 'react-type-animation';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {Tooltip as ReactTooltip} from 'react-tooltip';
 import Bounce from 'react-reveal/Bounce';
 
-import BouncingAtoms from "../components/Home/BouncingAtoms/BouncingAtoms";
-import CustomCarousel from "../components/CustomCarousel/CustomCarousel";
-import CarouselItem from "../components/CustomCarousel/CarouselItem";
-import ExploreCardItem from "./../components/Home/ExploreCardItem";
+import BouncingAtoms from '../components/Home/BouncingAtoms/BouncingAtoms';
+import CustomCarousel from '../components/CustomCarousel/CustomCarousel';
+import CarouselItem from '../components/CustomCarousel/CarouselItem';
+import ExploreCardItem from './../components/Home/ExploreCardItem';
 
-import atom from "../public/images/used-by/atom.png";
+import atom from '../public/images/used-by/atom.png';
 
-import bist from "../public/images/used-by/bist.png";
-import csir from "../public/images/used-by/csir.png";
-import expedia from "../public/images/used-by/expedia.png";
-import firmenich from "../public/images/used-by/firmenich.png";
-import german from "../public/images/used-by/german-research-center-for-env-health.png";
-import ghddi from "../public/images/used-by/ghddi.png";
-import ibm from "../public/images/used-by/ibm-watson.png";
-import icms from "../public/images/used-by/icms.png";
-import jiangsu from "../public/images/used-by/jiangsu.png";
-import mit from "../public/images/used-by/mit.png";
-import northwestern from "../public/images/used-by/northwestern.png";
-import riken from "../public/images/used-by/riken.png";
-import skoltech from "../public/images/used-by/skoltech.png";
-import sri from "../public/images/used-by/sri-international.png";
-import strath from "../public/images/used-by/strath.png";
-import ucf from "../public/images/used-by/ucf.png";
-import uni_alberta from "../public/images/used-by/uni-alberta.png";
-import uni_bristol from "../public/images/used-by/uni-bristol.png";
-import uni_catalonia from "../public/images/used-by/uni-catalonia.png";
-import uni_central from "../public/images/used-by/uni-central-south.png";
-import uni_east from "../public/images/used-by/uni-east-china.png";
-import uni_geneva from "../public/images/used-by/uni-geneva.png";
-import uni_hunan from "../public/images/used-by/uni-hunan.png";
-import uni_macau from "../public/images/used-by/uni-macau.png";
-import uni_shanghai from "../public/images/used-by/uni-shanghai.png";
-import uni_taiwan from "../public/images/used-by/uni-taiwan.png";
-import uni_tartu from "../public/images/used-by/uni-tartu.png";
-import uni_tokyo from "../public/images/used-by/uni-tokyo.png";
-import uni_vienna from "../public/images/used-by/uni-vienna.png";
-import uni_zhejiang from "../public/images/used-by/uni-zhejiang.png";
+import bist from '../public/images/used-by/bist.png';
+import csir from '../public/images/used-by/csir.png';
+import expedia from '../public/images/used-by/expedia.png';
+import firmenich from '../public/images/used-by/firmenich.png';
+import german from '../public/images/used-by/german-research-center-for-env-health.png';
+import ghddi from '../public/images/used-by/ghddi.png';
+import ibm from '../public/images/used-by/ibm-watson.png';
+import icms from '../public/images/used-by/icms.png';
+import jiangsu from '../public/images/used-by/jiangsu.png';
+import mit from '../public/images/used-by/mit.png';
+import northwestern from '../public/images/used-by/northwestern.png';
+import riken from '../public/images/used-by/riken.png';
+import skoltech from '../public/images/used-by/skoltech.png';
+import sri from '../public/images/used-by/sri-international.png';
+import strath from '../public/images/used-by/strath.png';
+import ucf from '../public/images/used-by/ucf.png';
+import uni_alberta from '../public/images/used-by/uni-alberta.png';
+import uni_bristol from '../public/images/used-by/uni-bristol.png';
+import uni_catalonia from '../public/images/used-by/uni-catalonia.png';
+import uni_central from '../public/images/used-by/uni-central-south.png';
+import uni_east from '../public/images/used-by/uni-east-china.png';
+import uni_geneva from '../public/images/used-by/uni-geneva.png';
+import uni_hunan from '../public/images/used-by/uni-hunan.png';
+import uni_macau from '../public/images/used-by/uni-macau.png';
+import uni_shanghai from '../public/images/used-by/uni-shanghai.png';
+import uni_taiwan from '../public/images/used-by/uni-taiwan.png';
+import uni_tartu from '../public/images/used-by/uni-tartu.png';
+import uni_tokyo from '../public/images/used-by/uni-tokyo.png';
+import uni_vienna from '../public/images/used-by/uni-vienna.png';
+import uni_zhejiang from '../public/images/used-by/uni-zhejiang.png';
 
-import explore_tutorials from "../public/images/explore-tutorials.png";
-import explore_projects from "../public/images/explore-projects.png";
-import explore_models from "../public/images/explore-models.png";
+import explore_tutorials from '../public/images/explore-tutorials.png';
+import explore_projects from '../public/images/explore-projects.png';
+import explore_models from '../public/images/explore-models.png';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -57,14 +57,14 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 export default function Home() {
   const [open, setOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false); // Need this for the react-tooltip
-  const terminalCommand = "pip install deepchem";
+  const terminalCommand = 'pip install deepchem';
   const handleClick = () => {
     setOpen(true);
   };
   const [terminalVisible, setTerminalVisible] = useState(true);
 
   const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
+    if (reason === 'clickaway') {
       return;
     }
     setOpen(false);
@@ -76,7 +76,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="h-[300px] xl:h-[400px]" style={{ background: "linear-gradient(35deg, rgba(0,78,152,1) 0%, rgba(58,110,165,1) 34%, rgba(255,103,0,1) 100%)" }}>
+      <div className="h-[300px] xl:h-[400px]" style={{background: 'linear-gradient(35deg, rgba(0,78,152,1) 0%, rgba(58,110,165,1) 34%, rgba(255,103,0,1) 100%)'}}>
         <BouncingAtoms />
       </div>
       {/* HERO */}
@@ -88,13 +88,13 @@ export default function Home() {
           <div className="text-3xl lg:text-[36px] pb-4 lg:pb-10 lg:pt-4 font-semibold">
             <TypeAnimation
               sequence={[
-                "Drug Discovery",
+                'Drug Discovery',
                 1000,
-                "Material Science",
+                'Material Science',
                 1000,
-                "Quantum Chemistry",
+                'Quantum Chemistry',
                 1000,
-                "Biology",
+                'Biology',
                 1000,
               ]}
               speed={1}
@@ -103,7 +103,7 @@ export default function Home() {
               cursor={false}
               repeat={Infinity}
               style={{
-                color: "#FF6700",
+                color: '#FF6700',
               }}
               className="type-animation"
             />
@@ -132,7 +132,9 @@ export default function Home() {
         {terminalVisible && <div className="flex flex-col max-w-[600px] w-full shadow-xl font-inconsolata rounded-2xl">
           <div className="flex flex-row justify-between bg-terminal-header px-8 py-4 rounded-t-2xl">
             <div className="flex flex-row gap-2 items-center">
-              <span className="h-4 w-4 bg-terminal-red inline-block rounded-full" onClick={() => { setTerminalVisible(false) }} />
+              <span className="h-4 w-4 bg-terminal-red inline-block rounded-full" onClick={() => {
+                setTerminalVisible(false);
+              }} />
               <span className="h-4 w-4 bg-terminal-yellow inline-block rounded-full" />
               <span className="h-4 w-4 bg-terminal-green inline-block rounded-full" />
             </div>
@@ -230,32 +232,32 @@ export default function Home() {
           <ExploreCardItem
             image={explore_models}
             title="MODELS"
-            link={"/models"}
+            link={'/models'}
           />
           <ExploreCardItem
             image={explore_projects}
             title="Projects"
-            link={"https://github.com/deepchem/deepchem/tree/master/examples"}
+            link={'https://github.com/deepchem/deepchem/tree/master/examples'}
             blank={true}
           />
           <ExploreCardItem
             image={explore_tutorials}
             title="Tutorials"
             link={
-              "/tutorials"
+              '/tutorials'
             }
           />
           <ExploreCardItem
-            image={"/images/explore-datasets.png"}
+            image={'/images/explore-datasets.png'}
             title="DATASETS"
-            link={"/datasets"}
+            link={'/datasets'}
           />
         </div>
       </section>
       {/* EXPLORE END */}
 
       <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: "100%", background: "#252422" }}>
+        <Alert onClose={handleClose} severity="success" sx={{width: '100%', background: '#252422'}}>
           Copied!
         </Alert>
       </Snackbar>

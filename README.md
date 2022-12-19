@@ -24,6 +24,9 @@ Website for DeepChem - https://deepchem.io.
 ### Build
 - Execute `npm run build`
 
+### Lint
+- Execute `npm run `
+
 ## Workflow
 ![](./public/assets/workflow.png)
 

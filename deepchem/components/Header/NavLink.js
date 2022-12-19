@@ -1,6 +1,6 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-export default function NavLink({ link, icon, label, blank, relative }) {
+export default function NavLink({link, icon, label, blank, relative}) {
   return (
     <>
       <Link
@@ -10,7 +10,7 @@ export default function NavLink({ link, icon, label, blank, relative }) {
                     border-solid border-t-2
                     lg:hover:-translate-y-1 lg:flex-row lg:justify-between lg:border-none
                 "
-        target={blank ? "_blank" : ""}
+        target={blank ? '_blank' : ''}
       >
         <i className={`${icon} text-xl hidden lg:flex`}></i>
         {label}

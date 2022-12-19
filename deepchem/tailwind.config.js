@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./layouts/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './layouts/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     fontFamily: {
@@ -20,7 +20,7 @@ module.exports = {
       screens: {
         '3xl': '1800px',
       },
-    
+
       colors: {
         'dc-gray': '#252422',
         'dc-blue': '#004E98',
