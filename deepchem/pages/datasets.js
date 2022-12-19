@@ -47,13 +47,15 @@ export default function Datasets() {
 
     useEffect(() => {
         const dataset = router.asPath.split('#').pop();
+        const docLink = "https://deepchem.readthedocs.io/en/latest/api_reference/moleculenet.html#" + dataset + "-datasets";
+        const loaderLink = "https://github.com/deepchem/deepchem/blob/master/deepchem/molnet/load_function/" + dataset + "_datasets.py";
         if (dataset === '/datasets') {
             router.push(`/datasets#${datasets[0]}`);
         } else {
             setCurrDataset(dataset);
             setAttributes(Object.keys(data[dataset][0]));
-            setDocumentationLink({`https://deepchem.readthedocs.io/en/latest/api_reference/moleculenet.html#${dataset}-dataset`});
-            setDataLoaderLink({`https://github.com/deepchem/deepchem/blob/master/deepchem/molnet/load_function/${dataset}_datasets.py`});
+            setDocumentationLink(docLink);
+            setDataLoaderLink(loaderLink);
         }
     }, [router]);
 
