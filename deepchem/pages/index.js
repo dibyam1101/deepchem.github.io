@@ -245,11 +245,11 @@ export default function Home() {
               "/tutorials"
             }
           />
-          {/* <ExploreCardItem
+          <ExploreCardItem
             image={"/images/explore-datasets.png"}
             title="DATASETS"
             link={"/datasets"}
-          /> */}
+          />
         </div>
       </section>
       {/* EXPLORE END */}

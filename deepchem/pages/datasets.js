@@ -98,36 +98,31 @@ export default function Datasets() {
                     {/* TABLE BEGIN */}
                     <div className="flex flex-col items-start gap-6 w-full overflow-auto">
                         <div className="flex flex-row items-center justify-between w-full">
-                            <div className="flex flex-row items-center text-lg gap-1 lg:text-2xl text-dc-light-blue">
+                            <div className="flex flex-row items-center text-lg gap-1 lg:text-2xl text-dc-light-blue font-poppins font-semibold">
                                 <div>{currDataset}</div>
                             </div>
                             <div className="flex flex-row items-start gap-5">
                                 <Link href={documentationLink} target="_blank">
                                     <div className="flex flex-row items-start p-2.5 gap-2.5 bg-dc-light-gray rounded-lg">
-                                        <Image src={deepchemLink} width={15} height={15} alt={"LinkImage"} />
+                                    <i class="fa-solid fa-link text-white"></i>
                                     </div>
                                 </Link>
                                 <Link href={dataLoaderLink} target="_blank">
                                     <div className="flex flex-row items-start p-2.5 gap-2.5 bg-dc-light-gray rounded-lg">
-                                        <Image src={deepchemDownload} width={15} height={15} alt={"DownloadImage"} />
+                                        <i class="fa-solid fa-download text-white"></i>
                                     </div>
                                 </Link>
                             </div>
                         </div>
 
                         <div className="w-full box-border">
-                            <TableContainer className="" component={Paper}>
-                                <Table sx={{ minWidth: 0, overflowX: 'auto' }} aria-label="simple table">
+                            <TableContainer className="rounded-none shadow-none" component={Paper}>
+                                <Table sx={{ minWidth: 0, overflowX: 'auto', 'th, td': { border: 1, borderColor: '#252422' } }} aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
                                             {attributes?.map((attribute, index) => (
-                                                <TableCell key={index} align="center" className="bg-dc-gray text-dc-light-gray">{attribute.length < 20 ?
-                                                    <div className="text-dc-light-gray">
-                                                        <span className="text-dc-light-gray">{attribute}</span>
-                                                    </div> :
-                                                    <div className="text-dc-light-gray">
-                                                        <span className="text-dc-light-gray">{`${attribute.substring(0, 20)}...`}</span>
-                                                    </div>
+                                                <TableCell key={index} align="center" className="bg-dc-gray text-white font-poppins py-2 text-base">{attribute.length < 20 ?
+                                                    attribute : `${attribute.substring(0, 20)}...`
                                                 }</TableCell>
                                             ))}
                                         </TableRow>
@@ -136,10 +131,9 @@ export default function Datasets() {
                                         {data[currDataset]?.map((row, index) => (
                                             <TableRow
                                                 key={index}
-                                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                             >
                                                 {attributes?.map((attribute, index) => (
-                                                    <TableCell key={index} align="center">{row[attribute] !== null ? row[attribute] : "-"}</TableCell>
+                                                    <TableCell key={index} align="center" className="text-xs py-2 px-1 font-poppins text-dc-gray">{row[attribute] !== null ? row[attribute] : "-"}</TableCell>
                                                 ))}
                                             </TableRow>
                                         ))}
