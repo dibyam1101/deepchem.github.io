@@ -14,6 +14,7 @@ def to_valid_identifier(s):
 def to_valid_url_path(s):
     s = re.sub(r"[^\w\s]", "-", s)
     s = re.sub(r'[ _]+', '-', s)
+    s = s.lower()
     return s
 
 
