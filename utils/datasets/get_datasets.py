@@ -138,8 +138,12 @@ datasetNames = os.listdir(toPath)
 for datasetName in datasetNames:
     dataset = toPath + datasetName
     df = pd.read_csv(dataset, nrows=5)
+    
     dataset = finalPath + datasetName
 
-    jsonDataset = df.iloc[0:5].to_json(orient='records')
+    cols = len(df.axes[1])
+    if cols > 100:
+        cols = 100
+    jsonDataset = df.iloc[0:5, 0:cols].to_json(orient='records')
     with open(dataset[:-3] + 'json', 'w') as outfile:
         outfile.write(jsonDataset)
