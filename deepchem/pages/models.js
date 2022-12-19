@@ -93,13 +93,13 @@ export default function Models() {
     return (
         <>
             <div className={`${isPopUp ? "flex" : "hidden"} fixed bg-dc-gray/80 w-full h-[100vh] top-0 lg:hidden`} onClick={handlePopUp}></div>
-            <div className="flex flex-col items-start w-full px-[25px] 2xl:px-[300px] py-8 lg:py-16 gap-6">
+            <div className="flex flex-col items-start w-full px-[25px] 2xl:px-[300px] font-poppins py-8 lg:py-16 gap-8">
                 {/* HEADING BEGIN */}
-                <div className="flex flex-row w-full items-center justify-between py-2.5">
-                    <h2>Our Models</h2>
+                <div className="flex flex-row w-full items-center justify-between">
+                    <h2 className="mb-0">Our Models</h2>
                     {/* <div className="lg:text-4xl text-[26px]">
                         Our Models
-                    </div> */}
+                    </div> */}  
                     <div className="lg:hidden">
                         <button className="min-w-0" onClick={handlePopUp}>
                             <Image src={deepchemFilter} alt={"Filter Button"} width={18} />

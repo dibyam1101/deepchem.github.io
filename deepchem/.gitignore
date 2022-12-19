@@ -43,6 +43,5 @@ pages/tutorials/*
 !pages/tutorials/index.js
 data/tutorials/*
 !data/tutorials/styles.js
-!data/tutorials/tutorials.js
 data/datasetsJSON
 data/datasets.json

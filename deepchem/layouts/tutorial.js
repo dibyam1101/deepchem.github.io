@@ -1,6 +1,6 @@
 import Script from "next/script";
-import {useEffect, useState} from 'react';
-import {useRouter} from "next/router";
+import { useEffect, useState } from 'react';
+import { useRouter } from "next/router";
 
 import TutorialLink from "../components/Tutorials/TutorialLink";
 import tutorials from "../data/tutorials/tutorials"
@@ -8,21 +8,8 @@ import tutorials from "../data/tutorials/tutorials"
 import ScrollToTop from "react-scroll-to-top";
 
 
-function toTitleCase(str) {
-    // Remove the ¶ character from the end of the title
-    if(str.charAt(str.length - 1) == '¶')
-            str = str.slice(0, -1);
 
-    str = str.toLowerCase();
-    const words = str.split(' ');
-    for (let i = 0; i < words.length; i++) {
-        words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
-    }
-    return words.join(' ');
-}
-
-
-export default function TutorialLayout({children}) {
+export default function TutorialLayout({ children }) {
     const [currentTutorialIndex, setCurrentTutorialIndex] = useState(1);
     const [isNavbarOpen, setIsNavbarOpen] = useState(false);
     const router = useRouter();
@@ -50,8 +37,8 @@ export default function TutorialLayout({children}) {
 
     return <>
         <Script
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"/>
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"/>
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe" />
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js" />
         <Script id="mathjax-setup-script">
             {`MathJax = {
                     TeX: {
@@ -76,13 +63,13 @@ export default function TutorialLayout({children}) {
         </Script>
 
         <div className={`${isNavbarOpen ? "flex" : "hidden"} fixed bg-dc-gray/80 w-full h-[100vh] top-0 lg:hidden z-10`}
-             onClick={toggleNavbar}></div>
+            onClick={toggleNavbar}></div>
         <div
             className="flex flex-col px-[25px] 2xl:px-[300px] items-start overflow-x-scroll gap-8 font-poppins py-8 lg:py-16"
         >
             <div className="flex flex-row items-center">
                 <i className="block lg:hidden fas fa-angle-right text-lg mr-5 cursor-pointer"
-                   onClick={toggleNavbar}></i>
+                    onClick={toggleNavbar}></i>
                 <h2 className="mb-0">Tutorials</h2>
             </div>
             <div className="flex flex-row justify-between w-full">
@@ -90,9 +77,9 @@ export default function TutorialLayout({children}) {
                     className={`notebook-menu ${isNavbarOpen ? "translate-x-0" : "-translate-x-full"} bg-white ease-in-out duration-300 lg:duration-0 fixed top-0 left-0 shadow-xl py-8 lg:py-0 h-screen w-[70vw] max-w-[300px]`}>
                     {/* <i className="block lg:hidden fas fa-close text-lg mb-5 cursor-pointer self-end" onClick={toggleNavbar}></i> */}
                     {tutorials.map((tutorial, i) => {
-                        return <TutorialLink key={i} title={toTitleCase(tutorial.title)}
-                                             active={i === currentTutorialIndex} onClick={setCurrentTutorialIndex}
-                                             index={i} fileName={tutorial.urlifiedFileName}/>
+                        return <TutorialLink key={i} title={tutorial.title}
+                            active={i === currentTutorialIndex} onClick={setCurrentTutorialIndex}
+                            index={i} fileName={tutorial.urlifiedFileName} />
                     })}
                 </nav>
                 <div className="notebook overflow-x-hidden bg-dc-light-gray/10">
@@ -102,8 +89,8 @@ export default function TutorialLayout({children}) {
         </div>
 
         <ScrollToTop
-            className="flex items-center justify-center !rounded-full !opacity-50 hover:!opacity-100 transition-all !bg-dc-gray !text-3xl !font-bold"
-            smooth component={<i className="fa-solid fa-arrow-up text-dc-light-gray "></i>}
+            className="flex items-center justify-center !rounded-full !opacity-70 hover:!opacity-100 transition-all !bg-dc-orange"
+            smooth component={<i className="fa-solid fa-chevron-up text-dc-white !text-lg "></i>}
         />
 
     </>

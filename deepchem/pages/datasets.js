@@ -14,9 +14,10 @@ import datasets from "/data/datasets.json";
 import Image from "next/image";
 import Link from "next/link";
 
+import DatasetButton from "/components/Datasets/DatasetButton";
+
 import deepchemLink from "/public/icons/deepchem-link.png";
 import deepchemDownload from "/public/icons/deepchem-download.png";
-import deepchemArrowRight from "/public/icons/deepchem-arrow-right.png";
 
 const loadData = () => {
     const requireContext = require.context('/data/datasetsJSON', false, /\.json$/);
@@ -59,58 +60,45 @@ export default function Datasets() {
         }
     }, [router]);
 
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                setIsSidebarOpen(false);
+            }
+        })
+    }, [])
+
     return (
         <>
-            <div className={`${isSidebarOpen ? "flex" : "hidden"} fixed bg-dc-gray/80 w-full h-[100vh] top-0 lg:hidden`} onClick={handleSidebar}></div>
+            <div className={`${isSidebarOpen ? "flex" : "hidden"} fixed bg-dc-gray/80 w-full h-[100vh] top-0 lg:hidden`}
+                onClick={handleSidebar}>
+            </div>
             <div className="flex flex-col items-start w-full px-[25px] 2xl:px-[300px] py-8 lg:py-16 gap-6">
+
                 {/* HEADING BEGIN */}
-                <div className="flex flex-row w-full items-center justify-between py-2.5">
-                    <div className="lg:text-4xl text-[26px]">
-                        Our Datasets
-                    </div>
+                <div className="flex flex-row items-center">
+                    <i className="block lg:hidden fas fa-angle-right text-lg mr-5 cursor-pointer"
+                        onClick={handleSidebar}></i>
+                    <h2 className="mb-0">Datasets</h2>
                 </div>
                 {/* HEADING END */}
 
                 {/* BODY BEGIN */}
-                <div className="flex flex-row items-start gap-32 w-full">
+                <div className="flex flex-row justify-between gap-5 w-full">
 
                     {/* SIDEBAR BEGIN */}
-                    <div className={`${isSidebarOpen ? "fixed flex top-0 text-sm gap-1 left-0 bg-white w-[260px] p-4 h-full" : "hidden"} lg:flex lg:text-base lg:relative flex-col items-start lg:min-w-[260px] lg:max-w-[260px] lg:h-[65vh] overflow-x-hidden overflow-y-auto lg:gap-0.5`}>
-                        <div className="lg:hidden flex flex-row text-lg pb-2.5 pl-2.5 items-center justify-between w-full">
-                            <div>
-                                Our Datasets
-                            </div>
-                            <div>
-                                <button className="" onClick={handleSidebar}>
-                                    <i className="fa fa-close text-dc-gray text-lg"></i>
-                                </button>
-                            </div>
-                        </div>
-                        {datasets?.map((dataset, index) => (
-                            <div key={index} className="flex flex-row items-center gap-2 m-0.5 py-0.5 w-full px-1 cursor-pointer hover:bg-dc-light-gray/30">
-                                <div className={`flex-shrink-0 h-full ${currDataset === dataset ? "bg-dc-light-blue" : "bg-dc-light-gray"}`}>{space}</div>
-                                <div>
-                                    <button className={currDataset === dataset ? "w-[260px] text-dc-light-blue font-bold" : "w-[260px] text-dc-gray"}
-                                        onClick={() => {
-                                            router.push(`/datasets#${dataset}`);
-                                        }}>
-                                        <div className="break-all text-left">{dataset}</div>
-                                    </button>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <nav
+                        className={`z-10 fixed flex flex-col lg:!h-[70vh] overflow-y-scroll px-0 lg:!translate-x-0 lg:!static lg:!shadow-none ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-white ease-in-out duration-300 lg:duration-0 fixed top-0 left-0 shadow-xl py-8 lg:py-0 h-screen w-[70vw] max-w-[300px]`}>
+                        {datasets?.map((dataset, index) => {
+                            return <DatasetButton key={index} dataset={dataset} currDataset={currDataset} />
+                        })}
+                    </nav>
                     {/* SIDEBAR END */}
 
                     {/* TABLE BEGIN */}
                     <div className="flex flex-col items-start gap-6 w-full overflow-auto">
                         <div className="flex flex-row items-center justify-between w-full">
                             <div className="flex flex-row items-center text-lg gap-1 lg:text-2xl text-dc-light-blue">
-                                <div className="flex items-center lg:hidden">
-                                    <button className="min-w-0 dc-light-blue" onClick={handleSidebar}>
-                                        <Image src={deepchemArrowRight} alt={"Filter Button"} width={8} />
-                                    </button>
-                                </div>
                                 <div>{currDataset}</div>
                             </div>
                             <div className="flex flex-row items-start gap-5">
