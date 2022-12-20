@@ -8,7 +8,7 @@ export default function Tutorials() {
     const firstTutorial = tutorials[0];
 
     useEffect(() => {
-        router.push(`tutorials/${firstTutorial.urlifiedFileName.replace(/\.[^/.]+$/, "")}`)
+        router.replace(`tutorials/${firstTutorial.urlifiedFileName}`)
     });
     return <></>;
 
