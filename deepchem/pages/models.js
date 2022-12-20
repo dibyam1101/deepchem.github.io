@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 
 import Image from "next/image";
 
@@ -92,7 +92,8 @@ export default function Models() {
 
     return (
         <>
-            <div className={`${isPopUp ? "flex" : "hidden"} fixed bg-dc-gray/80 w-full h-[100vh] top-0 lg:hidden`} onClick={handlePopUp}></div>
+            <div className={`${isPopUp ? "flex" : "hidden"} fixed bg-dc-gray/80 w-full h-[100vh] top-0 lg:hidden`}
+                 onClick={handlePopUp}></div>
             <div className="flex flex-col items-start w-full px-[25px] 2xl:px-[300px] py-8 lg:py-16 gap-6">
                 {/* HEADING BEGIN */}
                 <div className="flex flex-row w-[100%] items-center justify-between py-2.5">
@@ -101,7 +102,7 @@ export default function Models() {
                     </div>
                     <div className="lg:hidden">
                         <button className="min-w-0" onClick={handlePopUp}>
-                            <Image src={deepchemFilter} alt={"Filter Button"} width={18} />
+                            <Image src={deepchemFilter} alt={"Filter Button"} width={18}/>
                         </button>
                     </div>
                 </div>
@@ -111,7 +112,11 @@ export default function Models() {
                 <div className="flex flex-row items-start gap-12 w-full">
 
                     {/* FILTER SECTION BEGIN */}
-                    <div className={`${isPopUp ? "fixed flex left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-8 py-6 bg-white shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] w-[89%]" : "hidden"} lg:flex lg:relative lg:left-0 lg:top-0 lg:translate-x-0 lg:translate-y-0 lg:shadow-none lg:rounded-none flex-col items-start gap-5 lg:min-w-[240px] lg:max-w-[240px] lg:border-r-2 lg:py-0 lg:pl-0 pr-4 lg:border-dc-light-gray`}>
+                    <div
+                        className={`${isPopUp 
+                            ? "fixed flex left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-8 py-6 bg-white shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] w-[89%] overflow-y-auto h-[85vh]"
+                            : "hidden"} 
+                            lg:flex lg:relative lg:left-0 lg:top-0 lg:translate-x-0 lg:translate-y-0 lg:shadow-none lg:rounded-none flex-col items-start gap-5 lg:min-w-[240px] lg:max-w-[240px] lg:border-r-2 lg:py-0 lg:pl-0 pr-4 lg:border-dc-light-gray`}>
                         {/* BACKEND BEGIN */}
                         <div className="category-filter w-full">
                             <div className="flex flex-row justify-between w-full items-center gap-1">
@@ -122,7 +127,8 @@ export default function Models() {
                                     <div className="block">
                                         <button className="text-dc-gray normal-case p-0" onClick={() => {
                                             handleClick("clear", null);
-                                        }}>Clear All</button>
+                                        }}>Clear All
+                                        </button>
                                     </div>
                                     <div className="lg:hidden">
                                         <button className="min-w-0" onClick={handlePopUp}>
@@ -137,7 +143,8 @@ export default function Models() {
                                         <button className="rmv-filter" onClick={() => {
                                             handleClick("backends", backend);
                                         }}>
-                                            <FilterButton category={backends} name={backend} image={backend == "PyTorch" ? deepchemPyTorch : backend == "Keras" ? deepchemKeras : null} />
+                                            <FilterButton category={backends} name={backend}
+                                                          image={backend == "PyTorch" ? deepchemPyTorch : backend == "Keras" ? deepchemKeras : null}/>
                                         </button>
                                     </div>
                                 ))}
@@ -155,7 +162,8 @@ export default function Models() {
                                         <button className="rmv-filter" onClick={() => {
                                             handleClick("types", type);
                                         }}>
-                                            <FilterButton category={types} name={type} image={type == "Classifier" ? deepchemClassifier : type == "Regressor" ? deepchemRegressor : null} />
+                                            <FilterButton category={types} name={type}
+                                                          image={type == "Classifier" ? deepchemClassifier : type == "Regressor" ? deepchemRegressor : null}/>
                                         </button>
                                     </div>
                                 ))}
@@ -173,7 +181,7 @@ export default function Models() {
                                         <button className="rmv-filter" onClick={() => {
                                             handleClick("featurizers", featurizer);
                                         }}>
-                                            <FilterButton category={featurizers} name={featurizer} image={null} />
+                                            <FilterButton category={featurizers} name={featurizer} image={null}/>
                                         </button>
                                     </div>
                                 ))}
@@ -184,9 +192,10 @@ export default function Models() {
                     {/* FILTER SECTION END */}
 
                     {/* MODEL CARDS SECTION BEGIN */}
-                    <div className={`items-start ${filteredModels.length ? "gap-8 justify-center model-container" : ""} w-full`}>
+                    <div
+                        className={`items-start ${filteredModels.length ? "gap-8 justify-center model-container" : ""} w-full`}>
                         {filteredModels.length ? filteredModels.map((model) => (
-                            <ModelCard key={model.id} model={model} />
+                            <ModelCard key={model.id} model={model}/>
                         )) : <div className="w-full mt-[5vh] flex items-center flex-col flex-grow">
                             <i class="fa-solid fa-triangle-exclamation text-7xl text-dc-gray/10 mb-2"></i>
                             <p className="text-dc-gray/60">No such models exist!</p>
