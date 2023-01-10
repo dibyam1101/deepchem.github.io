@@ -16,6 +16,11 @@ Website for DeepChem - https://deepchem.io.
     python fetch_tutorials.py
     python export_tutorials.py
     ```
+- Fetch datasets from `Deepchem repository`
+    ```bash
+    cd utils/tutorials
+    python get_datasets.py
+    ```
 
 ### Run
 - Execute `npm run dev` to start a dev server

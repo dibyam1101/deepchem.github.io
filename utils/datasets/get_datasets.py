@@ -15,9 +15,9 @@ filteredDatasetURLs = {}
 fromPath = "../../deepchem/data/datasets/"
 toPath = "../../deepchem/data/datasetsCSV/"
 finalPath = "../../deepchem/data/datasetsJSON/"
-os.makedirs(fromPath)
-os.makedirs(toPath)
-os.makedirs(finalPath)
+# os.makedirs(fromPath)
+# os.makedirs(toPath)
+# os.makedirs(finalPath)
 
 
 # Scrape the datasets from the deepchem github repo for the dataset URLs
@@ -73,17 +73,17 @@ for dataset in datasetURLs:
 
 # Download the datasets from the filtered URLs
 
-for dataset in filteredDatasetURLs:
-    # Get the dataset name from the URL
-    index = filteredDatasetURLs[dataset].find('datasets/')
-    datasetName = filteredDatasetURLs[dataset][index + 9:]
+# for dataset in filteredDatasetURLs:
+#     # Get the dataset name from the URL
+#     index = filteredDatasetURLs[dataset].find('datasets/')
+#     datasetName = filteredDatasetURLs[dataset][index + 9:]
     
-    # Replace the dataset name
-    index = datasetName.find('.')
-    datasetName = dataset + datasetName[index:]
+#     # Replace the dataset name
+#     index = datasetName.find('.')
+#     datasetName = dataset + datasetName[index:]
 
-    # Download the dataset
-    subprocess.call(f'curl -o {fromPath}{datasetName} {filteredDatasetURLs[dataset]}', shell=True)
+#     # Download the dataset
+#     subprocess.call(f'curl -o {fromPath}{datasetName} {filteredDatasetURLs[dataset]}', shell=True)
 
 
 # Extract the datasets to csv format
