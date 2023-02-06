@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ main, revamp, models, tutorials ]
   repository_dispatch:
-    types: [ update ]
+    types: [ update, on-demand-test ]
 
 permissions:
   contents: write
