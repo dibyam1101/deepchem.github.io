@@ -1,5 +1,5 @@
 """
-    Python script to scrape the all the models information from the official deepchem documentation
+Python script to scrape the all the models information from the official deepchem documentation
 """
 
 import os
@@ -20,15 +20,24 @@ TABLES = {
 @dataclasses.dataclass
 class Model:
     """
-        Model class to store a single model information
-        Attributes:
-            name: Name of the model
-            url: redirect url to the model on the official deepchem documentation
-            category: Category of the model
-            featurizers: List of featurizers supported by the model
-            backends: List of backends supported by the model
-            types: List of types supported by the model
-            id: Unique id of the model
+    Model class to store a single model information
+
+    Parameters
+    ----------
+    name: str
+        Name of the model
+    url: str
+        redirect url to the model on the official deepchem documentation
+    category: str
+        Category of the model
+    featurizers: list
+        List of featurizers supported by the model
+    backends: list
+        List of backends supported by the model
+    types: list
+        List of types supported by the model
+    model_id: int
+        Unique id of the model
     """
     name: str
     url: str
@@ -43,92 +52,66 @@ class ModelListEncoder(JSONEncoder):
         ModelEncoder class to encode the Model object to JSON
     """
     def default(self, o):
+        """
+        Default function to encode the Model object to JSON
+
+        Returns
+        -------
+            json: str
+        """
         return o.__dict__
 
 class ModelList:
     """
-        ModelList class to store the list of models
+    ModelList class to store the list of models
     """
     def __init__(self, models):
         self.models = models
 
     def add(self, model):
         """
-            Add a model to the list of models
+        Add a model to the list of models
         """
         self.models.append(model)
 
     def to_json(self):
         """
-            Convert the list of models to JSON
+        Convert the list of models to JSON
+
+        Returns
+        -------
+            json: str
         """
         return json.dumps(self.models, indent=4, cls=ModelListEncoder)
 
-class BackendList:
+class List:
     """
-        BackendList class to store the list of backends
+    List class to store the list of parameters like backends, types, featurizers
     """
-    def __init__(self, backends):
-        self.backends = backends
+    def __init__(self, item_list):
+        self.item_list = item_list
 
-    def add(self, backend):
+    def add(self, item):
         """
-            Add a backend to the list of backends
+        Add an item to the list of items
         """
-        self.backends.append(backend)
+        self.item_list.append(item)
 
     def to_json(self):
         """
-            Convert the list of backends to JSON
-        """
-        self.backends = list({item for sublist in self.backends for item in sublist})
-        return json.dumps(self.backends, indent=4)
+        Convert the list of items to JSON
 
-class TypeList:
+        Returns
+        -------
+            json: str
+        """
+        self.item_list = list({item for sublist in self.item_list for item in sublist})
+        self.item_list = list(filter(None, self.item_list))
+        return json.dumps(self.item_list, indent=4)
+
+def scraper(model_list: ModelList, backend_list: List, type_list: List, featurizer_list: List):
     """
-        TypeList class to store the list of types
-    """
-    def __init__(self, typs):
-        self.typs = typs
-
-    def add(self, typ):
-        """
-            Add a type to the list of types
-        """
-        self.typs.append(typ)
-
-    def to_json(self):
-        """
-            Convert the list of types to JSON
-        """
-        self.typs = list({item for sublist in self.typs for item in sublist})
-        self.typs = list(filter(None, self.typs))
-        return json.dumps(self.typs, indent=4)
-
-class FeaturizerList:
-    """
-        FeaturizerList class to store the list of featurizers
-    """
-    def __init__(self, featurizers):
-        self.featurizers = featurizers
-
-    def add(self, featurizer):
-        """
-            Add a featurizer to the list of featurizers
-        """
-        self.featurizers.append(featurizer)
-
-    def to_json(self):
-        """
-            Convert the list of featurizers to JSON
-        """
-        self.featurizers = list({item for sublist in self.featurizers for item in sublist})
-        self.featurizers = list(filter(None, self.featurizers))
-        return json.dumps(self.featurizers, indent=4)
-
-def scraper(model_list: ModelList, backend_list: BackendList, type_list: TypeList, featurizer_list: FeaturizerList):
-    """
-        Scraper function to scrape the models information from the official deepchem documentation
+    Scraper function to scrape the models information from the official deepchem documentation
     """
     req = requests.get(DOC_URL, timeout=10)
     soup = BeautifulSoup(req.content, 'html.parser')
@@ -164,12 +147,12 @@ def scraper(model_list: ModelList, backend_list: BackendList, type_list: TypeLis
 
 def main():
     """
-        Main function to execute the scraper
+    Main function to execute the scraper
     """
-    model_list = ModelList([])
-    backend_list = BackendList([])
-    type_list = TypeList([])
-    featurizer_list = FeaturizerList([])
+    model_list: ModelList = ModelList([])
+    backend_list: List = List([])
+    type_list: List = List([])
+    featurizer_list: List = List([])
 
     scraper(model_list, backend_list, type_list, featurizer_list)
 
