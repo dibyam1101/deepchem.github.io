@@ -18,11 +18,18 @@ finalPath = "../../deepchem/data/datasetsJSON/"
 
 try:
     os.mkdir(fromPath)
+except Exception as e:
+    print(e)
+    
+try:
     os.mkdir(toPath)
-    os.mkdir(finalPath)
 except Exception as e:
     print(e)
 
+try:
+    os.mkdir(finalPath)
+except Exception as e:
+    print(e)
 
 # Scrape the datasets from the deepchem github repo for the dataset URLs
 
